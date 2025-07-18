@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+:root {
+  --color-white: #ffffff;        /* Pure White */
+  --color-light: #f8f8f8;        /* Light Gray (Backgrounds) */
+  --color-muted: #e0e0e0;        /* Muted Gray (Borders, Cards) */
+  --color-medium: #a6a6a6;       /* Medium Gray (Muted Text) */
+  --color-dark: #333333;         /* Dark Charcoal (Primary Text, Buttons) */
+  --color-black: #000000;        /* Pure Black (Hover, Strong Accent) */
+}
+

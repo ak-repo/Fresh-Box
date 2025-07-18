@@ -1,0 +1,169 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "Ananda Krishnan",
+      "email": "ananda@example.com",
+      "password": "hashedpassword123",
+      "role": "user",
+      "isBlock": false,
+      "cart": [
+        {
+          "productId": "p1",
+          "quantity": 2
+        }
+      ],
+      "orders": [
+        {
+          "productId": "p2",
+          "quantity": 1,
+          "orderDate": "2025-07-15T10:30:00Z"
+        }
+      ],
+      "wishlist": [
+        {
+          "productId": "p3"
+        }
+      ],
+      "created_at": "2025-07-01T09:00:00Z"
+    },
+    {
+      "id": "u2",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "hashedpassword456",
+      "role": "admin",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-10T11:00:00Z"
+    },
+    {
+      "id": "u3",
+      "name": "Priya Sharma",
+      "email": "priya@example.com",
+      "password": "hashedpassword789",
+      "role": "user",
+      "isBlock": true,
+      "cart": [
+        {
+          "productId": "p3",
+          "quantity": 1
+        }
+      ],
+      "orders": [],
+      "wishlist": [
+        {
+          "productId": "p1"
+        },
+        {
+          "productId": "p2"
+        }
+      ],
+      "created_at": "2025-07-12T14:00:00Z"
+    },
+    {
+      "id": "e7ba",
+      "name": "Ananda krishanan 01",
+      "email": "ak001mob@gmail.com",
+      "password": "1234567890@Ak",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-18T11:44:23.002Z"
+    },
+    {
+      "id": "efe4",
+      "name": "ananan",
+      "email": "ak001mob@gmail.com",
+      "password": "1234567890@Ak",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-18T11:47:05.355Z"
+    },
+    {
+      "id": "b5d3",
+      "name": "thhhhhhhhhh",
+      "email": "ak001mob@gmail.com",
+      "password": "123456788877@Ak",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-18T11:47:34.949Z"
+    },
+    {
+      "id": "dacb",
+      "name": "Ananda krishnan",
+      "email": "ak001mob@gmail.com",
+      "password": "1234567990@AK",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-18T11:48:18.095Z"
+    },
+    {
+      "id": "bd83",
+      "name": "newuser",
+      "email": "ak506lap@gmail.com",
+      "password": "1234567890@Ak",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-18T12:29:26.303Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "name": "Organic Almonds",
+      "description": "Fresh organic almonds packed with nutrients.",
+      "price": 450,
+      "count": 100,
+      "category": "Nuts",
+      "images": [
+        "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg",
+        "https://example.com/images/almonds2.jpg"
+      ],
+      "isActive": true,
+      "created_at": "2025-06-20T08:00:00Z"
+    },
+    {
+      "id": "p2",
+      "name": "Walnut Premium Pack",
+      "description": "Premium quality walnuts sourced directly from farms.",
+      "price": 550,
+      "count": 50,
+      "category": "Nuts",
+      "images": [
+        "https://example.com/images/walnuts1.jpg"
+      ],
+      "isActive": true,
+      "created_at": "2025-06-22T09:30:00Z"
+    },
+    {
+      "id": "p3",
+      "name": "Cashew Nuts Jumbo",
+      "description": "Crunchy and delicious jumbo-sized cashews.",
+      "price": 600,
+      "count": 75,
+      "category": "Nuts",
+      "images": [
+        "https://example.com/images/cashews1.jpg"
+      ],
+      "isActive": true,
+      "created_at": "2025-07-01T10:00:00Z"
+    }
+  ]
+}

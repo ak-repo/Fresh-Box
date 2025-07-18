@@ -1,0 +1,2140 @@
+{
+  "items": [
+    {
+      "id": 47175570784554,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 47175570784554,
+      "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
+      "title": "Mango + Greens",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A10-MANGO",
+      "grams": 184,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8810979066154,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/mango-camu?selling_plan=4455366954&variant=47175570784554",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Mango + Greens Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+      "handle": "mango-camu",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Mango + Greens",
+      "product_description": "This creamy smoothie gets its vivid hue from nutrient-dense spinach and its lush flavor from juicy mango, coconut cream, and a spritz of lime. Oh, and we added kohlrabi because we like you, and it’s a bit of a nutritional powerhouse.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783280054570,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 46783280054570,
+      "key": "46783280054570:355fa0a7f2ff85196209c355d27c0b63",
+      "title": "Tart Cherry + Raspberry",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A25-RAZZ",
+      "grams": 206,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687358050602,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/tart-cherry-raspberry?selling_plan=4455366954&variant=46783280054570",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Tart Cherry + Raspberry Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+      "handle": "tart-cherry-raspberry",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Tart Cherry + Raspberry",
+      "product_description": "Simply the berriest berry smoothie we could dream up. Raspberries, blueberries, and cherries (ok, technically not a berry) are brilliantly hued and full of antioxidants and anti-inflammatory properties. The natural sweetness of mission figs complements all that juicy tartness.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47175581303082,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 47175581303082,
+      "key": "47175581303082:a3d82fd61c16f9b00746cdf59aace8c6",
+      "title": "Ginger + Greens",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A17-GING",
+      "grams": 219,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8810981982506,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/ginger-greens?selling_plan=4455366954&variant=47175581303082",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Ginger + Greens Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+      "handle": "ginger-greens",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Ginger + Greens",
+      "product_description": "The fiery zing of ginger. The velvety texture of bananas, avocado, and flax seeds. A hint of sweetness from dates. A squeeze of lemon. And, of course, nutrient-dense, bright green spinach. It’s green juice (but with fiber!) in highly-sippable smoothie form.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783324029226,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 46783324029226,
+      "key": "46783324029226:15df0d4cc386a5933eb6cacd5020b329",
+      "title": "Cherry + Almond",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A22-PBNJ",
+      "grams": 242,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687372960042,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/cherry-almond?selling_plan=4455366954&variant=46783324029226",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Cherry + Almond Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+      "handle": "cherry-almond",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Cherry + Almond",
+      "product_description": "Imagine a nut butter & jelly sandwich: sweet but not too sweet with cherries, juicy strawberries, and a sprinkle of vanilla bean. Rich and satisfying with almond butter and toasty sacha inchi seeds. No crusts here; we’re purists.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783308824874,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 46783308824874,
+      "key": "46783308824874:e99155c047680879286a17d6238de47e",
+      "title": "Mango + Papaya",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A03-PAPA",
+      "grams": 213,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687368438058,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/mango-papaya?selling_plan=4455366954&variant=46783308824874",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Mango + Papaya Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A03-PAPA.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A03-PAPA.jpg?v=1716498612",
+      "handle": "mango-papaya",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Mango + Papaya",
+      "product_description": "A naturally sweet blend of hydrating pineapple, mango, and papaya. Some macadamias for that good fat. This smoothie captures the color—and, more importantly, the vibe—of a summer sunset.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47121324802346,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 47121324802346,
+      "key": "47121324802346:d44ee605a9e206dbe5b6d35a1743b03f",
+      "title": "White Bean + Spinach Pesto",
+      "price": 1079,
+      "original_price": 1079,
+      "presentment_price": 10.79,
+      "discounted_price": 971,
+      "line_price": 971,
+      "original_line_price": 1079,
+      "total_discount": 108,
+      "discounts": [
+        {
+          "amount": 108,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "R05-GRBEAN",
+      "grams": 0,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8796298576170,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 1079,
+      "final_line_price": 1079,
+      "url": "/products/white-bean-spinach-pesto?selling_plan=4455366954&variant=47121324802346",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "White Bean + Spinach Pesto Pasta Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567",
+      "handle": "white-bean-spinach-pesto",
+      "requires_shipping": true,
+      "product_type": "Pasta",
+      "product_title": "White Bean + Spinach Pesto",
+      "product_description": "Yes, this pasta is gluten-free. Yes, this pesto is nut- and dairy-free. And yes, it tastes like the bright, fresh, al dente summer dish we dream about all year long. Built on sunflower seed butter, basil, garlic, and lemon, with a dash of nutritional yeast for a parmesan-like hit of umami, our pesto is rich and creamy. It clings deliciously to sedani, a tubular pasta made of ancient grains and just right for catching the herby sauce. Artichokes and beans add flavor and fiber.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 1079
+          }
+        ],
+        "price": 1079,
+        "compare_at_price": 1079,
+        "per_delivery_price": 1079,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47121324835114,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 47121324835114,
+      "key": "47121324835114:a8e4f04f85470e56bd3ec82d9bf7a17d",
+      "title": "Tomato Basil + Portobello Bolognese",
+      "price": 1079,
+      "original_price": 1079,
+      "presentment_price": 10.79,
+      "discounted_price": 971,
+      "line_price": 971,
+      "original_line_price": 1079,
+      "total_discount": 108,
+      "discounts": [
+        {
+          "amount": 108,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "R06-BOLO",
+      "grams": 198,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8796298608938,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 1079,
+      "final_line_price": 1079,
+      "url": "/products/tomato-basil-portobello-bolognese?selling_plan=4455366954&variant=47121324835114",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Tomato Basil + Portobello Bolognese Pasta Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R06-BOLO.jpg?v=1716498567",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R06-BOLO.jpg?v=1716498567",
+      "handle": "tomato-basil-portobello-bolognese",
+      "requires_shipping": true,
+      "product_type": "Pasta",
+      "product_title": "Tomato Basil + Portobello Bolognese",
+      "product_description": "When all you want is a bottomless bowl of bolognese, these saucy noodles do the trick. Rich tomatoes and onions coat gluten-free sedani—noodles built on ancient grains and perfect for catching sauce. Basil brings brightness, oregano adds herby flair, and portobellos and spinach deliver a hearty bite. Hemp seeds and black lentils add plenty of fiber. ",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 1079
+          }
+        ],
+        "price": 1079,
+        "compare_at_price": 1079,
+        "per_delivery_price": 1079,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783296045354,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 46783296045354,
+      "key": "46783296045354:487875c22e6db910255951f1557e1f3c",
+      "title": "Banana + Almond",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A28-SKIPPY",
+      "grams": 21149,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687363031338,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/banana-almond?selling_plan=4455366954&variant=46783296045354",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "A glass filled with layers of banana slices, almond pieces, and a mix of nuts and seeds, topped with a vanilla bean.",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A28-SkippyBanana_Almond.png?v=1746553810",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A28-SkippyBanana_Almond.png?v=1746553810",
+      "handle": "banana-almond",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Banana + Almond",
+      "product_description": "This one’s for the banana bread fans. Think perfectly ripe bananas and vanilla beans topped with velvety, satisfying nut butter (a mix of hazelnuts, cashews, almonds, and sunflower seeds). Cacao and maca root add rich flavor and maybe a little boost of energy, too.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47121677877546,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 47121677877546,
+      "key": "47121677877546:1535ed89a97a1e5f777f1120bbf30956",
+      "title": "Cinnamon + Banana",
+      "price": 679,
+      "original_price": 679,
+      "presentment_price": 6.79,
+      "discounted_price": 611,
+      "line_price": 611,
+      "original_line_price": 679,
+      "total_discount": 68,
+      "discounts": [
+        {
+          "amount": 68,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "D01-CINNA",
+      "grams": 258,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8796404252970,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 679,
+      "final_line_price": 679,
+      "url": "/products/cinnamon-protein-banana?selling_plan=4455366954&variant=47121677877546",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Cinnamon + Banana Breakfast Bowl Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D01-CINNA_9dc0c535-c0f0-4a64-9c61-b7d453f3cd60.jpg?v=1716504918",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D01-CINNA_9dc0c535-c0f0-4a64-9c61-b7d453f3cd60.jpg?v=1716504918",
+      "handle": "cinnamon-protein-banana",
+      "requires_shipping": true,
+      "product_type": "Breakfast Bowl",
+      "product_title": "Cinnamon + Banana",
+      "product_description": "Name a more perfectly balanced breakfast. We’ll wait. Gluten-free rolled oats and sweet potato serve the sustained energy. Maple and cinnamon add a dash of sweet ‘n spice, giving it that banana bread taste. The real secret ingredients though? Reishi mushrooms for a little added richness and a whole lot of bliss-boosting. Sounds pretty perfect to us.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 679
+          }
+        ],
+        "price": 679,
+        "compare_at_price": 679,
+        "per_delivery_price": 679,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783262982442,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 1,
+      "variant_id": 46783262982442,
+      "key": "46783262982442:8351e728d69a8ba6d991329fb0588c65",
+      "title": "Strawberry + Peach",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 764,
+      "original_line_price": 849,
+      "total_discount": 85,
+      "discounts": [
+        {
+          "amount": 85,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A04-STRAW",
+      "grams": 260,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687351726378,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 849,
+      "url": "/products/strawberry-peach?selling_plan=4455366954&variant=46783262982442",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Strawberry + Peach 8-Pack Bundle Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
+      "handle": "strawberry-peach",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Strawberry + Peach",
+      "product_description": "If you asked a peach what it wanted to be when it grew up, it would tell you: THIS SMOOTHIE. Sweet strawberries, bright raspberries, and a hint of tartness from goji berries round out that irresistibly juicy peach flavor. Bananas, oats, and flax seeds make the whole thing creamy and satisfying.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783285264682,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 46783285264682,
+      "key": "46783285264682:4d66c5484db846bd8090d24690a80272",
+      "title": "Apple + Cinnamon",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 2292,
+      "original_line_price": 2547,
+      "total_discount": 255,
+      "discounts": [
+        {
+          "amount": 255,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A19-COOK",
+      "grams": 230,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687359951146,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 2547,
+      "url": "/products/vanilla-bean-cacao?selling_plan=4455366954&variant=46783285264682",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Apple + Cinnamon Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
+      "handle": "vanilla-bean-cacao",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Apple + Cinnamon",
+      "product_description": "As easy as apple pie—and even more wholesome. Spiced apples bring that cinnamony goodness, while coconut cream and toasted vanilla bean offer the deep, rich taste of a just-starting-to-melt scoop of French vanilla ice cream. With adaptogenic maca. This Smoothie serves up a little slice of perfection.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783301746986,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 4,
+      "variant_id": 46783301746986,
+      "key": "46783301746986:01a622eec4ab7984c071fcfd27444d21",
+      "title": "Strawberry + Cashew",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 3056,
+      "original_line_price": 3396,
+      "total_discount": 340,
+      "discounts": [
+        {
+          "amount": 340,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A31-STROAT",
+      "grams": 14,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687363719466,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 3396,
+      "url": "/products/strawberry-cashew?selling_plan=4455366954&variant=46783301746986",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Strawberry + Cashew Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+      "handle": "strawberry-cashew",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Strawberry + Cashew",
+      "product_description": "If a strawberry could make its own destiny, this is where it would want to end up: in this satisfying, indulgent smoothie alongside vitamin A-rich carrot. We added cashew and coconut cream because we like to make dreams come true. And because they’re delicious.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 49920346816810,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 49920346816810,
+      "key": "49920346816810:83b675d137dbc720c0f82677d5e3e550",
+      "title": "Peppermint Cacao Truffle",
+      "price": 1099,
+      "original_price": 1099,
+      "presentment_price": 10.99,
+      "discounted_price": 989,
+      "line_price": 2967,
+      "original_line_price": 3297,
+      "total_discount": 330,
+      "discounts": [
+        {
+          "amount": 330,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "H18-CACAOPEP",
+      "grams": 213,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 9697231175978,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 1099,
+      "final_line_price": 3297,
+      "url": "/products/peppermint-cacao-truffle?selling_plan=4455366954&variant=49920346816810",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Peppermint Cacao Truffle Bite Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
+      "handle": "peppermint-cacao-truffle",
+      "requires_shipping": true,
+      "product_type": "Bite",
+      "product_title": "Peppermint Cacao Truffle",
+      "product_description": "Nutrient-packed cacao with a cooling hit of peppermint. It’s fudgy. It’s minty. It tastes like dessert. But it’s secretly a power snack made with sweet potato and chickpeas, which can help support digestion and take care of that 3 p.m. sugar craving.Servings: 15 bites per bag",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 1099
+          }
+        ],
+        "price": 1099,
+        "compare_at_price": 1099,
+        "per_delivery_price": 1099,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 49692182020394,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 49692182020394,
+      "key": "49692182020394:d5034572bc42545b3e2521183670e560",
+      "title": "Vanilla Bean Protein",
+      "price": 949,
+      "original_price": 949,
+      "presentment_price": 9.49,
+      "discounted_price": 854,
+      "line_price": 2562,
+      "original_line_price": 2847,
+      "total_discount": 285,
+      "discounts": [
+        {
+          "amount": 285,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A37-PROVAN",
+      "grams": 198,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 9611211505962,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 949,
+      "final_line_price": 2847,
+      "url": "/products/vanilla-bean-protein?selling_plan=4455366954&variant=49692182020394",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Vanilla Bean Protein Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a37-provan-deconstructed-pdp-web.jpg?v=1733508809",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a37-provan-deconstructed-pdp-web.jpg?v=1733508809",
+      "handle": "vanilla-bean-protein",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Vanilla Bean Protein",
+      "product_description": "Basically magic. This organic smoothie is giving dreamy, creamy vanilla milkshake, without dairy or artificial anything. She’s also giving 20g of plant-based protein, without whey or nuts. The parsnips, dates, and chickpeas? Those are just sneaky bonuses.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 949
+          }
+        ],
+        "price": 949,
+        "compare_at_price": 949,
+        "per_delivery_price": 949,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 49692138045738,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 49692138045738,
+      "key": "49692138045738:04bce4e8bfdf9d2d5bbc30ff2f8b6da6",
+      "title": "Mixed Berry Protein",
+      "price": 949,
+      "original_price": 949,
+      "presentment_price": 9.49,
+      "discounted_price": 854,
+      "line_price": 2562,
+      "original_line_price": 2847,
+      "total_discount": 285,
+      "discounts": [
+        {
+          "amount": 285,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A36-PROBER",
+      "grams": 193,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 9611193942314,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 949,
+      "final_line_price": 2847,
+      "url": "/products/mixed-berry-protein?selling_plan=4455366954&variant=49692138045738",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Mixed Berry Protein Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a36-prober-deconstructed-pdp-web.jpg?v=1733508810",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a36-prober-deconstructed-pdp-web.jpg?v=1733508810",
+      "handle": "mixed-berry-protein",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Mixed Berry Protein",
+      "product_description": "Sipping this refreshing, organic berry delight will make you feel like you’re on vacation—while hitting all your protein goals. Strawberries, blueberries, kale, they’re all there. So is 20g of pure plant protein. What’s not there is even better: namely, potential irritants like whey + nuts.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 949
+          }
+        ],
+        "price": 949,
+        "compare_at_price": 949,
+        "per_delivery_price": 949,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 49627247083818,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 49627247083818,
+      "key": "49627247083818:f364e7fc88247ce4662ee5dc35826b38",
+      "title": "Dark Chocolate Protein",
+      "price": 949,
+      "original_price": 949,
+      "presentment_price": 9.49,
+      "discounted_price": 854,
+      "line_price": 2562,
+      "original_line_price": 2847,
+      "total_discount": 285,
+      "discounts": [
+        {
+          "amount": 285,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A35-PROBRO",
+      "grams": 234,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 9580260327722,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 949,
+      "final_line_price": 2847,
+      "url": "/products/protein-dark-chocolate?selling_plan=4455366954&variant=49627247083818",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Dark Chocolate Protein Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a35-probro-deconstructed-pdp-web.jpg?v=1733508809",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a35-probro-deconstructed-pdp-web.jpg?v=1733508809",
+      "handle": "protein-dark-chocolate",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Dark Chocolate Protein",
+      "product_description": "Pure chocolate + pure protein = pure delight. With 20g of plant-based protein—no whey or nuts—and plenty of plants (hello, zucchini, pumpkin seeds and dates), this smoothie is proof you can hit your organic diet goals and your protein goals.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 949
+          }
+        ],
+        "price": 949,
+        "compare_at_price": 949,
+        "per_delivery_price": 949,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783305777450,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 4,
+      "variant_id": 46783305777450,
+      "key": "46783305777450:78b52c461c67bb054756864ccbef4ac0",
+      "title": "Mint + Cacao",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 764,
+      "line_price": 3056,
+      "original_line_price": 3396,
+      "total_discount": 340,
+      "discounts": [
+        {
+          "amount": 340,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A06-MINT",
+      "grams": 154,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687366799658,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 3396,
+      "url": "/products/mint-cacao?selling_plan=4455366954&variant=46783305777450",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Mint + Cacao Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A06-MINT.jpg?v=1716498613",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A06-MINT.jpg?v=1716498613",
+      "handle": "mint-cacao",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Mint + Cacao",
+      "product_description": "This smoothie is giving mint chip scoop. That chocolately cacao crunch. The cool, refreshing hit of peppermint (and chlorella!). And then there’s the creaminess that comes from satisfying bananas and cashews. Please pass the spoon. Straw. Whichever.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783260426538,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 4,
+      "variant_id": 46783260426538,
+      "key": "46783260426538:70d66038abeea77e02ff96114bee6bde",
+      "title": "Acai + Cherry",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 765,
+      "line_price": 3057,
+      "original_line_price": 3396,
+      "total_discount": 339,
+      "discounts": [
+        {
+          "amount": 339,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A01-ACAI",
+      "grams": 210,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687350612266,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 3396,
+      "url": "/products/acai-cherry?selling_plan=4455366954&variant=46783260426538",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Acai + Cherry Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A01-ACAI.jpg?v=1716498614",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A01-ACAI.jpg?v=1716498614",
+      "handle": "acai-cherry",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Acai + Cherry",
+      "product_description": "That peak-summer, freshly-picked-berries flavor comes through in every sip of this ruby-hued smoothie. It’s a sweet-tart blend of cherries, blueberries, raspberries, and açaí berries—plus some kale, because you do indeed need to eat your greens.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 46783307219242,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 4,
+      "variant_id": 46783307219242,
+      "key": "46783307219242:95c1c58a12e7c087822dcf0627105328",
+      "title": "Blueberry + Cacao",
+      "price": 849,
+      "original_price": 849,
+      "presentment_price": 8.49,
+      "discounted_price": 765,
+      "line_price": 3057,
+      "original_line_price": 3396,
+      "total_discount": 339,
+      "discounts": [
+        {
+          "amount": 339,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "A11-CHOBLU",
+      "grams": 232,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8687367684394,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 849,
+      "final_line_price": 3396,
+      "url": "/products/blueberry-cacao?selling_plan=4455366954&variant=46783307219242",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Blueberry + Cacao Smoothie Daily Harvest",
+        "height": 2047,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A11-CHOBLU.jpg?v=1716498612",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A11-CHOBLU.jpg?v=1716498612",
+      "handle": "blueberry-cacao",
+      "requires_shipping": true,
+      "product_type": "Smoothie",
+      "product_title": "Blueberry + Cacao",
+      "product_description": "Proof that you can have it all: this chocolatey smoothie tastes like dessert and it’s is full of ingredients that deliver essential vitamins and nutrients. It’s a fiber-forward blend that can support digestion and provide a good source of iron and potassium. Bananas and almonds add subtle nuttiness and a creamy texture to the blueberry flavor.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 849
+          }
+        ],
+        "price": 849,
+        "compare_at_price": 849,
+        "per_delivery_price": 849,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47121687052586,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 47121687052586,
+      "key": "47121687052586:0ea120f3b120082898621fbf0355a06d",
+      "title": "Blueberry + Lemon",
+      "price": 679,
+      "original_price": 679,
+      "presentment_price": 6.79,
+      "discounted_price": 612,
+      "line_price": 1834,
+      "original_line_price": 2037,
+      "total_discount": 203,
+      "discounts": [
+        {
+          "amount": 203,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "D05-POPPY",
+      "grams": 145,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8796407562538,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 679,
+      "final_line_price": 2037,
+      "url": "/products/blueberry-lemon?selling_plan=4455366954&variant=47121687052586",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Blueberry + Lemon Breakfast Bowl Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D05-POPPY.jpg?v=1716497980",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D05-POPPY.jpg?v=1716497980",
+      "handle": "blueberry-lemon",
+      "requires_shipping": true,
+      "product_type": "Breakfast Bowl",
+      "product_title": "Blueberry + Lemon",
+      "product_description": "A little sweet, a little tart, a lot of satisfying fiber: this breakfast bowl is our energizing answer to the scone. Vibrant blueberries, zingy lemon, whole-grain oats, and crunchy poppy seeds will keep you going for hours.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 679
+          }
+        ],
+        "price": 679,
+        "compare_at_price": 679,
+        "per_delivery_price": 679,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47175598604586,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 3,
+      "variant_id": 47175598604586,
+      "key": "47175598604586:bc5bee60a1d74a8c53b66e497e84a87b",
+      "title": "Strawberry + Goji Berry",
+      "price": 679,
+      "original_price": 679,
+      "presentment_price": 6.79,
+      "discounted_price": 612,
+      "line_price": 1834,
+      "original_line_price": 2037,
+      "total_discount": 203,
+      "discounts": [
+        {
+          "amount": 203,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "D07-CREAM",
+      "grams": 133,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8810988568874,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 679,
+      "final_line_price": 2037,
+      "url": "/products/strawberry-cream?selling_plan=4455366954&variant=47175598604586",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "Strawberry + Goji Berry Breakfast Bowl Daily Harvest",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D07-CREAM.jpg?v=1716497980",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D07-CREAM.jpg?v=1716497980",
+      "handle": "strawberry-cream",
+      "requires_shipping": true,
+      "product_type": "Breakfast Bowl",
+      "product_title": "Strawberry + Goji Berry",
+      "product_description": "A swirl of strawberries, vanilla beans, a sprinkling of goji berries, and a squeeze of lemon: this is summer in a bowl. We added fiber-packed flax and oats to set you up for an energized morning.",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 679
+          }
+        ],
+        "price": 679,
+        "compare_at_price": 679,
+        "per_delivery_price": 679,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 47121676534058,
+      "properties": {
+        "__og_parent_product_id": "47038635016490"
+      },
+      "quantity": 4,
+      "variant_id": 47121676534058,
+      "key": "47121676534058:2fe438d6d9b9277f693ad0d75e21a96f",
+      "title": "Apple + Cinnamon",
+      "price": 679,
+      "original_price": 679,
+      "presentment_price": 6.79,
+      "discounted_price": 612,
+      "line_price": 2445,
+      "original_line_price": 2716,
+      "total_discount": 271,
+      "discounts": [
+        {
+          "amount": 271,
+          "title": "10% Plan Discount"
+        }
+      ],
+      "sku": "D04-FALL",
+      "grams": 230,
+      "vendor": "Daily Harvest",
+      "taxable": true,
+      "product_id": 8796403695914,
+      "product_has_only_default_variant": true,
+      "gift_card": false,
+      "final_price": 679,
+      "final_line_price": 2716,
+      "url": "/products/apple-cinnamon?selling_plan=4455366954&variant=47121676534058",
+      "featured_image": {
+        "aspect_ratio": 1,
+        "alt": "A glass bowl filled with apple and cinnamon breakfast granola, topped with a cinnamon stick and apple slices.",
+        "height": 2048,
+        "url": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+        "width": 2048
+      },
+      "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+      "handle": "apple-cinnamon",
+      "requires_shipping": true,
+      "product_type": "Breakfast Bowl",
+      "product_title": "Apple + Cinnamon",
+      "product_description": "You know that clove-y, cinnamony, fresh-baked apple aroma? We made it into a breakfast bowl. It includes apples, of course, and almond butter for creamy protein, pumpkin seeds and walnuts for crunch, and we snuck in some cauliflower to help you feel energized",
+      "variant_title": null,
+      "variant_options": [
+        "Default Title"
+      ],
+      "options_with_values": [
+        {
+          "name": "Title",
+          "value": "Default Title"
+        }
+      ],
+      "line_level_discount_allocations": [],
+      "line_level_total_discount": 0,
+      "quantity_rule": {
+        "min": 1,
+        "max": null,
+        "increment": 1
+      },
+      "has_components": false,
+      "selling_plan_allocation": {
+        "price_adjustments": [
+          {
+            "position": 1,
+            "price": 679
+          }
+        ],
+        "price": 679,
+        "compare_at_price": 679,
+        "per_delivery_price": 679,
+        "selling_plan": {
+          "id": 4455366954,
+          "name": "Delivered every 2 weeks.",
+          "description": null,
+          "options": [
+            {
+              "name": "Delivery every",
+              "position": 1,
+              "value": "2 weeks"
+            }
+          ],
+          "recurring_deliveries": true,
+          "fixed_selling_plan": false,
+          "price_adjustments": [
+            {
+              "order_count": null,
+              "position": 1,
+              "value_type": "percentage",
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+
+
