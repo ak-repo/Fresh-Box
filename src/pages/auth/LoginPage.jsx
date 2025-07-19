@@ -17,14 +17,12 @@ export default function LoginPage() {
   useEffect(() => {
     if (user) {
       navigate("/");
-      console.log(user);
     }
   }, []);
 
   // form filling
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData.password);
   };
 
   // form submitting handle

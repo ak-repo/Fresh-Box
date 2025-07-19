@@ -26,7 +26,6 @@ export default function AuthProvider({ children }) {
       localStorage.removeItem("user");
     }
   }, [user]);
-  console.log(loading);
 
   // user data setting up
 

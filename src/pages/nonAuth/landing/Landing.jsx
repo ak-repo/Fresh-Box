@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+import { GetAllProducts } from "../../../API/ShowProducts";
+import { useNavigate } from "react-router-dom";
+import { AddToCartButton, FavoriteButton } from "../../common/buttons/Buttons";
+
 
 export default function Landing() {
   return (
     <>
       <LandingImgSection />
       <OurOffering />
+      <BestSellerNewItems />
     </>
   );
 }
@@ -49,7 +54,7 @@ const LandingImgSection = () => {
           <img
             src={currentSlide.image}
             alt={currentSlide.title}
-            className="w-80 h-80 object-cover rounded shadow"
+            className="w-100 h-100 object-cover rounded shadow "
           />
         </div>
         {/* <img src="../../../../public/"/> */}
@@ -113,5 +118,98 @@ function OurOffering() {
         ))}
       </div>
     </section>
+  );
+}
+
+// Best seller and New items section
+
+function BestSellerNewItems() {
+  const [bestSellers, setBestSellers] = useState(null);
+  const [newArrivals, setNewArrivals] = useState(null);
+  const [activeTab, setActiveTab] = useState("bestseller");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await GetAllProducts();
+        setBestSellers(data.slice(0, 8));
+        setNewArrivals(data.slice(data.length - 8));
+      } catch (error) {
+        console.log("Error fetching products:", error.message);
+      }
+    })();
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("Best Sellers:", bestSellers);
+  // }, [bestSellers]);
+
+  // useEffect(() => {
+  //   console.log("New Arrivals:", newArrivals);
+  // }, [newArrivals]);
+
+  const products = activeTab === "bestseller" ? bestSellers : newArrivals;
+
+  return (
+    <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-2xl font-bold text-gray-900">Our Picks For You</h2>
+
+        {/* Toggle Buttons */}
+        <div className="mt-6 flex justify-center space-x-4">
+          <button
+            onClick={() => setActiveTab("bestseller")}
+            className={`px-4 py-2 rounded-md text-sm font-medium ${
+              activeTab === "bestseller"
+                ? "bg-indigo-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            Best Sellers
+          </button>
+          <button
+            onClick={() => setActiveTab("new")}
+            className={`px-4 py-2 rounded-md text-sm font-medium ${
+              activeTab === "new"
+                ? "bg-indigo-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+          >
+            New Items
+          </button>
+        </div>
+
+        {/* Products Grid */}
+        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {products &&
+            products.map((product) => (
+              <div
+                key={product.id}
+                className="border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer bg-white p-5"
+              >
+                <img
+                  onClick={() => navigate(`/productDetails/${product.id}`)}
+                  src={product.image}
+                  alt={product.title}
+                  className="h-48 w-full object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-gray-900 truncate mb-1">
+                    {product.title}
+                  </h3>
+                  <p className="text-indigo-600 text-sm font-bold">
+                    ₹ {product.price}
+                  </p>
+                </div>
+                <div className="flex justify-between">
+                  <AddToCartButton />
+                  <FavoriteButton />
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
+    </div>
   );
 }
