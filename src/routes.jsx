@@ -12,6 +12,9 @@ import ProductDetails from "./pages/nonAuth/products/ProductDetails";
 import Cart from "./pages/nonAuth/cart/Cart";
 import Wishlist from "./pages/nonAuth/wishlist/WishList";
 import Footer from "./pages/common/footer/Footer";
+import UserProfile from "./pages/nonAuth/profile/UserProfile";
+import AboutPage from "./pages/nonAuth/aboutUs/AboutUs";
+import OrdersPage from "./pages/nonAuth/order/Orders";
 
 export default function UserRoutes() {
   return (
@@ -41,6 +44,9 @@ const AppRouters = () => {
         />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/aboutUs" element={<AboutPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
       </Routes>
 
       {!hiddeNavbar && <Footer />}

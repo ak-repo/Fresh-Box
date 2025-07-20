@@ -72,35 +72,6 @@ export default function Wishlist() {
         </div>
       </div>
 
-      {/* Add Item Form */}
-      <form onSubmit={addItem} className="mb-6">
-        <div className="flex flex-col md:flex-row gap-4">
-          <input
-            type="text"
-            value={newItem}
-            onChange={(e) => setNewItem(e.target.value)}
-            placeholder="Item name"
-            className="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            required
-          />
-          <input
-            type="number"
-            value={newPrice}
-            onChange={(e) => setNewPrice(e.target.value)}
-            placeholder="Price (optional)"
-            className="w-32 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            step="0.01"
-            min="0"
-          />
-          <button
-            type="submit"
-            className="bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700 transition-colors"
-          >
-            Add Item
-          </button>
-        </div>
-      </form>
-
       {/* Wishlist Items */}
       <div className="space-y-4">
         {items.length === 0 ? (
@@ -166,14 +137,32 @@ export default function Wishlist() {
           ))
         )}
       </div>
-
-      {/* Total */}
-      {items.length > 0 && (
-        <div className="mt-6 p-4 bg-indigo-50 rounded-lg flex justify-between items-center">
-          <span className="font-semibold text-indigo-800">Total Cost:</span>
-          <span className="text-xl font-bold">${totalCost.toFixed(2)}</span>
-        </div>
-      )}
+      <PlaceholderButton />
     </div>
   );
 }
+
+
+const PlaceholderButton = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    // Simulate async action
+    setTimeout(() => setIsLoading(false), 1500);
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      disabled={isLoading}
+      className={`px-4 py-2 rounded-md transition-colors ${
+        isLoading
+          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+          : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+      }`}
+    >
+      {isLoading ? "Loading..." : "Place Order"}
+    </button>
+  );
+};

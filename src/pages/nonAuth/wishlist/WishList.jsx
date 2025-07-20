@@ -7,23 +7,9 @@ const Wishlist = () => {
     { id: 2, name: "Smart Watch", price: 199.99 },
     { id: 3, name: "Programming Book", price: 29.99 },
   ]);
-  const [newItem, setNewItem] = useState("");
-  const [newPrice, setNewPrice] = useState("");
 
-  const addItem = (e) => {
-    e.preventDefault();
-    if (!newItem.trim()) return;
 
-    const item = {
-      id: Date.now(),
-      name: newItem,
-      price: parseFloat(newPrice) || 0,
-    };
 
-    setItems([...items, item]);
-    setNewItem("");
-    setNewPrice("");
-  };
 
   const removeItem = (id) => {
     setItems(items.filter((item) => item.id !== id));
@@ -51,55 +37,7 @@ const Wishlist = () => {
         <p className="text-gray-500">Add items you'd love to have</p>
       </div>
 
-      {/* Add Item Form */}
-      <form
-        onSubmit={addItem}
-        className="mb-8 p-6 bg-white rounded-xl shadow-sm border border-gray-100"
-      >
-        <div className="space-y-4">
-          <div>
-            <label
-              htmlFor="item"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Item name
-            </label>
-            <input
-              type="text"
-              id="item"
-              value={newItem}
-              onChange={(e) => setNewItem(e.target.value)}
-              placeholder="What do you wish for?"
-              className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="price"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Price (optional)
-            </label>
-            <input
-              type="number"
-              id="price"
-              value={newPrice}
-              onChange={(e) => setNewPrice(e.target.value)}
-              placeholder="Approximate cost"
-              className="w-full p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent"
-              step="0.01"
-              min="0"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-pink-500 text-white py-3 px-4 rounded-lg hover:bg-pink-600 transition-colors font-medium shadow-sm hover:shadow-md"
-          >
-            Add to Wishlist
-          </button>
-        </div>
-      </form>
+    
 
       {/* Wishlist Items */}
       <div className="space-y-3">

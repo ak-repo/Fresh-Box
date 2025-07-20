@@ -20,64 +20,74 @@ export default function Products() {
 
   return (
     <div className="bg-gray-50 min-h-screen px-4 py-8 sm:px-6 lg:px-8">
-      <div className="flex gap-6">
+      <div className="max-w-7xl mx-auto flex gap-8">
         {/* Sticky Filter Panel */}
-        <div className="hidden md:block w-1/5">
-          <div className="sticky top-24 bg-white p-4 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold mb-4">Filters</h3>
-            <ul className="space-y-2 text-gray-700">
-              <li className="hover:text-indigo-600 cursor-pointer">All</li>
-              <li className="hover:text-indigo-600 cursor-pointer">
-                Smoothies
-              </li>
-              <li className="hover:text-indigo-600 cursor-pointer">Bowls</li>
-              <li className="hover:text-indigo-600 cursor-pointer">Bites</li>
+        <div className="hidden md:block w-64 flex-shrink-0">
+          <div className="sticky top-24 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <h3 className="text-lg font-semibold text-gray-900 mb-5 pb-2 border-b border-gray-100">Filters</h3>
+            <ul className="space-y-3">
+              {['All', 'Smoothies', 'Bowls', 'Bites'].map((category) => (
+                <li 
+                  key={category}
+                  className="text-gray-600 hover:text-indigo-600 cursor-pointer transition-colors duration-200 px-2 py-1 rounded-md hover:bg-indigo-50"
+                >
+                  {category}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Products Grid */}
         <div className="flex-1">
-          <h2 className="text-xl font-bold tracking-tight text-gray-900 mb-6">
-            Our Products
-          </h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Our Products</h2>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products ? (
               products.map((product) => (
                 <div
                   key={product.id}
-                  className="group cursor-pointer border rounded-md overflow-hidden shadow-sm hover:shadow-md transition bg-white p-8"
+                  className="group relative bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
                 >
-                  <img
+                  <div 
+                    className="aspect-square overflow-hidden bg-gray-50"
                     onClick={() =>
                       navigate(`/productDetails/${product.id}`, {
                         state: product,
                       })
                     }
-                    src={product.image}
-                    alt={product.imageAlt || product.title}
-                    className="w-full h-40 object-cover group-hover:opacity-90 transition"
-                  />
-                  <div className="p-2">
-                    <h3 className="text-sm font-semibold text-gray-900 truncate group-hover:text-indigo-600">
-                      {product.title}
-                    </h3>
-                    <p className="text-xs text-gray-600 mt-1 truncate">
-                      {product.product_description || "No description"}
-                    </p>
-                    <p className="text-indigo-600 font-semibold text-sm mt-2">
-                      ₹ {product.price}
-                    </p>
+                  >
+                    <img
+                      src={product.image}
+                      alt={product.imageAlt || product.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
-                  <div className="flex justify-between">
-                    <AddToCartButton />
-                    <FavoriteButton />
+                  <div className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                          {product.title}
+                        </h3>
+                        <p className="text-xs text-gray-500 line-clamp-2">
+                          {product.product_description || "No description"}
+                        </p>
+                      </div>
+                      <p className="text-indigo-600 font-semibold text-sm whitespace-nowrap ml-2">
+                        ₹{product.price}
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
+                      <AddToCartButton />
+                      <FavoriteButton />
+                    </div>
                   </div>
                 </div>
               ))
             ) : (
-              <h3 className="text-center text-gray-500">Products Not Found</h3>
+              <div className="col-span-full py-12 text-center">
+                <h3 className="text-gray-500">Loading products...</h3>
+              </div>
             )}
           </div>
         </div>
