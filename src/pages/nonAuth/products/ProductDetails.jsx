@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { GetProductById } from "../../../API/ShowProducts";
 import { useParams } from "react-router-dom";
-import { AddToCartButton, FavoriteButton } from "../../common/buttons/Buttons";
-
-// import { useLocation } from "react-router-dom";
+import { useWishlistController } from "../../../customHooks/useWishlistController";
+import { useCartController } from "../../../customHooks/useCartController";
 
 export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
+  const { addtoWishlist, removeFromWishlist, isInWishlist } =
+    useWishlistController();
+  const { addToCart } = useCartController();
 
   useEffect(() => {
     (async () => {
@@ -19,6 +21,19 @@ export default function ProductDetails() {
       }
     })();
   }, []);
+
+  // handle wishlist
+
+  const handleWishlist = () => {
+    isInWishlist(productId)
+      ? removeFromWishlist(productId)
+      : addtoWishlist(product);
+  };
+
+  // handle cart
+  const handleAddToCart = () => {
+    addToCart(productId);
+  };
 
   if (!product) {
     return (
@@ -81,8 +96,16 @@ export default function ProductDetails() {
             )}
 
             <div className="flex justify-between">
-              <AddToCartButton />
-              <FavoriteButton />
+              <button onClick={handleWishlist}>
+                {" "}
+                {isInWishlist(product.id) ? "💖 " : "🤍"}
+              </button>
+              <button
+                onClick={handleAddToCart}
+                className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>

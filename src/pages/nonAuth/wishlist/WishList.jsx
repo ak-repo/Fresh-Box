@@ -1,22 +1,23 @@
 // Wishlist.jsx
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useWishlistController } from "../../../customHooks/useWishlistController";
 
 const Wishlist = () => {
-  const [items, setItems] = useState([
-    { id: 1, name: "Wireless Headphones", price: 99.99 },
-    { id: 2, name: "Smart Watch", price: 199.99 },
-    { id: 3, name: "Programming Book", price: 29.99 },
-  ]);
+  const { wishlist, removeFromWishlist } = useWishlistController();
+  const navigate = useNavigate();
+  if (!wishlist) {
+    navigate("/login");
+  }
 
-
-
-
-  const removeItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
-  };
+  // const handleAddToCart = (product) => {
+  //   // Optional: Show a toast notification
+  //   // toast.success(`${product.title} added to cart!`);
+  // };
 
   return (
-    <div className="max-w-md mx-auto p-6">
+    <div className="max-w-md mx-auto p-6 min-h-[500px]">
+      {" "}
+      {/* Fixed minimum height */}
       {/* Header */}
       <div className="text-center mb-8">
         <svg
@@ -34,14 +35,11 @@ const Wishlist = () => {
           />
         </svg>
         <h1 className="text-3xl font-bold text-gray-800 mt-2">My Wishlist</h1>
-        <p className="text-gray-500">Add items you'd love to have</p>
+        <p className="text-gray-500">Your favorite items</p>
       </div>
-
-    
-
       {/* Wishlist Items */}
-      <div className="space-y-3">
-        {items.length === 0 ? (
+      <div className="space-y-4">
+        {wishlist.length === 0 ? (
           <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,44 +56,72 @@ const Wishlist = () => {
               />
             </svg>
             <h3 className="mt-4 text-lg font-medium text-gray-700">
-              No items yet
+              Your wishlist is empty
             </h3>
-            <p className="mt-1 text-gray-400">Add your first wish above</p>
+            <p className="mt-1 text-gray-400">Start adding some favorites!</p>
           </div>
         ) : (
-          items.map((item) => (
+          wishlist.map((product) => (
             <div
-              key={item.id}
-              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+              key={product.id}
+              className="flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
             >
-              <div>
-                <h3 className="font-medium text-gray-800">{item.name}</h3>
-                {item.price > 0 && (
-                  <p className="text-sm text-gray-500">
-                    ${item.price.toFixed(2)}
+              {/* Product Image */}
+              <div className="flex-shrink-0">
+                <img
+                  src={product.image || "/placeholder-product.jpg"}
+                  alt={product.title}
+                  className="h-16 w-16 object-cover rounded-md"
+                  onError={(e) => {
+                    e.target.src = "/placeholder-product.jpg";
+                  }}
+                />
+              </div>
+
+              {/* Product Info */}
+              <div className="flex-grow">
+                <h3 className="font-medium text-gray-800 line-clamp-1">
+                  {product.title}
+                </h3>
+                {product.price > 0 && (
+                  <p className="text-sm font-medium text-gray-600">
+                    ${product.price.toFixed(2)}
                   </p>
                 )}
               </div>
-              <button
-                onClick={() => removeItem(item.id)}
-                className="text-gray-400 hover:text-pink-500 transition-colors p-1 -mr-2"
-                aria-label="Remove item"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+
+              {/* Action Buttons */}
+              <div className="flex flex-col items-center gap-2">
+                {/* Add to Cart Button - Add your functionality here */}
+                <button
+                  // onClick={() => handleAddToCart(product)}
+                  className="w-8 mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+                  Cart
+                </button>
+
+                <button
+                  onClick={() => removeFromWishlist(product.id)}
+                  className="text-gray-400 hover:text-pink-500 transition-colors p-1"
+                  aria-label="Remove item"
+                  title="Remove from wishlist"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           ))
         )}

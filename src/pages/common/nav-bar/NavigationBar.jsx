@@ -12,7 +12,7 @@ export default function NavigationBar() {
   const { user, logout } = useContext(UserDataContext);
 
   return (
-    <nav className="bg-[#000000] text-white shadow-md sticky top-0 z-50">
+    <nav className="bg-black text-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 md:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}

@@ -1,180 +1,126 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block">We're changing the way</span>
-            <span className="block text-black">people connect</span>
-          </h1>
-          <p className="mt-6 max-w-lg mx-auto text-xl text-gray-500">
-            Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. 
-            Et labore commodo nulla aliqua proident mollit ullamco exercitation tempor.
-          </p>
-        </div>
-      </div>
-
-      {/* Mission Section */}
-      <div className="bg-gray-50">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+      <section className="border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <div className="text-center">
-            <h2 className="text-base font-semibold text-black tracking-wide uppercase">Our mission</h2>
-            <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-              Creating meaningful connections
+            <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+              <span className="block">Thoughtfully crafted</span>
+              <span className="block">nourishment</span>
+            </h1>
+            <p className="mt-6 max-w-lg mx-auto text-xl text-gray-600">
+              Our commitment to quality ingredients and effortless preparation
             </p>
-            <div className="max-w-3xl mx-auto">
-              <p className="mt-5 text-xl text-gray-500">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. 
-                Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.
-              </p>
-              <p className="mt-5 text-xl text-gray-500">
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. 
-                Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.
-              </p>
-            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Stats Section */}
-      <div className="bg-black text-white py-24">
+      {/* Our Story */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="mb-12 lg:mb-0">
+            <div className="bg-gray-100 aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+              <img
+                src="/assets/about/kitchen.jpg"
+                alt="Our kitchen"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Origin</h2>
+            <p className="text-lg text-gray-600 mb-4">
+              Founded in 2025, we recognized a growing need for genuinely nourishing food that fits 
+              modern lifestyles. Too often, convenience meant compromising on quality or nutrition.
+            </p>
+            <p className="text-lg text-gray-600 mb-4">
+              We set out to change that by creating a new category of prepared foods - ones that 
+              prioritize whole ingredients, thoughtful preparation, and honest flavors, without 
+              sacrificing time or taste.
+            </p>
+            <button
+              onClick={() => navigate('/products')}
+              className="mt-6 px-6 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              Discover Our Products
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="bg-gray-50 py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-            <div className="text-center">
-              <p className="text-5xl font-extrabold">44 million</p>
-              <p className="mt-2 text-lg font-medium text-gray-300">Transactions every 24 hours</p>
-            </div>
-            <div className="text-center">
-              <p className="text-5xl font-extrabold">$119 trillion</p>
-              <p className="mt-2 text-lg font-medium text-gray-300">Assets under holding</p>
-            </div>
-            <div className="text-center">
-              <p className="text-5xl font-extrabold">46,000</p>
-              <p className="mt-2 text-lg font-medium text-gray-300">New users annually</p>
-            </div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">Our Approach</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+              How we create products that stand apart
+            </p>
           </div>
-        </div>
-      </div>
 
-      {/* Values Section */}
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-black tracking-wide uppercase">Our values</h2>
-          <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            How we work and what we believe in
-          </p>
-          <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
-          </p>
-        </div>
-
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              name: 'Be world-class',
-              description: 'Aut illo quae. Ut et harum ea animi natus. Culpa maiores et sed sint et magnam exercitationem quia.'
-            },
-            {
-              name: 'Share everything you know',
-              description: 'Mollitia delectus a omnis. Quae velit aliquid. Qui nulla maxime adipisci illo id molestiae.'
-            },
-            {
-              name: 'Always learning',
-              description: 'Aut repellendus et officiis dolor possimus. Deserunt velit quasi sunt fuga error labore quia ipsum.'
-            },
-            {
-              name: 'Be supportive',
-              description: 'Magnam provident veritatis odit. Vitae eligendi repellat non. Eum fugit impedit veritatis ducimus.'
-            },
-            {
-              name: 'Take responsibility',
-              description: 'Sit minus expedita quam in ullam molestiae dignissimos in harum. Tenetur dolorem iure.'
-            },
-            {
-              name: 'Enjoy downtime',
-              description: 'Ipsa in earum deserunt aut. Quos minus aut animi et soluta. Ipsum dicta ut quia eius.'
-            }
-          ].map((value) => (
-            <div key={value.name} className="pt-6">
-              <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8">
-                <div className="-mt-6">
-                  <h3 className="mt-8 text-lg font-medium text-gray-900">{value.name}</h3>
-                  <p className="mt-5 text-base text-gray-500">{value.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Logo Cloud */}
-      <div className="bg-gray-100">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
-            Trusted by the world's most innovative teams
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-            {['Transistor', 'Reform', 'Tuple', 'SavvyCal', 'Statamic'].map((company) => (
-              <div key={company} className="col-span-1 flex justify-center">
-                <div className="h-12 flex items-center text-gray-500 font-bold text-xl">{company}</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Ingredient Standards",
+                description: "We source only whole, recognizable ingredients—nothing artificial or unnecessary."
+              },
+              {
+                title: "Preparation Methods",
+                description: "Techniques that preserve nutrition and amplify natural flavors."
+              },
+              {
+                title: "Quality Verification",
+                description: "Rigorous testing at every stage from farm to fulfillment."
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-8 rounded-lg border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Team Section */}
-      <div className="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8">
+      {/* Philosophy */}
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center">
-          <h2 className="text-base font-semibold text-black tracking-wide uppercase">Our team</h2>
-          <p className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            The people behind the product
-          </p>
-          <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-            We're a dynamic group of individuals who are passionate about what we do and dedicated to delivering the best results for our clients.
-          </p>
-        </div>
-      </div>
-
-      {/* Media Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="space-y-12">
-          {/* Video Section */}
-          <div className="bg-black rounded-xl overflow-hidden">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe 
-                className="w-full h-full" 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="YouTube video player" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-
-          {/* Photo Grid */}
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <div className="rounded-xl overflow-hidden">
-              <img
-                className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                alt="Office workspace"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden">
-              <img
-                className="w-full h-full object-cover"
-                src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                alt="Team meeting"
-              />
-            </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Philosophy</h2>
+          <div className="prose-lg text-gray-600 mx-auto">
+            <p className="mb-6">
+              We believe good food should be both nourishing and accessible. That means eliminating 
+              the tradeoffs between quality and convenience, between nutrition and flavor.
+            </p>
+            <p className="mb-6">
+              Every decision—from sourcing partners to packaging materials—is made with this balance 
+              in mind. We're building a new model for prepared foods, one that honors both the 
+              integrity of ingredients and the realities of modern life.
+            </p>
+            <p>
+              The result is a product line that delivers on its promises without compromise.
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Simple CTA */}
+      <section className="border-t border-gray-200 py-16 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Experience the difference</h2>
+          <button
+            onClick={() => navigate('/products')}
+            className="px-8 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+          >
+            Browse Our Offerings
+          </button>
+        </div>
+      </section>
     </div>
   );
 };

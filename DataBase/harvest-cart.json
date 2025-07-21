@@ -2134,7 +2134,112 @@
         }
       }
     }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Ananda Krishnan",
+      "email": "ananda@example.com",
+      "password": "$2a$10$hashedpassword123", // Example bcrypt hash
+      "role": "user",
+      "isBlocked": false,
+      "address": {
+        "street": "123 Tech Park",
+        "city": "Bangalore",
+        "state": "Karnataka",
+      },
+      "cart": [
+        {
+          "productId": "p1",
+          "quantity": 2,
+          "addedAt": "2025-07-18T10:00:00Z"
+        }
+      ],
+      "wishlist": [
+        {
+          "productId": "p3",
+          "addedAt": "2025-07-15T09:30:00Z"
+        }
+      ],
+      "orders": [
+        {
+          "orderId": "ord123",
+          "products": [
+            {
+              "productId": "p2",
+              "quantity": 1,
+              "price": 899.00
+            }
+          ],
+          "totalAmount": 899.00,
+          "status": "delivered",
+          "orderDate": "2025-07-15T10:30:00Z",
+          "deliveryDate": "2025-07-18T14:00:00Z"
+        }
+      ],
+      "orderHistory": [
+        {
+          "orderId": "ord101",
+          "products": [
+            {
+              "productId": "p1",
+              "quantity": 1,
+              "price": 599.00
+            }
+          ],
+          "totalAmount": 599.00,
+          "status": "delivered",
+          "orderDate": "2025-06-10T11:20:00Z"
+        }
+      ],
+      "createdAt": "2025-07-01T09:00:00Z"
+    },
+    {
+      "id": "u2",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "$2a$10$hashedpassword456",
+      "role": "admin",
+      "isBlocked": false,
+      "cart": [],
+      "wishlist": [],
+      "orders": [],
+      "orderHistory": [],
+      "createdAt": "2025-07-10T11:00:00Z"
+    },
+    {
+      "id": "u3",
+      "name": "Priya Sharma",
+      "email": "priya@example.com",
+      "password": "$2a$10$hashedpassword789",
+      "role": "user",
+      "isBlocked": true,
+      "cart": [
+        {
+          "productId": "p3",
+          "quantity": 1,
+          "addedAt": "2025-07-17T16:45:00Z"
+        }
+      ],
+      "wishlist": [
+        {
+          "productId": "p1",
+          "addedAt": "2025-07-12T10:00:00Z"
+        },
+        {
+          "productId": "p2",
+          "addedAt": "2025-07-13T12:30:00Z"
+        }
+      ],
+      "orders": [],
+      "orderHistory": [],
+      "createdAt": "2025-07-12T14:00:00Z"
+    }
   ]
+ 
 }
 
+
+  
+  
 

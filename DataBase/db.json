@@ -4,130 +4,392 @@
       "id": "u1",
       "name": "Ananda Krishnan",
       "email": "ananda@example.com",
-      "password": "hashedpassword123",
+      "password": "1234567890@Ak",
       "role": "user",
-      "isBlock": false,
-      "cart": [
-        {
-          "productId": "p1",
-          "quantity": 2
-        }
-      ],
+      "isBlocked": false,
+      "address": {
+        "street": "123 Tech Park",
+        "city": "Bangalore",
+        "state": "Karnataka"
+      },
+      "cart": [],
+      "wishlist": [],
       "orders": [
         {
-          "productId": "p2",
-          "quantity": 1,
-          "orderDate": "2025-07-15T10:30:00Z"
+          "orderId": "",
+          "products": [
+            {
+              "productId": "",
+              "quantity": 0,
+              "price": 0
+            }
+          ],
+          "totalAmount": 899,
+          "status": "delivered",
+          "orderDate": "2025-07-15T10:30:00Z",
+          "deliveryDate": "2025-07-18T14:00:00Z"
         }
       ],
-      "wishlist": [
+      "orderHistory": [
         {
-          "productId": "p3"
+          "orderId": "ord101",
+          "products": [
+            {
+              "productId": "p1",
+              "quantity": 1,
+              "price": 599
+            }
+          ],
+          "totalAmount": 599,
+          "status": "delivered",
+          "orderDate": "2025-06-10T11:20:00Z"
         }
       ],
-      "created_at": "2025-07-01T09:00:00Z"
+      "createdAt": "2025-07-01T09:00:00Z"
     },
     {
       "id": "u2",
       "name": "John Doe",
       "email": "john@example.com",
-      "password": "hashedpassword456",
+      "password": "$2a$10$hashedpassword456",
       "role": "admin",
-      "isBlock": false,
+      "isBlocked": false,
       "cart": [],
-      "orders": [],
       "wishlist": [],
-      "created_at": "2025-07-10T11:00:00Z"
+      "orders": [],
+      "orderHistory": [],
+      "createdAt": "2025-07-10T11:00:00Z"
     },
     {
       "id": "u3",
       "name": "Priya Sharma",
       "email": "priya@example.com",
-      "password": "hashedpassword789",
+      "password": "$2a$10$hashedpassword789",
       "role": "user",
-      "isBlock": true,
+      "isBlocked": true,
       "cart": [
         {
           "productId": "p3",
+          "quantity": 1,
+          "addedAt": "2025-07-17T16:45:00Z"
+        }
+      ],
+      "wishlist": [
+        {
+          "productId": "p1",
+          "addedAt": "2025-07-12T10:00:00Z"
+        },
+        {
+          "productId": "p2",
+          "addedAt": "2025-07-13T12:30:00Z"
+        }
+      ],
+      "orders": [],
+      "orderHistory": [],
+      "createdAt": "2025-07-12T14:00:00Z"
+    },
+    {
+      "id": "cc0c",
+      "name": "an",
+      "email": "ak001mob@gmail.com",
+      "password": "1234567890@Ak",
+      "role": "User",
+      "isBlock": false,
+      "cart": [
+        {
+          "id": "47121324835114",
+          "title": "Tomato Basil + Portobello Bolognese",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R06-BOLO.jpg?v=1716498567",
           "quantity": 1
+        },
+        {
+          "id": "47175570784554",
+          "title": "Mango + Greens",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+          "quantity": 5
+        },
+        {
+          "id": "46783280054570",
+          "title": "Tart Cherry + Raspberry",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+          "quantity": 3
+        },
+        {
+          "id": "46783280054570",
+          "title": "Tart Cherry + Raspberry",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+          "quantity": 3
+        },
+        {
+          "id": "46783280054570",
+          "quantity": 3
+        },
+        {
+          "id": "47175570784554",
+          "quantity": 5
+        },
+        {
+          "id": "47121676534058",
+          "quantity": 3
         }
       ],
       "orders": [],
       "wishlist": [
         {
-          "productId": "p1"
+          "id": "47121324802346",
+          "quantity": 1,
+          "key": "47121324802346:d44ee605a9e206dbe5b6d35a1743b03f",
+          "title": "White Bean + Spinach Pesto",
+          "price": 107,
+          "discounted_price": 97,
+          "line_price": 97,
+          "final_line_price": 107,
+          "total_discount": 10,
+          "discounts": [
+            {
+              "amount": 10,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 0,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567",
+          "product_type": "Pasta",
+          "product_title": "White Bean + Spinach Pesto",
+          "product_description": "Yes, this pasta is gluten-free. Yes, this pesto is nut- and dairy-free. And yes, it tastes like the bright, fresh, al dente summer dish we dream about all year long. Built on sunflower seed butter, basil, garlic, and lemon, with a dash of nutritional yeast for a parmesan-like hit of umami, our pesto is rich and creamy. It clings deliciously to sedani, a tubular pasta made of ancient grains and just right for catching the herby sauce. Artichokes and beans add flavor and fiber.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
         },
         {
-          "productId": "p2"
+          "id": "47175570784554",
+          "quantity": 1,
+          "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
+          "title": "Mango + Greens",
+          "price": 84,
+          "discounted_price": 76,
+          "line_price": 76,
+          "final_line_price": 84,
+          "total_discount": 8,
+          "discounts": [
+            {
+              "amount": 8,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 184,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+          "product_type": "Smoothie",
+          "product_title": "Mango + Greens",
+          "product_description": "This creamy smoothie gets its vivid hue from nutrient-dense spinach and its lush flavor from juicy mango, coconut cream, and a spritz of lime. Oh, and we added kohlrabi because we like you, and it's a bit of a nutritional powerhouse.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "49920346816810",
+          "quantity": 3,
+          "key": "49920346816810:83b675d137dbc720c0f82677d5e3e550",
+          "title": "Peppermint Cacao Truffle",
+          "price": 109,
+          "discounted_price": 98,
+          "line_price": 296,
+          "final_line_price": 329,
+          "total_discount": 33,
+          "discounts": [
+            {
+              "amount": 33,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 213,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
+          "product_type": "Bite",
+          "product_title": "Peppermint Cacao Truffle",
+          "product_description": "Nutrient-packed cacao with a cooling hit of peppermint. It's fudgy. It's minty. It tastes like dessert. But it's secretly a power snack made with sweet potato and chickpeas, which can help support digestion and take care of that 3 p.m. sugar craving.Servings: 15 bites per bag",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "46783324029226",
+          "quantity": 1,
+          "key": "46783324029226:15df0d4cc386a5933eb6cacd5020b329",
+          "title": "Cherry + Almond",
+          "price": 84,
+          "discounted_price": 76,
+          "line_price": 76,
+          "final_line_price": 84,
+          "total_discount": 8,
+          "discounts": [
+            {
+              "amount": 8,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 242,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+          "product_type": "Smoothie",
+          "product_title": "Cherry + Almond",
+          "product_description": "Imagine a nut butter & jelly sandwich: sweet but not too sweet with cherries, juicy strawberries, and a sprinkle of vanilla bean. Rich and satisfying with almond butter and toasty sacha inchi seeds. No crusts here; we're purists.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "46783308824874",
+          "quantity": 1,
+          "key": "46783308824874:e99155c047680879286a17d6238de47e",
+          "title": "Mango + Papaya",
+          "price": 84,
+          "discounted_price": 76,
+          "line_price": 76,
+          "final_line_price": 84,
+          "total_discount": 8,
+          "discounts": [
+            {
+              "amount": 8,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 213,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A03-PAPA.jpg?v=1716498612",
+          "product_type": "Smoothie",
+          "product_title": "Mango + Papaya",
+          "product_description": "A naturally sweet blend of hydrating pineapple, mango, and papaya. Some macadamias for that good fat. This smoothie captures the color—and, more importantly, the vibe—of a summer sunset.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "49627247083818",
+          "quantity": 3,
+          "key": "49627247083818:f364e7fc88247ce4662ee5dc35826b38",
+          "title": "Dark Chocolate Protein",
+          "price": 94,
+          "discounted_price": 85,
+          "line_price": 256,
+          "final_line_price": 284,
+          "total_discount": 28,
+          "discounts": [
+            {
+              "amount": 28,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 234,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a35-probro-deconstructed-pdp-web.jpg?v=1733508809",
+          "product_type": "Smoothie",
+          "product_title": "Dark Chocolate Protein",
+          "product_description": "Pure chocolate + pure protein = pure delight. With 20g of plant-based protein—no whey or nuts—and plenty of plants (hello, zucchini, pumpkin seeds and dates), this smoothie is proof you can hit your organic diet goals and your protein goals.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "49692138045738",
+          "quantity": 3,
+          "key": "49692138045738:04bce4e8bfdf9d2d5bbc30ff2f8b6da6",
+          "title": "Mixed Berry Protein",
+          "price": 94,
+          "discounted_price": 85,
+          "line_price": 256,
+          "final_line_price": 284,
+          "total_discount": 28,
+          "discounts": [
+            {
+              "amount": 28,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 193,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a36-prober-deconstructed-pdp-web.jpg?v=1733508810",
+          "product_type": "Smoothie",
+          "product_title": "Mixed Berry Protein",
+          "product_description": "Sipping this refreshing, organic berry delight will make you feel like you're on vacation—while hitting all your protein goals. Strawberries, blueberries, kale, they're all there. So is 20g of pure plant protein. What's not there is even better: namely, potential irritants like whey + nuts.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
+        },
+        {
+          "id": "46783285264682",
+          "quantity": 3,
+          "key": "46783285264682:4d66c5484db846bd8090d24690a80272",
+          "title": "Apple + Cinnamon",
+          "price": 84,
+          "discounted_price": 76,
+          "line_price": 229,
+          "final_line_price": 254,
+          "total_discount": 25,
+          "discounts": [
+            {
+              "amount": 25,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 230,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
+          "product_type": "Smoothie",
+          "product_title": "Apple + Cinnamon",
+          "product_description": "As easy as apple pie—and even more wholesome. Spiced apples bring that cinnamony goodness, while coconut cream and toasted vanilla bean offer the deep, rich taste of a just-starting-to-melt scoop of French vanilla ice cream. With adaptogenic maca. This Smoothie serves up a little slice of perfection.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
         }
       ],
-      "created_at": "2025-07-12T14:00:00Z"
-    },
-    {
-      "id": "e7ba",
-      "name": "Ananda krishanan 01",
-      "email": "ak001mob@gmail.com",
-      "password": "1234567890@Ak",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "created_at": "2025-07-18T11:44:23.002Z"
-    },
-    {
-      "id": "efe4",
-      "name": "ananan",
-      "email": "ak001mob@gmail.com",
-      "password": "1234567890@Ak",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "created_at": "2025-07-18T11:47:05.355Z"
-    },
-    {
-      "id": "b5d3",
-      "name": "thhhhhhhhhh",
-      "email": "ak001mob@gmail.com",
-      "password": "123456788877@Ak",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "created_at": "2025-07-18T11:47:34.949Z"
-    },
-    {
-      "id": "dacb",
-      "name": "Ananda krishnan",
-      "email": "ak001mob@gmail.com",
-      "password": "1234567990@AK",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "created_at": "2025-07-18T11:48:18.095Z"
-    },
-    {
-      "id": "bd83",
-      "name": "newuser",
-      "email": "ak506lap@gmail.com",
-      "password": "1234567890@Ak",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "created_at": "2025-07-18T12:29:26.303Z"
+      "created_at": "2025-07-21T08:14:44.760Z"
     }
   ],
-  
   "products": [
     {
-      "id": 47175570784554,
+      "id": "47175570784554",
       "quantity": 1,
       "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
       "title": "Mango + Greens",
@@ -158,7 +420,7 @@
       }
     },
     {
-      "id": 46783280054570,
+      "id": "46783280054570",
       "quantity": 1,
       "key": "46783280054570:355fa0a7f2ff85196209c355d27c0b63",
       "title": "Tart Cherry + Raspberry",
@@ -189,7 +451,7 @@
       }
     },
     {
-      "id": 47175581303082,
+      "id": "47175581303082",
       "quantity": 1,
       "key": "47175581303082:a3d82fd61c16f9b00746cdf59aace8c6",
       "title": "Ginger + Greens",
@@ -220,7 +482,7 @@
       }
     },
     {
-      "id": 46783324029226,
+      "id": "46783324029226",
       "quantity": 1,
       "key": "46783324029226:15df0d4cc386a5933eb6cacd5020b329",
       "title": "Cherry + Almond",
@@ -251,7 +513,7 @@
       }
     },
     {
-      "id": 46783308824874,
+      "id": "46783308824874",
       "quantity": 1,
       "key": "46783308824874:e99155c047680879286a17d6238de47e",
       "title": "Mango + Papaya",
@@ -282,7 +544,7 @@
       }
     },
     {
-      "id": 47121324802346,
+      "id": "47121324802346",
       "quantity": 1,
       "key": "47121324802346:d44ee605a9e206dbe5b6d35a1743b03f",
       "title": "White Bean + Spinach Pesto",
@@ -313,7 +575,7 @@
       }
     },
     {
-      "id": 47121324835114,
+      "id": "47121324835114",
       "quantity": 1,
       "key": "47121324835114:a8e4f04f85470e56bd3ec82d9bf7a17d",
       "title": "Tomato Basil + Portobello Bolognese",
@@ -344,7 +606,7 @@
       }
     },
     {
-      "id": 46783296045354,
+      "id": "46783296045354",
       "quantity": 1,
       "key": "46783296045354:487875c22e6db910255951f1557e1f3c",
       "title": "Banana + Almond",
@@ -375,7 +637,7 @@
       }
     },
     {
-      "id": 47121677877546,
+      "id": "47121677877546",
       "quantity": 1,
       "key": "47121677877546:1535ed89a97a1e5f777f1120bbf30956",
       "title": "Cinnamon + Banana",
@@ -406,7 +668,7 @@
       }
     },
     {
-      "id": 46783262982442,
+      "id": "46783262982442",
       "quantity": 1,
       "key": "46783262982442:8351e728d69a8ba6d991329fb0588c65",
       "title": "Strawberry + Peach",
@@ -437,7 +699,7 @@
       }
     },
     {
-      "id": 46783285264682,
+      "id": "46783285264682",
       "quantity": 3,
       "key": "46783285264682:4d66c5484db846bd8090d24690a80272",
       "title": "Apple + Cinnamon",
@@ -468,7 +730,7 @@
       }
     },
     {
-      "id": 46783301746986,
+      "id": "46783301746986",
       "quantity": 4,
       "key": "46783301746986:01a622eec4ab7984c071fcfd27444d21",
       "title": "Strawberry + Cashew",
@@ -499,7 +761,7 @@
       }
     },
     {
-      "id": 49920346816810,
+      "id": "49920346816810",
       "quantity": 3,
       "key": "49920346816810:83b675d137dbc720c0f82677d5e3e550",
       "title": "Peppermint Cacao Truffle",
@@ -530,7 +792,7 @@
       }
     },
     {
-      "id": 49692182020394,
+      "id": "49692182020394",
       "quantity": 3,
       "key": "49692182020394:d5034572bc42545b3e2521183670e560",
       "title": "Vanilla Bean Protein",
@@ -561,7 +823,7 @@
       }
     },
     {
-      "id": 49692138045738,
+      "id": "49692138045738",
       "quantity": 3,
       "key": "49692138045738:04bce4e8bfdf9d2d5bbc30ff2f8b6da6",
       "title": "Mixed Berry Protein",
@@ -592,7 +854,7 @@
       }
     },
     {
-      "id": 49627247083818,
+      "id": "49627247083818",
       "quantity": 3,
       "key": "49627247083818:f364e7fc88247ce4662ee5dc35826b38",
       "title": "Dark Chocolate Protein",
@@ -623,7 +885,7 @@
       }
     },
     {
-      "id": 46783305777450,
+      "id": "46783305777450",
       "quantity": 4,
       "key": "46783305777450:78b52c461c67bb054756864ccbef4ac0",
       "title": "Mint + Cacao",
@@ -654,7 +916,7 @@
       }
     },
     {
-      "id": 46783260426538,
+      "id": "46783260426538",
       "quantity": 4,
       "key": "46783260426538:70d66038abeea77e02ff96114bee6bde",
       "title": "Acai + Cherry",
@@ -685,7 +947,7 @@
       }
     },
     {
-      "id": 46783307219242,
+      "id": "46783307219242",
       "quantity": 4,
       "key": "46783307219242:95c1c58a12e7c087822dcf0627105328",
       "title": "Blueberry + Cacao",
@@ -716,7 +978,7 @@
       }
     },
     {
-      "id": 47121687052586,
+      "id": "47121687052586",
       "quantity": 3,
       "key": "47121687052586:0ea120f3b120082898621fbf0355a06d",
       "title": "Blueberry + Lemon",
@@ -747,7 +1009,7 @@
       }
     },
     {
-      "id": 47175598604586,
+      "id": "47175598604586",
       "quantity": 3,
       "key": "47175598604586:bc5bee60a1d74a8c53b66e497e84a87b",
       "title": "Strawberry + Goji Berry",
@@ -778,7 +1040,7 @@
       }
     },
     {
-      "id": 47121676534058,
+      "id": "47121676534058",
       "quantity": 4,
       "key": "47121676534058:2fe438d6d9b9277f693ad0d75e21a96f",
       "title": "Apple + Cinnamon",

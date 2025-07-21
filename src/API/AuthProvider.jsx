@@ -38,7 +38,7 @@ export default function AuthProvider({ children }) {
 
   return (
     <UserDataContext.Provider
-      value={{ user, setUser, login, logout, register }}
+      value={{ user, setUser, login, logout, register, userAPI }}
     >
       {!loading && children}
     </UserDataContext.Provider>
