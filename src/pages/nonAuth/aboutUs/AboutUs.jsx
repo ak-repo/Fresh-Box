@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -26,26 +26,29 @@ const AboutPage = () => {
         <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
           <div className="mb-12 lg:mb-0">
             <div className="bg-gray-100 aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-              <img
-                src="/assets/about/kitchen.jpg"
-                alt="Our kitchen"
-                className="w-full h-full object-cover"
-              />
+              <video width="600" controls autoPlay muted loop>
+                <source src="/assets/aboutVideo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Origin</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Our Origin
+            </h2>
             <p className="text-lg text-gray-600 mb-4">
-              Founded in 2025, we recognized a growing need for genuinely nourishing food that fits 
-              modern lifestyles. Too often, convenience meant compromising on quality or nutrition.
+              Founded in 2025, we recognized a growing need for genuinely
+              nourishing food that fits modern lifestyles. Too often,
+              convenience meant compromising on quality or nutrition.
             </p>
             <p className="text-lg text-gray-600 mb-4">
-              We set out to change that by creating a new category of prepared foods - ones that 
-              prioritize whole ingredients, thoughtful preparation, and honest flavors, without 
-              sacrificing time or taste.
+              We set out to change that by creating a new category of prepared
+              foods - ones that prioritize whole ingredients, thoughtful
+              preparation, and honest flavors, without sacrificing time or
+              taste.
             </p>
             <button
-              onClick={() => navigate('/products')}
+              onClick={() => navigate("/products")}
               className="mt-6 px-6 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
             >
               Discover Our Products
@@ -68,19 +71,27 @@ const AboutPage = () => {
             {[
               {
                 title: "Ingredient Standards",
-                description: "We source only whole, recognizable ingredients—nothing artificial or unnecessary."
+                description:
+                  "We source only whole, recognizable ingredients—nothing artificial or unnecessary.",
               },
               {
                 title: "Preparation Methods",
-                description: "Techniques that preserve nutrition and amplify natural flavors."
+                description:
+                  "Techniques that preserve nutrition and amplify natural flavors.",
               },
               {
                 title: "Quality Verification",
-                description: "Rigorous testing at every stage from farm to fulfillment."
-              }
+                description:
+                  "Rigorous testing at every stage from farm to fulfillment.",
+              },
             ].map((item, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{item.title}</h3>
+              <div
+                key={index}
+                className="bg-white p-8 rounded-lg border border-gray-200"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  {item.title}
+                </h3>
                 <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
@@ -91,19 +102,24 @@ const AboutPage = () => {
       {/* Philosophy */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Philosophy</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            Our Philosophy
+          </h2>
           <div className="prose-lg text-gray-600 mx-auto">
             <p className="mb-6">
-              We believe good food should be both nourishing and accessible. That means eliminating 
-              the tradeoffs between quality and convenience, between nutrition and flavor.
+              We believe good food should be both nourishing and accessible.
+              That means eliminating the tradeoffs between quality and
+              convenience, between nutrition and flavor.
             </p>
             <p className="mb-6">
-              Every decision—from sourcing partners to packaging materials—is made with this balance 
-              in mind. We're building a new model for prepared foods, one that honors both the 
-              integrity of ingredients and the realities of modern life.
+              Every decision—from sourcing partners to packaging materials—is
+              made with this balance in mind. We're building a new model for
+              prepared foods, one that honors both the integrity of ingredients
+              and the realities of modern life.
             </p>
             <p>
-              The result is a product line that delivers on its promises without compromise.
+              The result is a product line that delivers on its promises without
+              compromise.
             </p>
           </div>
         </div>
@@ -112,9 +128,11 @@ const AboutPage = () => {
       {/* Simple CTA */}
       <section className="border-t border-gray-200 py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">Experience the difference</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Experience the difference
+          </h2>
           <button
-            onClick={() => navigate('/products')}
+            onClick={() => navigate("/products")}
             className="px-8 py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
           >
             Browse Our Offerings

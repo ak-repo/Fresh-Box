@@ -80,9 +80,9 @@ const ProductCart = ({ products }) => {
   };
 
   //handle add to cart
-  const handleAddToCart = (productId) => {
+  const handleAddToCart = (product) => {
     console.log(' handle')
-    addToCart(productId);
+    addToCart(product);
   };
 
   return (
@@ -123,7 +123,7 @@ const ProductCart = ({ products }) => {
                   {isInWishlist(product.id) ? "💖 " : "🤍"}
                 </button>
                 <button
-                  onClick={() => handleAddToCart(product.id)}
+                  onClick={() => handleAddToCart(product)}
                   className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
                 >
                   Add to Cart

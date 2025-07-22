@@ -189,8 +189,8 @@ function BestSellerNewItems() {
   };
 
   //cart
-  const handleAddToCart = (productId) => {
-    addToCart(productId);
+  const handleAddToCart = (product) => {
+    addToCart(product);
   };
 
   const products = activeTab === "bestseller" ? bestSellers : newArrivals;
@@ -274,7 +274,7 @@ function BestSellerNewItems() {
 
                   {/* Add to Cart Button - Bottom */}
                   <button
-                    onClick={() => handleAddToCart(product.id)}
+                    onClick={() => handleAddToCart(product)}
                     className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
                   >
                     Add to Cart

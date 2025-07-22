@@ -15,6 +15,8 @@ import Footer from "./pages/common/footer/Footer";
 import UserProfile from "./pages/nonAuth/profile/UserProfile";
 import AboutPage from "./pages/nonAuth/aboutUs/AboutUs";
 import OrdersPage from "./pages/nonAuth/order/Orders";
+import PaymentPage from "./pages/nonAuth/payment/PaymentPage";
+import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 
 export default function UserRoutes() {
   return (
@@ -47,6 +49,8 @@ const AppRouters = () => {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/aboutUs" element={<AboutPage />} />
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/paymentSuccess" element={<PaymentSuccess />} />
       </Routes>
 
       {!hiddeNavbar && <Footer />}

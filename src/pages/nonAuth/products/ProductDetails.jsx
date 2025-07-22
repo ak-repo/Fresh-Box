@@ -32,7 +32,7 @@ export default function ProductDetails() {
 
   // handle cart
   const handleAddToCart = () => {
-    addToCart(productId);
+    addToCart(product);
   };
 
   if (!product) {

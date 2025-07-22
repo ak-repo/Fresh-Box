@@ -13,13 +13,21 @@ export default function RegistrationPage() {
     name: "",
     email: "",
     password: "",
-    role: "User",
+    role: "User", // default role
+    address: {
+      street: "",
+      city: "",
+      state: "",
+      pin: "",
+    },
     isBlock: false,
     cart: [],
     orders: [],
     wishlist: [],
+    orderHistory: [],
     created_at: new Date().toISOString(),
   });
+
   //form filling
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });

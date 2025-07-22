@@ -37,17 +37,17 @@ export function useCartController() {
   };
 
   //add to cart
-  const addToCart = (productId) => {
+  const addToCart = (product) => {
     if (!user?.id) {
       navigate("/login");
       return;
     }
 
-    const existing = cart.find((item) => item?.id === productId);
+    const existing = cart.find((item) => item?.id === product.id);
 
     if (existing) {
       const updatedCart = cart.map((item) => {
-        return item.id === productId
+        return item.id === product.id
           ? { ...item, quantity: item.quantity + 1 }
           : item;
       });
@@ -57,7 +57,10 @@ export function useCartController() {
       const newCart = [
         ...cart,
         {
-          id: productId,
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          image: product.image,
 
           quantity: 1,
         },
@@ -75,7 +78,9 @@ export function useCartController() {
   //update cart quantity
   const updateQuantity = (productId, newQuanty) => {
     const updatedCart = cart.map((item) =>
-      item.id === productId ? { ...item, quantity: newQuanty } : item
+      item.id === productId
+        ? { ...item, quantity: item.quantity + newQuanty }
+        : item
     );
     updateCartOnServer(updatedCart);
   };
