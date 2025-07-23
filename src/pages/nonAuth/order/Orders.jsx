@@ -1,19 +1,25 @@
 import { useState } from "react";
-import { UserDataContext } from "../../../API/AuthContext";
+import { UserDataContext } from "../../../ContextAPI/AuthContext";
 import { useOrderController } from "../../../customHooks/useOrderController";
+import { useNavigate } from "react-router-dom";
 
 export default function OrdersPage() {
   // const [currentOrder, setCurrentOrders] = useState();
   // const { user } = useContext(UserDataContext);
   const [activeTab, setActiveTab] = useState("current");
   const { orders } = useOrderController();
+  const navigarte = useNavigate();
 
   //classification
-  const currentOrder = orders.filter((item) => item.status !== "delivered");
-  const orderHistory = orders.filter((item) => item.status === "delivered");
+  const currentOrder = orders
+    .filter((item) => item.status !== "delivered")
+    .reverse();
+  const orderHistory = orders
+    .filter((item) => item.status === "delivered")
+    .reverse();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8  min-h-screen">
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8">
@@ -50,12 +56,12 @@ export default function OrdersPage() {
             currentOrder.length === 0 ? (
               <EmptyOrder />
             ) : (
-              <CurrentOrder currentOrder={currentOrder} />
+              <CurrentOrder currentOrder={currentOrder} navigarte={navigarte} />
             )
           ) : orderHistory.length === 0 ? (
             <EmptyOrder />
           ) : (
-            <OrderHistory orderHistory={orderHistory} />
+            <OrderHistory orderHistory={orderHistory} navigarte={navigarte} />
           )}
         </div>
       </div>
@@ -63,7 +69,7 @@ export default function OrdersPage() {
   );
 }
 
-const CurrentOrder = ({ currentOrder }) => {
+const CurrentOrder = ({ currentOrder, navigarte }) => {
   return (
     <>
       {currentOrder &&
@@ -94,7 +100,13 @@ const CurrentOrder = ({ currentOrder }) => {
                     key={crypto.randomUUID()}
                   >
                     <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border border-gray-200 bg-gray-100">
-                      <img src={product.image} alt="product" />
+                      <img
+                        onClick={() =>
+                          navigarte(`/productDetails/${product.id}`)
+                        }
+                        src={product.image}
+                        alt="product"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 truncate">
@@ -124,7 +136,7 @@ const CurrentOrder = ({ currentOrder }) => {
   );
 };
 
-const OrderHistory = ({ orderHistory }) => {
+const OrderHistory = ({ orderHistory, navigarte }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
       {orderHistory &&
@@ -150,7 +162,12 @@ const OrderHistory = ({ orderHistory }) => {
                   order.items.map((product) => (
                     <div className="flex items-start space-x-3">
                       <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border border-gray-200 bg-gray-100">
-                        <img src={product.image} />
+                        <img
+                          onClick={() =>
+                            navigarte(`/productDetails/${product.id}`)
+                          }
+                          src={product.image}
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">

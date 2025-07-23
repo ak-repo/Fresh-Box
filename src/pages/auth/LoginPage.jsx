@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { userAPI } from "../../API/AuthProvider";
-import { UserDataContext } from "../../API/AuthContext";
+import { userAPI } from "../../ContextAPI/AuthProvider";
+import { UserDataContext } from "../../ContextAPI/AuthContext";
 import axios from "axios";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { ToastContext } from "../../ContextAPI/AuthContext";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -13,6 +14,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
 
   const { user, setUser, login } = useContext(UserDataContext);
+  const {toastSuccess} = useContext(ToastContext)
 
   useEffect(() => {
     if (user) {
@@ -37,11 +39,17 @@ export default function LoginPage() {
       const loggedUser = data[0];
       console.log(loggedUser);
       if (loggedUser) {
-        alert("welcome to home");
+        // alert("welcome to home");
         setUser(loggedUser);
-        login(loggedUser)
+        login(loggedUser);
+        toastSuccess("🎉 Welcome back! You’ve logged in successfully.")
+       
 
-        navigate("/"); // go to home
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      } else {
+        toastSuccess('❌ Oops! Invalid credentials. Please try again.')
       }
     } catch (err) {
       setError(err.message);
@@ -141,6 +149,8 @@ export default function LoginPage() {
               </button>
             </div>
           </form>
+
+       
 
           <p className="mt-10 text-center text-sm/6">
             Not have a account?{" "}

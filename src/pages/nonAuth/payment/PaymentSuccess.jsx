@@ -49,8 +49,13 @@ function PaymentSuccess() {
                 orderDetails.items.map((product) => (
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border border-gray-200 bg-gray-100">
-                        <img src={product?.image} alt="product-image" />
+                      <div
+                        onClick={() =>
+                          navigate(`/productDetails/${product.id}`)
+                        }
+                        className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border border-gray-200 bg-gray-100"
+                      >
+                        <img src={product.image} />
                       </div>
                       <div className="ml-4">
                         <h3 className="text-sm font-medium text-gray-900">
@@ -257,13 +262,13 @@ function PaymentSuccess() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => navigate("/products")}
-            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 cursor-pointer"
           >
             Continue Shopping
           </button>
           <button
             onClick={() => navigate("/orders")}
-            className="px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+            className="px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 cursor-pointer"
           >
             View Order
           </button>

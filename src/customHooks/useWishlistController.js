@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { UserDataContext } from "../API/AuthContext";
+import { UserDataContext } from "../ContextAPI/AuthContext";
+import { ToastContext } from "../ContextAPI/AuthContext";
 
 const BASE_API = "http://localhost:3000/users";
 export function useWishlistController() {
   const { user } = useContext(UserDataContext);
   const [wishlist, setWishlist] = useState([]);
+  const { toastSuccess } = useContext(ToastContext);
 
   useEffect(() => {
     if (user?.id) {
@@ -30,15 +32,21 @@ export function useWishlistController() {
 
   // add to wishlist
   const addtoWishlist = (product) => {
+    if (!user?.id) {
+      toastSuccess("⚠️ Login Required");
+      return;
+    }
     if (!wishlist.find((item) => item.id === product.id)) {
       const newWishlist = [...wishlist, product];
       updateWishlistOnServer(newWishlist);
+      toastSuccess("💖 Saved to your wishlist. Come back anytime!");
     }
   };
   //
   const removeFromWishlist = (productID) => {
     const newWishlist = wishlist.filter((item) => item.id !== productID);
     updateWishlistOnServer(newWishlist);
+    toastSuccess("💔 Removed from your wishlist. Hope you find better! ");
   };
   const isInWishlist = (productId) => {
     return wishlist.some((item) => item.id === productId);

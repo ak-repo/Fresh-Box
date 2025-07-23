@@ -14,7 +14,7 @@ export default function Cart() {
   }, 0);
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md min-h-screen">
       <h1 className="text-3xl font-bold text-center mb-6 text-indigo-700">
         My Shopping Cart
       </h1>
@@ -46,6 +46,12 @@ export default function Cart() {
                 className="p-4 border border-gray-200 rounded-lg flex justify-between products-center bg-white hover:bg-gray-50 transition-colors"
               >
                 <div className="flex-1">
+                  <div
+                    onClick={() => navigate(`/productDetails/${product.id}`)}
+                    className="flex-shrink-0 h-16 w-16 rounded-md overflow-hidden border border-gray-200 bg-gray-100"
+                  >
+                    <img src={product.image} />
+                  </div>
                   <h3 className="font-medium text-gray-800">{product.title}</h3>
                   <p className="text-lg font-semibold text-indigo-600">
                     Price:{Number(product?.price) * Number(product?.quantity)}

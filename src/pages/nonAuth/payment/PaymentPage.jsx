@@ -1,6 +1,7 @@
 import { useCartController } from "../../../customHooks/useCartController";
-import { UserDataContext } from "../../../API/AuthContext";
+import { UserDataContext } from "../../../ContextAPI/AuthContext";
 import { useOrderController } from "../../../customHooks/useOrderController";
+import { ToastContext } from "../../../ContextAPI/AuthContext";
 
 import { useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -12,9 +13,11 @@ function PaymentPage() {
   const location = useLocation();
   const totalAmount = (location.state + 9.99 + 20.8).toFixed(2);
   const navigate = useNavigate();
+  const { toastSuccess } = useContext(ToastContext);
 
   const handleAddToOrders = () => {
     addtoOrders(cart, totalAmount, user?.address); // sharing current cart and total amount
+    toastSuccess("✅ Payment received! Thank you for your purchase. ");
     navigate("/paymentSuccess");
   };
 
@@ -88,7 +91,7 @@ function PaymentPage() {
                 <button
                   type="button"
                   onClick={handleAddToOrders}
-                  className="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md"
+                  className="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md cursor-pointer"
                 >
                   Pay
                 </button>

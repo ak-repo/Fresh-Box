@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserDataContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
+import { ToastContext } from "./AuthContext";
 
 export const userAPI = "http://localhost:3000/users";
 
@@ -8,6 +9,7 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { toastSuccess } = useContext(ToastContext);
 
   //cheching user in local storage
   useEffect(() => {
@@ -33,7 +35,11 @@ export default function AuthProvider({ children }) {
   const register = (userData) => setUser(userData);
   const logout = () => {
     setUser(null);
-    navigate("/");
+
+    toastSuccess(" 👋 You’ve been logged out. See you soon!");
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (

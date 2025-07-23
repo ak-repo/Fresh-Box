@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
-import { GetAllProducts } from "../../../API/ShowProducts";
+import { GetAllProducts } from "../../../ContextAPI/ShowProducts";
 import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white">
-      <LandingImgSection />
+      <LandingImgSection navigate={navigate} />
       <OurOffering />
-      <BestSellerNewItems />
+      <BestSellerNewItems navigate={navigate} />
     </div>
   );
 }
 
-const LandingImgSection = () => {
+const LandingImgSection = ({ navigate }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slides = [
     {
@@ -72,7 +73,10 @@ const LandingImgSection = () => {
               <span className="block h-1 w-20 mt-4 bg-gray-900 rounded-full"></span>
             </h1>
             <p className="text-xl text-gray-600">{currentSlide.description}</p>
-            <button className="px-8 py-3 rounded-lg bg-black text-white font-medium   hover:bg-gray-300 hover:text-black transition-all duration-300 shadow-md">
+            <button
+              className="px-8 py-3 rounded-lg bg-black text-white font-medium   hover:bg-gray-300 hover:text-black transition-all duration-300 shadow-md cursor-pointer"
+              onClick={() => navigate("/products")}
+            >
               Shop Now
             </button>
 
@@ -160,11 +164,10 @@ function OurOffering() {
 import { useWishlistController } from "../../../customHooks/useWishlistController";
 import { useCartController } from "../../../customHooks/useCartController";
 
-function BestSellerNewItems() {
+function BestSellerNewItems({ navigate }) {
   const [bestSellers, setBestSellers] = useState(null);
   const [newArrivals, setNewArrivals] = useState(null);
   const [activeTab, setActiveTab] = useState("bestseller");
-  const navigate = useNavigate();
   const { addtoWishlist, removeFromWishlist, isInWishlist } =
     useWishlistController();
   const { addToCart } = useCartController();
@@ -203,26 +206,36 @@ function BestSellerNewItems() {
             Our Picks For You
           </h2>
           <div className="inline-flex bg-gray-100 p-0.5 rounded-lg">
-            <button
-              onClick={() => setActiveTab("bestseller")}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                activeTab === "bestseller"
-                  ? "bg-black text-white shadow-sm"
-                  : "text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              Best Sellers
-            </button>
-            <button
-              onClick={() => setActiveTab("new")}
-              className={`px-4 py-1.5 rounded-md text-sm font-medium transition-colors ${
-                activeTab === "new"
-                  ? "bg-black text-white shadow-sm"
-                  : "text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              New Items
-            </button>
+            <div className="flex gap-2 p-1 bg-gray-100 rounded-lg">
+              {" "}
+              {/* Container for better grouping */}
+              <button
+                onClick={() => setActiveTab("bestseller")}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-out ${
+                  activeTab === "bestseller"
+                    ? "bg-black text-white shadow-md"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                } flex items-center justify-center cursor-pointer`}
+              >
+                {activeTab === "bestseller" && (
+                  <span className="mr-1.5">🔥</span> /* Icon for active state */
+                )}
+                Best Sellers
+              </button>
+              <button
+                onClick={() => setActiveTab("new")}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ease-out ${
+                  activeTab === "new"
+                    ? "bg-black text-white shadow-md"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                } flex items-center justify-center cursor-pointer`}
+              >
+                {activeTab === "new" && (
+                  <span className="mr-1.5">🆕</span> /* Icon for active state */
+                )}
+                New Items
+              </button>
+            </div>
           </div>
         </div>
         {products ? (
@@ -275,7 +288,12 @@ function BestSellerNewItems() {
                   {/* Add to Cart Button - Bottom */}
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
+                    className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md 
+             transition-all duration-200 ease-in-out 
+             transform hover:scale-[1.02] active:scale-[0.98]
+             cursor-pointer shadow-md hover:shadow-lg active:shadow-inner
+             border border-transparent hover:border-gray-600
+             focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                   >
                     Add to Cart
                   </button>

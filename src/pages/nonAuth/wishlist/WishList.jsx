@@ -1,23 +1,24 @@
 // Wishlist.jsx
 import { useNavigate } from "react-router-dom";
 import { useWishlistController } from "../../../customHooks/useWishlistController";
+import { useCartController } from "../../../customHooks/useCartController";
 
 const Wishlist = () => {
   const { wishlist, removeFromWishlist } = useWishlistController();
   const navigate = useNavigate();
+  const { addToCart } = useCartController();
   if (!wishlist) {
     navigate("/login");
   }
 
-  // const handleAddToCart = (product) => {
-  //   // Optional: Show a toast notification
-  //   // toast.success(`${product.title} added to cart!`);
-  // };
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
   return (
-    <div className="max-w-md mx-auto p-6 min-h-[500px]">
+    <div className="max-w-md mx-auto p-6 min-h-screen">
       {" "}
-      {/* Fixed minimum height */}
+  
       {/* Header */}
       <div className="text-center mb-8">
         <svg
@@ -94,10 +95,10 @@ const Wishlist = () => {
               <div className="flex flex-col items-center gap-2">
                 {/* Add to Cart Button - Add your functionality here */}
                 <button
-                  // onClick={() => handleAddToCart(product)}
-                  className="w-8 mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
+                  onClick={() => handleAddToCart(product)}
+                  className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors cursor-pointer"
                 >
-                  Cart
+                  Add to Cart
                 </button>
 
                 <button

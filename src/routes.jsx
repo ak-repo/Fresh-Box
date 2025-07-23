@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import AuthProvider from "./API/AuthProvider";
+
+import AuthProvider from "./ContextAPI/AuthProvider";
+
 
 //Routes
 import LoginPage from "./pages/auth/LoginPage";
@@ -20,11 +22,12 @@ import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 
 export default function UserRoutes() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <AppRouters />
-      </AuthProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <AuthProvider>
+          <AppRouters />
+        </AuthProvider>
+      </BrowserRouter>
+    
   );
 }
 const AppRouters = () => {

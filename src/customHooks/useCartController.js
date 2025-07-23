@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { UserDataContext } from "../API/AuthContext";
+import { UserDataContext } from "../ContextAPI/AuthContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ToastContext } from "../ContextAPI/AuthContext";
 
 const BASE_API = "http://localhost:3000/users";
 
 export function useCartController() {
   const [cart, setCart] = useState([]);
+  const [totalQuantity, setQuantity] = useState(0);
   const { user } = useContext(UserDataContext);
-  const navigate = useNavigate();
+  const { toastSuccess } = useContext(ToastContext);
 
   //fatching cart items..
   useEffect(() => {
@@ -23,15 +24,25 @@ export function useCartController() {
     }
   }, [user?.id]);
 
+  //updating Quantity of cart
+  useEffect(() => {
+    if (cart) {
+      setQuantity(cart.length);
+    }
+  }, [cart]);
+
   // patching functionality
 
   const updateCartOnServer = async (updatedCart) => {
     if (user.id) {
-      console.log(" updater");
-
       await axios
         .patch(`${BASE_API}/${user.id}`, { cart: updatedCart })
-        .then(() => setCart(updatedCart))
+        .then(() => {
+          setCart(updatedCart);
+          // setQuantity(() =>
+          //   updatedCart.reduce((accu, item) => accu + (item?.quantity || 1), 0)
+          // );
+        })
         .catch((err) => console.log("Error updating Cart", err));
     }
   };
@@ -39,7 +50,7 @@ export function useCartController() {
   //add to cart
   const addToCart = (product) => {
     if (!user?.id) {
-      navigate("/login");
+      toastSuccess("⚠️ Login Required");
       return;
     }
 
@@ -53,6 +64,7 @@ export function useCartController() {
       });
       console.log(updatedCart, "new one geted");
       updateCartOnServer(updatedCart);
+      toastSuccess("🛒 Added to cart! Ready to checkout when you are.");
     } else {
       const newCart = [
         ...cart,
@@ -66,6 +78,7 @@ export function useCartController() {
         },
       ];
       updateCartOnServer(newCart);
+      toastSuccess("🛒 Added to cart! Ready to checkout when you are.");
     }
   };
 
@@ -73,6 +86,7 @@ export function useCartController() {
   const removeFromCart = (productId) => {
     const newCart = cart.filter((item) => item.id !== productId);
     updateCartOnServer(newCart);
+    toastSuccess("❌ Removed from cart. Maybe next time!");
   };
 
   //update cart quantity
@@ -83,7 +97,8 @@ export function useCartController() {
         : item
     );
     updateCartOnServer(updatedCart);
+    toastSuccess("🛒 Already in cart! Ready to checkout when you are.");
   };
 
-  return { cart, addToCart, removeFromCart, updateQuantity };
+  return { cart, addToCart, removeFromCart, updateQuantity, totalQuantity };
 }

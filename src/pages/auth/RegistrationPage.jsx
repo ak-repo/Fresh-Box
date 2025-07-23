@@ -1,7 +1,8 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { userAPI } from "../../API/AuthProvider";
+import { userAPI } from "../../ContextAPI/AuthProvider";
+import { ToastContext } from "../../ContextAPI/AuthContext";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
@@ -9,12 +10,14 @@ export default function RegistrationPage() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const { toastSuccess } = useContext(ToastContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     role: "User", // default role
     address: {
+      mobile: " ",
       street: "",
       city: "",
       state: "",
@@ -57,7 +60,7 @@ export default function RegistrationPage() {
     event.preventDefault();
 
     if (!validate()) {
-      console.log("validaion failed");
+      toastSuccess("⚠️ Couldn’t create account. Please try again later.");
       return;
     }
     const newUser = {
@@ -67,12 +70,14 @@ export default function RegistrationPage() {
     };
     try {
       await axios.post(userAPI, newUser);
-      console.log("submitted new user");
+      toastSuccess(" 👋 Account created! Let’s get you started.");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (err) {
       console.log("error accuring while posting user info", err.message);
     } finally {
       console.log("handleSubmission completed");
-      navigate("/login");
     }
   };
 

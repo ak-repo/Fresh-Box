@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetAllProducts } from "../../../API/ShowProducts";
+import { GetAllProducts } from "../../../ContextAPI/ShowProducts";
 import { useNavigate } from "react-router-dom";
 import { useWishlistController } from "../../../customHooks/useWishlistController";
 import { useCartController } from "../../../customHooks/useCartController";
@@ -8,12 +8,14 @@ import { toast } from "react-toastify"; // or any other notification system
 export default function Products() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedCategory, setCategory] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const data = await GetAllProducts();
         setProducts(data);
+        setCategory(data);
       } catch (error) {
         console.error("Error fetching products", error.message);
         setError("Failed to load products. Please try again later.");
@@ -23,26 +25,61 @@ export default function Products() {
 
     fetchProducts();
   }, []);
+  const handleCategoryChange = (category) => {
+    console.log(category);
+    if (category === "All") {
+      setCategory(products);
+    } else {
+      setCategory(() => {
+        return products.filter((item) => item.product_type === category);
+      });
+    }
+  };
 
   return (
     <div className="bg-gray-50 min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex gap-8">
         {/* Sticky Filter Panel */}
+
         <div className="hidden md:block w-64 flex-shrink-0">
-          <div className="sticky top-24 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <h3 className="text-lg font-semibold text-gray-900 mb-5 pb-2 border-b border-gray-100">
-              Filters
+          <div className="sticky top-24 bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+            <h3 className="font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-100">
+              Filter Products
             </h3>
-            <ul className="space-y-3">
-              {["All", "Smoothies", "Bowls", "Bites"].map((category) => (
-                <li
+
+            <nav className="space-y-2">
+              {["All", "Smoothie", "Breakfast Bowl", "Bite"].map((category) => (
+                <button
                   key={category}
-                  className="text-gray-600 hover:text-indigo-600 cursor-pointer transition-colors duration-200 px-2 py-1 rounded-md hover:bg-indigo-50"
+                  onClick={() => handleCategoryChange(category)}
+                  className={`
+            w-full flex items-center px-4 py-2.5 text-sm rounded-lg
+            transition-all duration-150 ease-out
+            ${
+              selectedCategory === category
+                ? "bg-blue-100/80 text-blue-700 font-medium shadow-inner"
+                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+            }
+          `}
                 >
+                  <span
+                    className={`mr-2 ${
+                      selectedCategory === category
+                        ? "text-blue-500"
+                        : "text-gray-400"
+                    }`}
+                  >
+                    {category === "Smoothie" && "🥤"}
+                    {category === "Breakfast Bowl" && "🥣"}
+                    {category === "Bite" && "🍪"}
+                  </span>
                   {category}
-                </li>
+                  {selectedCategory === category && (
+                    <span className="ml-auto text-blue-500">→</span>
+                  )}
+                </button>
               ))}
-            </ul>
+            </nav>
           </div>
         </div>
 
@@ -54,7 +91,7 @@ export default function Products() {
           {error ? (
             <div className="text-center py-12 text-red-500">{error}</div>
           ) : (
-            <ProductCart products={products} />
+            <ProductCart products={selectedCategory} />
           )}
         </div>
       </div>
@@ -81,7 +118,7 @@ const ProductCart = ({ products }) => {
 
   //handle add to cart
   const handleAddToCart = (product) => {
-    console.log(' handle')
+    console.log(" handle");
     addToCart(product);
   };
 
@@ -118,13 +155,35 @@ const ProductCart = ({ products }) => {
                 </p>
               </div>
               <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
-                <button onClick={() => handleWishlist(product)}>
-                  {" "}
-                  {isInWishlist(product.id) ? "💖 " : "🤍"}
+                <button
+                  onClick={() => handleWishlist(product)}
+                  className="p-2 rounded-full transition-all duration-300 ease-in-out 
+            hover:bg-pink-50 active:scale-90 focus:outline-none
+            focus:ring-2 focus:ring-pink-200 cursor-pointer"
+                  aria-label={
+                    isInWishlist(product.id)
+                      ? "Remove from wishlist"
+                      : "Add to wishlist"
+                  }
+                >
+                  <span
+                    className={`text-xl ${
+                      isInWishlist(product.id)
+                        ? "text-pink-500 animate-pulse"
+                        : "text-gray-400 hover:text-pink-300"
+                    }`}
+                  >
+                    {isInWishlist(product.id) ? "❤️" : "🤍"}
+                  </span>
                 </button>
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md transition-colors"
+                  className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md 
+             transition-all duration-200 ease-in-out 
+             transform hover:scale-[1.02] active:scale-[0.98]
+             cursor-pointer shadow-md hover:shadow-lg active:shadow-inner
+             border border-transparent hover:border-gray-600
+             focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 cursor-pointer"
                 >
                   Add to Cart
                 </button>
