@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import AuthProvider from "./ContextAPI/AuthProvider";
 
-
 //Routes
 import LoginPage from "./pages/auth/LoginPage";
 import RegistrationPage from "./pages/auth/RegistrationPage";
@@ -22,21 +21,20 @@ import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 
 export default function UserRoutes() {
   return (
-      <BrowserRouter>
-        <AuthProvider>
-          <AppRouters />
-        </AuthProvider>
-      </BrowserRouter>
-    
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRouters />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 const AppRouters = () => {
   const location = useLocation();
-  const hiddeNavbar =
+  const hideComponets =
     location.pathname === "/login" || location.pathname === "/register";
   return (
     <>
-      {!hiddeNavbar && <NavigationBar />}
+      {!hideComponets && <NavigationBar />}
       <Routes>
         <Route path="*" element={<ErrorResponse />} />
         <Route path="/" element={<LandingPage />} />
@@ -56,7 +54,7 @@ const AppRouters = () => {
         <Route path="/paymentSuccess" element={<PaymentSuccess />} />
       </Routes>
 
-      {!hiddeNavbar && <Footer />}
+      {!hideComponets && <Footer />}
     </>
   );
 };

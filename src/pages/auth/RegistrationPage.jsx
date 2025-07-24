@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { userAPI } from "../../ContextAPI/AuthProvider";
-import { ToastContext } from "../../ContextAPI/AuthContext";
+import { ToastContext } from "../../ContextAPI/ContextsCreate";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
@@ -10,7 +10,8 @@ export default function RegistrationPage() {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const { toastSuccess } = useContext(ToastContext);
+  const [usersList, setUserList] = useState(null);
+  const { toastSuccess, toastFail } = useContext(ToastContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,6 +31,13 @@ export default function RegistrationPage() {
     orderHistory: [],
     created_at: new Date().toISOString(),
   });
+
+  //getting all user data
+  useEffect(() => {
+    (async () => {
+      axios.get(userAPI).then((res) => setUserList(res.data));
+    })();
+  }, []);
 
   //form filling
   const handleChange = (event) => {
@@ -59,10 +67,21 @@ export default function RegistrationPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // validating the data
     if (!validate()) {
-      toastSuccess("⚠️ Couldn’t create account. Please try again later.");
+      toastFail("⚠️ Couldn’t create account. Please try again later.");
       return;
     }
+    //checking the email already existing
+    if (usersList) {
+      const existing = usersList.some((user) => user.email === formData.email);
+      if (existing) {
+        toastFail("User Email already Existing");
+
+        return;
+      }
+    }
+
     const newUser = {
       ...formData,
       role: "User",

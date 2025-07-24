@@ -62,32 +62,11 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "47175581303082",
-          "title": "Ginger + Greens",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
-          "quantity": 2
-        },
-        {
-          "id": "46783324029226",
-          "title": "Cherry + Almond",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+          "id": "49920346816810",
+          "title": "Peppermint Cacao Truffle",
+          "price": 109,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
           "quantity": 1
-        },
-        {
-          "id": "47121324835114",
-          "title": "Tomato Basil + Portobello Bolognese",
-          "price": 107,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R06-BOLO.jpg?v=1716498567",
-          "quantity": 1
-        },
-        {
-          "id": "47175570784554",
-          "title": "Mango + Greens",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
-          "quantity": 10
         }
       ],
       "orders": [
@@ -655,40 +634,32 @@
             "state": "Kerala",
             "pin": "673009"
           }
+        },
+        {
+          "orderId": "ord-1753335890226",
+          "status": "pending",
+          "items": [
+            {
+              "id": "49920346816810",
+              "title": "Peppermint Cacao Truffle",
+              "price": 109,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "139.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "date": "24/07/2025, 11:14:50",
+          "shippingAddress": {
+            "street": "Malaparamba",
+            "city": "Calicut",
+            "state": "Kerala",
+            "pin": "673009"
+          }
         }
       ],
       "wishlist": [
-        {
-          "id": "47175570784554",
-          "quantity": 1,
-          "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
-          "title": "Mango + Greens",
-          "price": 84,
-          "discounted_price": 76,
-          "line_price": 76,
-          "final_line_price": 84,
-          "total_discount": 8,
-          "discounts": [
-            {
-              "amount": 8,
-              "title": "10% Plan Discount"
-            }
-          ],
-          "grams": 184,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
-          "product_type": "Smoothie",
-          "product_title": "Mango + Greens",
-          "product_description": "This creamy smoothie gets its vivid hue from nutrient-dense spinach and its lush flavor from juicy mango, coconut cream, and a spritz of lime. Oh, and we added kohlrabi because we like you, and it's a bit of a nutritional powerhouse.",
-          "quantity_rule": {
-            "min": 1,
-            "max": null,
-            "increment": 1
-          },
-          "selling_plan": {
-            "name": "Delivered every 2 weeks.",
-            "interval": "2 weeks"
-          }
-        },
         {
           "id": "46783280054570",
           "quantity": 1,
@@ -719,29 +690,41 @@
             "name": "Delivered every 2 weeks.",
             "interval": "2 weeks"
           }
+        },
+        {
+          "id": "47121687052586",
+          "quantity": 3,
+          "key": "47121687052586:0ea120f3b120082898621fbf0355a06d",
+          "title": "Blueberry + Lemon",
+          "price": 67,
+          "discounted_price": 61,
+          "line_price": 183,
+          "final_line_price": 203,
+          "total_discount": 20,
+          "discounts": [
+            {
+              "amount": 20,
+              "title": "10% Plan Discount"
+            }
+          ],
+          "grams": 145,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D05-POPPY.jpg?v=1716497980",
+          "product_type": "Breakfast Bowl",
+          "product_title": "Blueberry + Lemon",
+          "product_description": "A little sweet, a little tart, a lot of satisfying fiber: this breakfast bowl is our energizing answer to the scone. Vibrant blueberries, zingy lemon, whole-grain oats, and crunchy poppy seeds will keep you going for hours.",
+          "quantity_rule": {
+            "min": 1,
+            "max": null,
+            "increment": 1
+          },
+          "selling_plan": {
+            "name": "Delivered every 2 weeks.",
+            "interval": "2 weeks"
+          }
         }
       ],
       "orderHistory": [],
       "created_at": "2025-07-22T06:38:30.911Z"
-    },
-    {
-      "id": "695c",
-      "name": "Athul ",
-      "email": "Athul@gmail.com",
-      "password": "1234567890@Ak",
-      "role": "User",
-      "address": {
-        "street": "",
-        "city": "",
-        "state": "",
-        "pin": ""
-      },
-      "isBlock": false,
-      "cart": [],
-      "orders": [],
-      "wishlist": [],
-      "orderHistory": [],
-      "created_at": "2025-07-23T06:22:33.775Z"
     }
   ],
   "products": [

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { UserDataContext } from "../ContextAPI/AuthContext";
+import { UserDataContext } from "../ContextAPI/ContextsCreate";
 import axios from "axios";
-import { ToastContext } from "../ContextAPI/AuthContext";
+import { ToastContext } from "../ContextAPI/ContextsCreate";
 
 const BASE_API = "http://localhost:3000/users";
 
@@ -57,14 +57,14 @@ export function useCartController() {
     const existing = cart.find((item) => item?.id === product.id);
 
     if (existing) {
-      const updatedCart = cart.map((item) => {
-        return item.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item;
-      });
-      console.log(updatedCart, "new one geted");
-      updateCartOnServer(updatedCart);
-      toastSuccess("🛒 Added to cart! Ready to checkout when you are.");
+      // const updatedCart = cart.map((item) => {
+      //   return item.id === product.id
+      //     ? { ...item, quantity: item.quantity + 1 }  
+      //     : item;
+      // });
+      // console.log(updatedCart, "new one geted");
+      // updateCartOnServer(updatedCart);
+      toastSuccess("🛒 Already in Cart!");
     } else {
       const newCart = [
         ...cart,
@@ -97,7 +97,6 @@ export function useCartController() {
         : item
     );
     updateCartOnServer(updatedCart);
-    toastSuccess("🛒 Already in cart! Ready to checkout when you are.");
   };
 
   return { cart, addToCart, removeFromCart, updateQuantity, totalQuantity };

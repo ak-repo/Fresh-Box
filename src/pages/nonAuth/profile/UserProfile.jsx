@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserDataContext } from "../../../ContextAPI/AuthContext";
+import { UserDataContext } from "../../../ContextAPI/ContextsCreate";
 import { useNavigate } from "react-router-dom";
 
 const UserProfile = () => {
@@ -108,13 +108,13 @@ const UserProfile = () => {
                 </div>
                 <div className="ml-3">
                   <p className="text-sm text-gray-500">Shipping Address</p>
-                  <p className="text-sm font-medium text-gray-900 whitespace-pre-line">
+                  <div className="text-sm font-medium text-gray-900 whitespace-pre-line">
                     <p className="text-gray-600">{user?.address?.street}</p>
                     <p className="text-gray-600">{user?.address?.city}</p>
                     <p className="text-gray-600">
                       {user?.address?.state} - {user?.address?.pin}
                     </p>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>

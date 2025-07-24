@@ -26,7 +26,6 @@ export default function Products() {
     fetchProducts();
   }, []);
   const handleCategoryChange = (category) => {
-    console.log(category);
     if (category === "All") {
       setCategory(products);
     } else {
@@ -57,7 +56,7 @@ export default function Products() {
             transition-all duration-150 ease-out
             ${
               selectedCategory === category
-                ? "bg-blue-100/80 text-blue-700 font-medium shadow-inner"
+                ? "bg-blue-400 text-blue-700 font-medium shadow-inner"
                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
             }
           `}
@@ -75,7 +74,7 @@ export default function Products() {
                   </span>
                   {category}
                   {selectedCategory === category && (
-                    <span className="ml-auto text-blue-500">→</span>
+                    <span className="ml-auto text-blue-500 bg-red-500"></span>
                   )}
                 </button>
               ))}
@@ -118,7 +117,6 @@ const ProductCart = ({ products }) => {
 
   //handle add to cart
   const handleAddToCart = (product) => {
-    console.log(" handle");
     addToCart(product);
   };
 

@@ -47,7 +47,10 @@ function PaymentSuccess() {
             <div className="space-y-4">
               {orderDetails?.items &&
                 orderDetails.items.map((product) => (
-                  <div className="flex items-center justify-between">
+                  <div
+                    key={product.id}
+                    className="flex items-center justify-between"
+                  >
                     <div className="flex items-center">
                       <div
                         onClick={() =>

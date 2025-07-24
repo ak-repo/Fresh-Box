@@ -1,18 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { MdFavorite } from "react-icons/md";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { UserDataContext } from "../../../ContextAPI/AuthContext";
+import { UserDataContext } from "../../../ContextAPI/ContextsCreate";
 import { useCartController } from "../../../customHooks/useCartController";
 
 export default function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const { user, logout } = useContext(UserDataContext);
-  const { totalQuantity } = useCartController();
-  console.log("navbar Q", totalQuantity);
+  const {  totalQuantity } = useCartController();
 
   return (
     <nav className="bg-black text-white shadow-md sticky top-0 z-50">

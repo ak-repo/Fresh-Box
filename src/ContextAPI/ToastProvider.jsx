@@ -1,6 +1,5 @@
-import Cart from "../pages/nonAuth/cart/Cart";
-import Wishlist from "../pages/nonAuth/wishlist/WishList";
-import { ToastContext } from "./AuthContext";
+
+import { ToastContext } from "./ContextsCreate";
 import { Toaster, toast } from "react-hot-toast";
 
 export default function ToastProvider({ children }) {
