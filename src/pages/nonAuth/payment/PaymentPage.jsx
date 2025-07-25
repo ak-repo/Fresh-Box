@@ -1,19 +1,20 @@
-import { useCartController } from "../../../customHooks/useCartController";
-import { UserDataContext } from "../../../ContextAPI/ContextsCreate";
-import { useOrderController } from "../../../customHooks/useOrderController";
-import { ToastContext } from "../../../ContextAPI/ContextsCreate";
+import {
+  useUser,
+  useCart,
+  useToast,
+} from "../../../ContextAPI/ContextCreater&Hook";
+import { useOrder } from "../../../ContextAPI/ContextCreater&Hook";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useContext } from "react";
 
 function PaymentPage() {
-  const { cart } = useCartController();
-  const { addtoOrders } = useOrderController();
-  const { user } = useContext(UserDataContext);
+  const { cart } = useCart();
+  const { addtoOrders } = useOrder();
+  const { user } = useUser();
   const location = useLocation();
   const totalAmount = (location.state + 9.99 + 20.8).toFixed(2);
   const navigate = useNavigate();
-  const { toastSuccess } = useContext(ToastContext);
+  const { toastSuccess } = useToast();
 
   const handleAddToOrders = () => {
     addtoOrders(cart, totalAmount, user?.address); // sharing current cart and total amount

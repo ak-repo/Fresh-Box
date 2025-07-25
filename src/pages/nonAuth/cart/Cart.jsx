@@ -1,8 +1,9 @@
-import { useCartController } from "../../../customHooks/useCartController";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../../ContextAPI/ContextCreater&Hook";
+
 
 export default function Cart() {
-  const { cart, removeFromCart, updateQuantity } = useCartController();
+  const { cart, removeFromCart, updateQuantity } = useCart();
   const navigate = useNavigate();
   //totalItems
   const totalItems = cart.reduce((accu, item) => accu + item.quantity, 0);

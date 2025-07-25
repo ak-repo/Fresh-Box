@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-// import { useCartController } from "./useCartController";
-import { UserDataContext } from "../ContextAPI/ContextsCreate";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const BASE_API = "http://localhost:3000/users";
+import { OrderContext } from "../ContextCreater&Hook";
+import { useUser } from "../ContextCreater&Hook";
+import { usersAPI } from "../../api";
 
-export function useOrderController() {
-  const { user } = useContext(UserDataContext);
-  //   const { cart } = useCartController();
+export default function OrderProvider({ children }) {
+  const { user } = useUser();
   const [orders, setOrder] = useState([]);
+
+  //updating orderlist
   useEffect(() => {
     if (user) {
       axios
-        .get(`${BASE_API}/${user.id}`)
+        .get(`${usersAPI}/${user.id}`)
         .then((res) => {
           setOrder(res.data.orders);
         })
@@ -39,13 +40,17 @@ export function useOrderController() {
       },
     ];
     axios
-      .patch(`${BASE_API}/${user.id}`, { orders: updatedOrder })
-      .then((res) => console.log(res))
+      .patch(`${usersAPI}/${user.id}`, { orders: updatedOrder })
+      .then((res) => setOrder(res.data.orders))
       .catch((err) =>
         console.log("error occure while adding products into order list", err)
       );
   };
-  return { orders, addtoOrders };
+  return (
+    <OrderContext.Provider value={{ orders, addtoOrders }}>
+      {children}
+    </OrderContext.Provider>
+  );
 }
 
 // | Status       | Meaning                            |
@@ -56,5 +61,3 @@ export function useOrderController() {
 // | `delivered`  | Delivered to customer              |
 // | `cancelled`  | Order was cancelled                |
 // | `returned`   | Customer returned the order        |
-
-

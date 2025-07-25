@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { useOrderController } from "../../../customHooks/useOrderController";
 import { useNavigate } from "react-router-dom";
+import { useOrder } from "../../../ContextAPI/ContextCreater&Hook";
 
 export default function OrdersPage() {
   // const [currentOrder, setCurrentOrders] = useState();
   // const { user } = useContext(UserDataContext);
   const [activeTab, setActiveTab] = useState("current");
-  const { orders } = useOrderController();
+  const { orders } = useOrder();
   const navigarte = useNavigate();
 
   //classification

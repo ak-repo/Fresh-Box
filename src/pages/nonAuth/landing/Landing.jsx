@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { GetAllProducts } from "../../../ContextAPI/ShowProducts";
 import { useNavigate } from "react-router-dom";
+import { useProductController } from "../../../customHooks/useProductController";
+import {useWishlist,useCart } from "../../../ContextAPI/ContextCreater&Hook";
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -161,21 +162,19 @@ function OurOffering() {
     </section>
   );
 }
-import { useWishlistController } from "../../../customHooks/useWishlistController";
-import { useCartController } from "../../../customHooks/useCartController";
 
 function BestSellerNewItems({ navigate }) {
   const [bestSellers, setBestSellers] = useState(null);
   const [newArrivals, setNewArrivals] = useState(null);
   const [activeTab, setActiveTab] = useState("bestseller");
-  const { addtoWishlist, removeFromWishlist, isInWishlist } =
-    useWishlistController();
-  const { addToCart } = useCartController();
+  const { addtoWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
+  const { getAllProducts } = useProductController();
 
   useEffect(() => {
     (async () => {
       try {
-        const data = await GetAllProducts();
+        const data = await getAllProducts();
         setBestSellers(data.slice(0, 8));
         setNewArrivals(data.slice(data.length - 8));
       } catch (error) {

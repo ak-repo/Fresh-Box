@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
-import { GetProductById } from "../../../ContextAPI/ShowProducts";
 import { useParams } from "react-router-dom";
-import { useWishlistController } from "../../../customHooks/useWishlistController";
-import { useCartController } from "../../../customHooks/useCartController";
+
+import { useProductController } from "../../../customHooks/useProductController";
+import { useWishlist,useCart } from "../../../ContextAPI/ContextCreater&Hook";
 
 export default function ProductDetails() {
   const [product, setProduct] = useState(null);
   const { productId } = useParams();
-  const { addtoWishlist, removeFromWishlist, isInWishlist } =
-    useWishlistController();
-  const { addToCart } = useCartController();
+  const { addtoWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
+  const { getProductById } = useProductController();
 
   useEffect(() => {
     (async () => {
       try {
-        const [data] = await GetProductById(productId);
+        const data = await getProductById(productId);
+
         setProduct(data);
       } catch (error) {
         console.log("Error fetching product:", error.message);
@@ -101,16 +102,16 @@ export default function ProductDetails() {
                 {isInWishlist(product.id) ? "💖 " : "🤍"}
               </button>
               <button
-                    onClick={() => handleAddToCart(product)}
-                    className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md 
+                onClick={() => handleAddToCart(product)}
+                className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md 
              transition-all duration-200 ease-in-out 
              transform hover:scale-[1.02] active:scale-[0.98]
              cursor-pointer shadow-md hover:shadow-lg active:shadow-inner
              border border-transparent hover:border-gray-600
              focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
-                  >
-                    Add to Cart
-                  </button>
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>

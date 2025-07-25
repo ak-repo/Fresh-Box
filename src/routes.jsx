@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-import AuthProvider from "./ContextAPI/AuthProvider";
+//Proivder
+import AuthProvider from "./ContextAPI/Auth/AuthProvider";
+import ToastProvider from "./ContextAPI/ToastMessage/ToastProvider";
+import CartProvider from "./ContextAPI/CartController/CartProvider";
+import WishlistProvider from "./ContextAPI/WishListController/WishListProvider";
+import OrderProvider from "./ContextAPI/OrderController/OrderProvider";
 
 //Routes
 import LoginPage from "./pages/auth/LoginPage";
@@ -18,22 +23,44 @@ import AboutPage from "./pages/nonAuth/aboutUs/AboutUs";
 import OrdersPage from "./pages/nonAuth/order/Orders";
 import PaymentPage from "./pages/nonAuth/payment/PaymentPage";
 import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
+import ScrollToTop from "./pages/common/scroll/ScrollTop";
 
-export default function UserRoutes() {
+export default function MainComponent() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <AppRouters />
-      </AuthProvider>
+      <ToastProvider>
+        <AuthProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <OrderProvider>
+                <AppRouters />
+              </OrderProvider>
+            </WishlistProvider>
+          </CartProvider>
+        </AuthProvider>
+      </ToastProvider>
     </BrowserRouter>
   );
 }
+// // in App.js
+// <UserProvider>
+//   <CartProvider>
+//     <WishlistProvider>
+//       <OrderProvider>
+//         <NavigationBar />
+//         <Routes />
+//       </OrderProvider>
+//     </WishlistProvider>
+//   </CartProvider>
+// </UserProvider>
+
 const AppRouters = () => {
   const location = useLocation();
   const hideComponets =
     location.pathname === "/login" || location.pathname === "/register";
   return (
     <>
+      <ScrollToTop />
       {!hideComponets && <NavigationBar />}
       <Routes>
         <Route path="*" element={<ErrorResponse />} />

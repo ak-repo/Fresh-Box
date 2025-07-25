@@ -1,8 +1,9 @@
-import { useOrderController } from "../../../customHooks/useOrderController";
 import { useNavigate } from "react-router-dom";
 
+import { useOrder } from "../../../ContextAPI/ContextCreater&Hook";
+
 function PaymentSuccess() {
-  const { orders } = useOrderController();
+  const { orders } = useOrder();
   const orderDetails = orders[orders.length - 1];
   const navigate = useNavigate();
 

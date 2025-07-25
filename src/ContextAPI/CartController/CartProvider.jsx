@@ -1,15 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { UserDataContext } from "../ContextAPI/ContextsCreate";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { ToastContext } from "../ContextAPI/ContextsCreate";
+
+import { useUser,useToast } from "../ContextCreater&Hook";
+import { CartContext } from "../ContextCreater&Hook";
 
 const BASE_API = "http://localhost:3000/users";
 
-export function useCartController() {
+export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [totalQuantity, setQuantity] = useState(0);
-  const { user } = useContext(UserDataContext);
-  const { toastSuccess } = useContext(ToastContext);
+  const { user } = useUser()
+  const { toastSuccess } = useToast()
 
   //fatching cart items..
   useEffect(() => {
@@ -57,13 +58,6 @@ export function useCartController() {
     const existing = cart.find((item) => item?.id === product.id);
 
     if (existing) {
-      // const updatedCart = cart.map((item) => {
-      //   return item.id === product.id
-      //     ? { ...item, quantity: item.quantity + 1 }  
-      //     : item;
-      // });
-      // console.log(updatedCart, "new one geted");
-      // updateCartOnServer(updatedCart);
       toastSuccess("🛒 Already in Cart!");
     } else {
       const newCart = [
@@ -99,5 +93,12 @@ export function useCartController() {
     updateCartOnServer(updatedCart);
   };
 
-  return { cart, addToCart, removeFromCart, updateQuantity, totalQuantity };
+  return (
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, updateQuantity, totalQuantity }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 }
+

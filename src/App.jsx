@@ -1,12 +1,9 @@
-import UserRoutes from "./routes";
-import ToastProvider from "./ContextAPI/ToastProvider";
+import MainComponent from "./routes";
 
 function App() {
   return (
     <div>
-      <ToastProvider>
-        <UserRoutes />
-      </ToastProvider>
+      <MainComponent />
     </div>
   );
 }

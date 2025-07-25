@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react";
-import { GetAllProducts } from "../../../ContextAPI/ShowProducts";
 import { useNavigate } from "react-router-dom";
-import { useWishlistController } from "../../../customHooks/useWishlistController";
-import { useCartController } from "../../../customHooks/useCartController";
-import { toast } from "react-toastify"; // or any other notification system
+
+import { useProductController } from "../../../customHooks/useProductController";
+import {
+  useWishlist,
+  useCart,
+  useToast,
+} from "../../../ContextAPI/ContextCreater&Hook";
 
 export default function Products() {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [selectedCategory, setCategory] = useState([]);
+  const { toastFail } = useToast();
+  const { getAllProducts } = useProductController();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await GetAllProducts();
+        const data = await getAllProducts();
         setProducts(data);
         setCategory(data);
       } catch (error) {
         console.error("Error fetching products", error.message);
         setError("Failed to load products. Please try again later.");
-        toast.error("Failed to load products");
+        toastFail("Failed to load products");
       }
     };
 
@@ -100,9 +105,8 @@ export default function Products() {
 
 const ProductCart = ({ products }) => {
   const navigate = useNavigate();
-  const { addtoWishlist, removeFromWishlist, isInWishlist } =
-    useWishlistController();
-  const { addToCart } = useCartController();
+  const { addtoWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
   //navigation to detailed page
   const handleProductClick = (productId) => {

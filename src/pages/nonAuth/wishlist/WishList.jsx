@@ -1,12 +1,11 @@
 // Wishlist.jsx
 import { useNavigate } from "react-router-dom";
-import { useWishlistController } from "../../../customHooks/useWishlistController";
-import { useCartController } from "../../../customHooks/useCartController";
+import { useWishlist,useCart } from "../../../ContextAPI/ContextCreater&Hook";
 
 const Wishlist = () => {
-  const { wishlist, removeFromWishlist } = useWishlistController();
+  const { wishlist, removeFromWishlist } = useWishlist();
   const navigate = useNavigate();
-  const { addToCart } = useCartController();
+  const { addToCart } = useCart();
   if (!wishlist) {
     navigate("/login");
   }
@@ -18,7 +17,6 @@ const Wishlist = () => {
   return (
     <div className="max-w-md mx-auto p-6 min-h-screen">
       {" "}
-  
       {/* Header */}
       <div className="text-center mb-8">
         <svg

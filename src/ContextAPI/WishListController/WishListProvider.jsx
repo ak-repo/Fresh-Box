@@ -1,18 +1,21 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { UserDataContext } from "../ContextAPI/ContextsCreate";
-import { ToastContext } from "../ContextAPI/ContextsCreate";
+import {  useEffect, useState } from "react";
 
-const BASE_API = "http://localhost:3000/users";
-export function useWishlistController() {
-  const { user } = useContext(UserDataContext);
+import { useUser, useToast } from "../ContextCreater&Hook";
+import { WishListContext } from "../ContextCreater&Hook";
+import { usersAPI } from "../../api";
+
+
+export default function WishlistProvider({ children }) {
+  const { user } = useUser();
   const [wishlist, setWishlist] = useState([]);
-  const { toastSuccess } = useContext(ToastContext);
+  const { toastSuccess } = useToast();
 
+  
   useEffect(() => {
     if (user?.id) {
       axios
-        .get(`${BASE_API}?id=${user.id}`)
+        .get(`${usersAPI}?id=${user.id}`)
         .then((res) => {
           const userData = res.data[0];
           setWishlist(userData?.wishlist || []);
@@ -24,7 +27,7 @@ export function useWishlistController() {
   const updateWishlistOnServer = async (updatedWishlist) => {
     if (user?.id) {
       await axios
-        .patch(`${BASE_API}/${user.id}`, { wishlist: updatedWishlist })
+        .patch(`${usersAPI}/${user.id}`, { wishlist: updatedWishlist })
         .then(() => setWishlist(updatedWishlist))
         .catch((err) => console.log("Error updating Wishlist", err));
     }
@@ -52,5 +55,11 @@ export function useWishlistController() {
     return wishlist.some((item) => item.id === productId);
   };
 
-  return { wishlist, addtoWishlist, removeFromWishlist, isInWishlist };
+  return (
+    <WishListContext.Provider
+      value={{ wishlist, addtoWishlist, removeFromWishlist, isInWishlist }}
+    >
+      {children}
+    </WishListContext.Provider>
+  );
 }

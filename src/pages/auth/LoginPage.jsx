@@ -1,20 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { userAPI } from "../../ContextAPI/AuthProvider";
-import { UserDataContext } from "../../ContextAPI/ContextsCreate";
-import axios from "axios";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { ToastContext } from "../../ContextAPI/ContextsCreate";
+import { useUser, useToast } from "../../ContextAPI/ContextCreater&Hook";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState(null);
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  // const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
-  const { user, setUser, login } = useContext(UserDataContext);
-  const { toastSuccess, toastFail } = useContext(ToastContext);
+  const { toastSuccess, toastFail } = useToast();
+  const { user, login } = useUser();
 
   useEffect(() => {
     if (user) {
@@ -24,38 +20,20 @@ export default function LoginPage() {
 
   // form filling
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+    setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
   // form submitting handle
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const { data } = await axios.get(
-        `${userAPI}?email=${formData.email}&password=${formData.password}`
-      );
-
-      const loggedUser = data[0];
-      console.log(loggedUser);
-
-      if (loggedUser) {
-        // alert("welcome to home");
-        setUser(loggedUser);
-        login(loggedUser);
-        toastSuccess("🎉 Welcome back! You’ve logged in successfully.");
-
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-      } else {
-        toastFail("❌ Oops! Invalid credentials. Please try again.");
-      }
-    } catch (err) {
-      setError(err.message);
-      console.log("Error found when logging", err);
-    } finally {
-      console.log(error);
+    if (login(loginData)) {
+      toastSuccess("🎉 Welcome back! You’ve logged in successfully.");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } else {
+      toastFail("❌ Oops! Invalid credentials. Please try again.");
     }
   };
 
@@ -87,7 +65,7 @@ export default function LoginPage() {
               </label>
               <div className="mt-2">
                 <input
-                  value={formData.email}
+                  value={loginData.email}
                   onChange={handleChange}
                   id="email"
                   name="email"
@@ -118,7 +96,7 @@ export default function LoginPage() {
               </div>
               <div className="mt-2">
                 <input
-                  value={formData.password}
+                  value={loginData.password}
                   onChange={handleChange}
                   id="password"
                   name="password"

@@ -1,102 +1,54 @@
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { userAPI } from "../../ContextAPI/AuthProvider";
-import { ToastContext } from "../../ContextAPI/ContextsCreate";
-
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
+import { useUser, useToast } from "../../ContextAPI/ContextCreater&Hook";
 
 export default function RegistrationPage() {
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const [usersList, setUserList] = useState(null);
-  const { toastSuccess, toastFail } = useContext(ToastContext);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "User", // default role
-    address: {
-      mobile: " ",
-      street: "",
-      city: "",
-      state: "",
-      pin: "",
-    },
-    isBlock: false,
-    cart: [],
-    orders: [],
-    wishlist: [],
-    orderHistory: [],
-    created_at: new Date().toISOString(),
-  });
-
-  //getting all user data
-  useEffect(() => {
-    (async () => {
-      axios.get(userAPI).then((res) => setUserList(res.data));
-    })();
-  }, []);
+  const { toastSuccess, toastFail } = useToast();
+  const {
+    registrationForm,
+    setFormData,
+    formValidation,
+    register,
+    userChecker,
+    error,
+  } = useUser();
 
   //form filling
   const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-  };
-
-  //Form validation
-  const validate = () => {
-    const validationErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-      /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
-    if (!formData.name) validationErrors.name = "Name is required";
-    if (!formData.email) validationErrors.email = "Email is required";
-    else if (!emailRegex.test(formData.email))
-      validationErrors.email = "Email is invalid";
-    if (!formData.password) validationErrors.password = "Password is required";
-    else if (!passwordRegex.test(formData.password)) {
-      validationErrors.password =
-        ' "Must contain 8+ chars, 1 uppercase, 1 number, 1 special char"';
-    }
-    setError(validationErrors);
-    return Object.keys(validationErrors).length === 0;
+    setFormData({
+      ...registrationForm,
+      [event.target.name]: event.target.value,
+    });
   };
 
   // form submission handling
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // validating the data
-    if (!validate()) {
+    if (!formValidation(registrationForm)) {
       toastFail("⚠️ Couldn’t create account. Please try again later.");
       return;
     }
+
     //checking the email already existing
-    if (usersList) {
-      const existing = usersList.some((user) => user.email === formData.email);
-      if (existing) {
-        toastFail("User Email already Existing");
-
-        return;
-      }
+    if (!userChecker("email", registrationForm.email)) {
+      toastFail("User Email already Existing");
+      return;
     }
-
-    const newUser = {
-      ...formData,
-      role: "User",
-      created_at: new Date().toISOString(),
-    };
-    try {
-      await axios.post(userAPI, newUser);
-      toastSuccess(" 👋 Account created! Let’s get you started.");
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
-    } catch (err) {
-      console.log("error accuring while posting user info", err.message);
-    } finally {
-      console.log("handleSubmission completed");
+    //registration process
+    if (
+      register({
+        ...registrationForm,
+      })
+    ) {
+      toastSuccess("👋 Account created! Let’s get you started. ");
+      navigate("/login");
+    } else {
+      toastFail("⚠️ Couldn’t create account. Please try again later.");
     }
   };
 
@@ -127,7 +79,7 @@ export default function RegistrationPage() {
               </label>
               <div className="mt-2">
                 <input
-                  value={formData.name}
+                  value={registrationForm.name}
                   onChange={handleChange}
                   id="fullname"
                   placeholder="name"
@@ -136,7 +88,7 @@ export default function RegistrationPage() {
                   required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-[var(--color-dark)]:text-sm/6"
                 />
-              </div>{" "}
+              </div>
               {error?.name && (
                 <p className="text-red-500 text-sm">{error.name}</p>
               )}
@@ -150,7 +102,7 @@ export default function RegistrationPage() {
               </label>
               <div className="mt-2">
                 <input
-                  value={formData.email}
+                  value={registrationForm.email}
                   onChange={handleChange}
                   id="email"
                   name="email"
@@ -176,7 +128,7 @@ export default function RegistrationPage() {
               </div>
               <div className="mt-2">
                 <input
-                  value={formData.password}
+                  value={registrationForm.password}
                   onChange={handleChange}
                   id="password"
                   name="password"
