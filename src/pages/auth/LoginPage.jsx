@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -10,13 +10,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { toastSuccess, toastFail } = useToast();
-  const { user, login } = useUser();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, []);
+  const { login } = useUser();
 
   // form filling
   const handleChange = (event) => {
@@ -27,11 +21,20 @@ export default function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (login(loginData)) {
-      toastSuccess("🎉 Welcome back! You’ve logged in successfully.");
-      setTimeout(() => {
-        navigate("/");
-      }, 1000);
+    const data = await login(loginData);
+
+    if (data) {
+      if (data?.role === "admin") {
+        toastSuccess("🎉 Welcome Admin");
+        setTimeout(() => {
+          navigate("/admin");
+        }, 1000);
+      } else {
+        toastSuccess("🎉 Welcome back ! You’ve logged in successfully.");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      }
     } else {
       toastFail("❌ Oops! Invalid credentials. Please try again.");
     }
@@ -39,19 +42,23 @@ export default function LoginPage() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 ">
-        <Link to="/">
-          {" "}
-          <img
-            src="assets/FRESH-BOX-logo.png"
-            className="w-19 m-auto my-0 rounded-full"
-          />
-        </Link>
+      <div className="flex min-h-full h-[100vh] flex-1 flex-col justify-center bg-emerald-200 px-6 py-12 lg:px-8">
+        {/* Centered Logo */}
+        <div className="flex justify-center">
+          <Link to="/" className="inline-flex items-center">
+            <h1 className="text-2xl font-bold text-black flex items-baseline">
+              <span>FRESH</span>
+              <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500 text-white rounded text-lg">
+                BOX
+              </span>
+            </h1>
+          </Link>
+        </div>
 
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-[var( --color-black)]">
+          <h4 className="mt-10 text-center  font-bold tracking-tight text-[var( --color-black)]">
             Sign in to your account
-          </h2>
+          </h4>
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm border-1 p-5 rounded-xl">

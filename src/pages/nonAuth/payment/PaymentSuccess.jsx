@@ -194,7 +194,7 @@ function PaymentSuccess() {
           <div className="px-6 py-5">
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-5 w-5 text-green-500 mt-0.5">
+                <div className="flex-shrink-0 h-5 w-5 text-emerald-500 mt-0.5">
                   <svg
                     className="h-5 w-5"
                     fill="none"
@@ -266,7 +266,7 @@ function PaymentSuccess() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => navigate("/products")}
-            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 cursor-pointer"
+            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emerald-500 hover:bg-emerald-700 cursor-pointer"
           >
             Continue Shopping
           </button>

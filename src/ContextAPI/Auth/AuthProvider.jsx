@@ -6,6 +6,7 @@ import { registerNewUser } from "./RegistrationController";
 import { UserDataContext } from "../ContextCreater&Hook";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -13,11 +14,13 @@ export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const navigate = useNavigate();
+
   const [registrationForm, setFormData] = useState({
     name: "",
     email: "",
     password: "",
-    role: "User",
+    role: "customer",
     address: {
       mobile: " ",
       street: "",
@@ -79,12 +82,15 @@ export default function AuthProvider({ children }) {
 
   // login function call
   const login = async (userData) => {
-    const user = await loginUser(userData);
-    if (user) {
-      setUser(user);
-      return true;
-    } else {
-      return false;
+    try {
+      const user = await loginUser(userData);
+      if (user) {
+        setUser(user);
+        return user;
+      }
+    } catch (error) {
+      console.log("Error while login", error.message);
+      return null;
     }
   };
 
@@ -95,7 +101,10 @@ export default function AuthProvider({ children }) {
   };
 
   //logout
-  const logout = () => setUser(null);
+  const logout = () => {
+    setUser(null);
+    navigate("/");
+  };
 
   // checking anything common in users
   function userChecker(check, data) {

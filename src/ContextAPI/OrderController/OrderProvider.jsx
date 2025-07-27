@@ -21,10 +21,11 @@ export default function OrderProvider({ children }) {
           console.log("Erros occure while adding product to order list", err)
         );
     }
-  }, []);
+  }, [user]);
 
   //add to orders list
   const addtoOrders = (cart, totalAmount, address) => {
+    console.log(orders);
     if (!user || !orders) return;
     const updatedOrder = [
       ...orders,
@@ -35,7 +36,7 @@ export default function OrderProvider({ children }) {
         totalAmount: totalAmount,
         paymentMethod: "online",
         paymentStatus: "Paid",
-        date: new Date().toLocaleString(),
+        orderedAt: new Date().toLocaleString(),
         shippingAddress: address,
       },
     ];

@@ -1,11 +1,17 @@
 // Wishlist.jsx
 import { useNavigate } from "react-router-dom";
-import { useWishlist,useCart } from "../../../ContextAPI/ContextCreater&Hook";
+import {
+  useWishlist,
+  useCart,
+  useUser,
+} from "../../../ContextAPI/ContextCreater&Hook";
 
 const Wishlist = () => {
   const { wishlist, removeFromWishlist } = useWishlist();
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { user } = useUser();
+
   if (!wishlist) {
     navigate("/login");
   }
@@ -38,7 +44,7 @@ const Wishlist = () => {
       </div>
       {/* Wishlist Items */}
       <div className="space-y-4">
-        {wishlist.length === 0 ? (
+        {!user ? (
           <div className="text-center py-12 bg-white rounded-xl shadow-sm border border-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +60,7 @@ const Wishlist = () => {
                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
               />
             </svg>
+            
             <h3 className="mt-4 text-lg font-medium text-gray-700">
               Your wishlist is empty
             </h3>

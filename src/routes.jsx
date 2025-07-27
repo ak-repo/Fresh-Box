@@ -1,13 +1,20 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import { useUser } from "./ContextAPI/ContextCreater&Hook";
 
-//Proivder
+// Customer Providers
 import AuthProvider from "./ContextAPI/Auth/AuthProvider";
 import ToastProvider from "./ContextAPI/ToastMessage/ToastProvider";
 import CartProvider from "./ContextAPI/CartController/CartProvider";
 import WishlistProvider from "./ContextAPI/WishListController/WishListProvider";
 import OrderProvider from "./ContextAPI/OrderController/OrderProvider";
 
-//Routes
+// Customer Routes
 import LoginPage from "./pages/auth/LoginPage";
 import RegistrationPage from "./pages/auth/RegistrationPage";
 import LandingPage from "./pages/nonAuth/landing/Landing";
@@ -24,6 +31,17 @@ import OrdersPage from "./pages/nonAuth/order/Orders";
 import PaymentPage from "./pages/nonAuth/payment/PaymentPage";
 import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 import ScrollToTop from "./pages/common/scroll/ScrollTop";
+
+// Admin Components
+import AdminDashBord from "./admin/AdminPages/dashbord/AdminDashBord";
+import AdminProductPage from "./admin/AdminPages/AdminProducts/AdminProductPage";
+import AdminUserPage from "./admin/AdminPages/AdminUsers/AdminUserPage";
+import AdminRevenuePage from "./admin/AdminPages/AdminAnalitics/AdminRevenuePage";
+import AdminOrderPage from "./admin/AdminPages/AdminOrder/AdminOrderPage";
+import AdminAnalyticsPage from "./admin/AdminPages/AdminAnalitics/AdminAnalyticsPage";
+import AdminCategoriesPage from "./admin/AdminPages/AdminCategory/AdminCategoriesPage";
+import AdminSettingsPage from "./admin/AdminPages/AdminSettingsPage/AdminSettingsPage";
+import AdminLayout from "./admin/adminControlls/AdminLayout"; // it controlls the providers
 
 export default function MainComponent() {
   return (
@@ -42,36 +60,25 @@ export default function MainComponent() {
     </BrowserRouter>
   );
 }
-// // in App.js
-// <UserProvider>
-//   <CartProvider>
-//     <WishlistProvider>
-//       <OrderProvider>
-//         <NavigationBar />
-//         <Routes />
-//       </OrderProvider>
-//     </WishlistProvider>
-//   </CartProvider>
-// </UserProvider>
 
 const AppRouters = () => {
   const location = useLocation();
-  const hideComponets =
-    location.pathname === "/login" || location.pathname === "/register";
+  const hideComponents =
+    location.pathname === "/login" ||
+    location.pathname === "/register" ||
+    location.pathname.startsWith("/admin");
+
   return (
     <>
       <ScrollToTop />
-      {!hideComponets && <NavigationBar />}
+      {!hideComponents && <NavigationBar />}
       <Routes>
         <Route path="*" element={<ErrorResponse />} />
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/products" element={<Products />} />
-        <Route
-          path={`/productDetails/:productId`}
-          element={<ProductDetails />}
-        />
+        <Route path="/productDetails/:productId" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/profile" element={<UserProfile />} />
@@ -79,9 +86,37 @@ const AppRouters = () => {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/paymentSuccess" element={<PaymentSuccess />} />
+
+        {/* Admin Routes */}
+        <Route
+          path="/admin"
+          element={
+            <AdminRouteController>
+              <AdminLayout />
+            </AdminRouteController>
+          }
+        >
+          <Route index element={<AdminDashBord />} />
+          <Route path="productsControls" element={<AdminProductPage />} />
+          <Route path="ordersControls" element={<AdminOrderPage />} />
+          <Route path="userControls" element={<AdminUserPage />} />
+          <Route path="revenueControls" element={<AdminRevenuePage />} />
+          <Route path="analyticsControls" element={<AdminAnalyticsPage />} />
+          <Route path="categoriesControls" element={<AdminCategoriesPage />} />
+          <Route path="adminSettings" element={<AdminSettingsPage />} />
+        </Route>
       </Routes>
 
-      {!hideComponets && <Footer />}
+      {!hideComponents && <Footer />}
     </>
   );
+};
+
+const AdminRouteController = ({ children }) => {
+  const { user } = useUser();
+
+  if (!user || user.role !== "admin") {
+    return <Navigate to="/" replace />;
+  }
+  return children;
 };

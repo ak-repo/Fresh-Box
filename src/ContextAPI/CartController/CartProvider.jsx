@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { useUser,useToast } from "../ContextCreater&Hook";
+import { useUser, useToast } from "../ContextCreater&Hook";
 import { CartContext } from "../ContextCreater&Hook";
 
 const BASE_API = "http://localhost:3000/users";
@@ -9,8 +9,8 @@ const BASE_API = "http://localhost:3000/users";
 export default function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [totalQuantity, setQuantity] = useState(0);
-  const { user } = useUser()
-  const { toastSuccess } = useToast()
+  const { user } = useUser();
+  const { toastSuccess } = useToast();
 
   //fatching cart items..
   useEffect(() => {
@@ -40,9 +40,6 @@ export default function CartProvider({ children }) {
         .patch(`${BASE_API}/${user.id}`, { cart: updatedCart })
         .then(() => {
           setCart(updatedCart);
-          // setQuantity(() =>
-          //   updatedCart.reduce((accu, item) => accu + (item?.quantity || 1), 0)
-          // );
         })
         .catch((err) => console.log("Error updating Cart", err));
     }
@@ -101,4 +98,3 @@ export default function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
-

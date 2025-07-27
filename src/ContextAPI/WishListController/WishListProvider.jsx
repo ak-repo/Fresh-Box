@@ -1,17 +1,17 @@
 import axios from "axios";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useUser, useToast } from "../ContextCreater&Hook";
 import { WishListContext } from "../ContextCreater&Hook";
 import { usersAPI } from "../../api";
 
-
 export default function WishlistProvider({ children }) {
   const { user } = useUser();
   const [wishlist, setWishlist] = useState([]);
   const { toastSuccess } = useToast();
+  const [totalWishlistCount, setWishCount] = useState(0);
 
-  
+  //fetching wishlist
   useEffect(() => {
     if (user?.id) {
       axios
@@ -24,6 +24,11 @@ export default function WishlistProvider({ children }) {
     }
   }, [user?.id]);
 
+  useEffect(() => {
+    setWishCount(wishlist.length);
+  }, [wishlist]);
+
+  //updating function
   const updateWishlistOnServer = async (updatedWishlist) => {
     if (user?.id) {
       await axios
@@ -40,7 +45,15 @@ export default function WishlistProvider({ children }) {
       return;
     }
     if (!wishlist.find((item) => item.id === product.id)) {
-      const newWishlist = [...wishlist, product];
+      const newWishlist = [
+        ...wishlist,
+        {
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          image: product.image,
+        },
+      ];
       updateWishlistOnServer(newWishlist);
       toastSuccess("💖 Saved to your wishlist. Come back anytime!");
     }
@@ -57,7 +70,7 @@ export default function WishlistProvider({ children }) {
 
   return (
     <WishListContext.Provider
-      value={{ wishlist, addtoWishlist, removeFromWishlist, isInWishlist }}
+      value={{ wishlist, addtoWishlist, removeFromWishlist, isInWishlist,totalWishlistCount }}
     >
       {children}
     </WishListContext.Provider>

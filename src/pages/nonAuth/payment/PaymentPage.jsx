@@ -34,7 +34,7 @@ function PaymentPage() {
               <h2 className="text-xl font-semibold mb-6">Payment Method</h2>
 
               <div className="flex space-x-4 mb-6">
-                <button className="px-4 py-2 rounded-md bg-blue-600 text-white">
+                <button className="px-4 py-2 rounded-md bg-emerald-700 text-white">
                   Credit Card
                 </button>
                 <button className="px-4 py-2 rounded-md bg-gray-200 text-gray-700">
@@ -92,7 +92,7 @@ function PaymentPage() {
                 <button
                   type="button"
                   onClick={handleAddToOrders}
-                  className="w-full bg-blue-600 text-white font-medium py-3 px-4 rounded-md cursor-pointer"
+                  className="w-full bg-emerald-500  hover:bg-emerald-700 text-white font-medium py-3 px-4 rounded-md cursor-pointer"
                 >
                   Pay
                 </button>
@@ -150,7 +150,7 @@ function PaymentPage() {
                 <p className="text-gray-600">
                   {user?.address?.state} - {user?.address?.pin}
                 </p>
-                <button className="mt-3 text-blue-600 text-sm font-medium">
+                <button className="mt-3 text-emrabg-emerald-500 text-sm font-medium">
                   Change address
                 </button>
               </div>

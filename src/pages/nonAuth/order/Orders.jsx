@@ -24,7 +24,7 @@ export default function OrdersPage() {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">My Orders</h1>
           <p className="text-lg text-gray-600">Your order history</p>
-          <div className="mt-3 h-1 w-16 bg-indigo-500 mx-auto rounded-full"></div>
+          <div className="mt-3 h-1 w-16 bg-emerald-500 mx-auto rounded-full"></div>
         </div>
 
         {/* Order Tabs */}
@@ -83,7 +83,9 @@ const CurrentOrder = ({ currentOrder, navigarte }) => {
                   <h3 className="text-sm font-semibold text-gray-900">
                     {order.orderId}
                   </h3>
-                  <p className="text-xs text-gray-500 mt-0.5">{order.date}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">
+                    {order?.orderedAt}
+                  </p>
                 </div>
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                   {order.status}
@@ -192,7 +194,7 @@ const OrderHistory = ({ orderHistory, navigarte }) => {
                 <button className="px-3 py-1.5 text-xs font-medium border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
                   Invoice
                 </button>
-                <button className="px-3 py-1.5 text-xs font-medium bg-indigo-500 rounded-md text-white hover:bg-indigo-600">
+                <button className="px-3 py-1.5 text-xs font-medium bg-emerald-500 rounded-md text-white hover:bg-indigo-600">
                   Buy Again
                 </button>
               </div>
@@ -223,7 +225,7 @@ const EmptyOrder = () => {
       </div>
       <h3 className="text-sm font-medium text-gray-900 mb-1">No orders yet</h3>
       <p className="text-xs text-gray-500 mb-3">Your orders will appear here</p>
-      <button className="px-4 py-2 text-xs font-medium bg-indigo-500 rounded-md text-white hover:bg-indigo-600">
+      <button className="px-4 py-2 text-xs font-medium bg-emerald-500 rounded-md text-white hover:bg-indigo-600">
         Start Shopping
       </button>
     </div>

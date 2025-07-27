@@ -1,7 +1,6 @@
 import { usersAPI } from "../../api";
 import axios from "axios";
 
-
 export const loginUser = async ({ email, password }) => {
   try {
     const { data } = await axios.get(

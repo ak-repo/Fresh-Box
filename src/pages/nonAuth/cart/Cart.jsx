@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../../../ContextAPI/ContextCreater&Hook";
-
+import { useCart, useUser } from "../../../ContextAPI/ContextCreater&Hook";
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity } = useCart();
+  const { user } = useUser();
   const navigate = useNavigate();
   //totalItems
   const totalItems = cart.reduce((accu, item) => accu + item.quantity, 0);
@@ -16,24 +16,24 @@ export default function Cart() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md min-h-screen">
-      <h1 className="text-3xl font-bold text-center mb-6 text-indigo-700">
+      <h1 className="text-3xl font-bold text-center mb-6 text-emerald-500">
         My Shopping Cart
       </h1>
 
       {/* Stats */}
       <div className="grid grid-cols-2 gap-4 mb-6">
         <div className="bg-indigo-50 p-4 rounded-lg">
-          <p className="text-indigo-800 font-semibold">Total Items</p>
-          <p className="text-2xl font-bold">{totalItems}</p>
+          <p className="text-emerald-500 font-semibold">Total Items</p>
+          <p className="text-2xl font-bold">{user && totalItems}</p>
         </div>
         <div className="bg-green-50 p-4 rounded-lg">
-          <p className="text-green-800 font-semibold">Total Cost</p>
-          <p className="text-2xl font-bold">${totalCost.toFixed(2)}</p>
+          <p className="text-emerald-500 font-semibold">Total Cost</p>
+          <p className="text-2xl font-bold">${user && totalCost.toFixed(2)}</p>
         </div>
       </div>
 
       {/* Cart Items */}
-      {cart && (
+      {user && (
         <div className="space-y-3">
           {cart.length === 0 ? (
             <p className="text-center text-gray-500 py-6">
@@ -54,7 +54,7 @@ export default function Cart() {
                     <img src={product.image} />
                   </div>
                   <h3 className="font-medium text-gray-800">{product.title}</h3>
-                  <p className="text-lg font-semibold text-indigo-600">
+                  <p className="text-lg font-semibold text-emerald-500">
                     Price:{Number(product?.price) * Number(product?.quantity)}
                   </p>
                   <small className="text-sm text-gray-500">
@@ -110,12 +110,12 @@ export default function Cart() {
         <div className="mt-6 p-4 bg-gray-50 rounded-lg">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold">Order Summary</h3>
-            <p className="text-xl font-bold text-indigo-700">
+            <p className="text-xl font-bold text-emerald-500">
               {/* ${totalCost.toFixed(2)} */}
             </p>
           </div>{" "}
           <button
-            className="w-full mt-4 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+            className="w-full mt-4 px-6 py-3 bg-emerald-500 text-white font-medium rounded-lg cursor-pointer hover:bg-emerald-700 transition-colors"
             onClick={() => navigate("/payment", { state: totalCost })}
           >
             Proceed To Payment
