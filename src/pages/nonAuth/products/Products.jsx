@@ -104,6 +104,7 @@ export default function Products() {
 }
 
 const ProductCart = ({ products }) => {
+  
   const navigate = useNavigate();
   const { addtoWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { addToCart } = useCart();

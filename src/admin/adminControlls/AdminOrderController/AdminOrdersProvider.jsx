@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { AdminOrdersContext } from "../AdminProviders&Hooks";
 import { useUsersData } from "../AdminProviders&Hooks";
+import { usersAPI } from "../../../api";
+
+import axios from "axios";
 
 function AdminOrdersProvider({ children }) {
-  const { usersList } = useUsersData();
+  const { usersList, reupdate, setReupdate } = useUsersData();
   const [ordersList, setOrdersList] = useState([]);
   const [deliveredOrders, setDeliOrder] = useState(0);
   const [PendingOrders, setPendiOrder] = useState(0);
@@ -29,12 +32,45 @@ function AdminOrdersProvider({ children }) {
     if (Array.isArray(ordersList) && ordersList.length > 0) {
       setDeliOrder(ordersList.filter((order) => order?.status === "delivered"));
       setPendiOrder(ordersList.filter((order) => order?.status === "pending"));
-      setCancelOrder(ordersList.filter((order) => order?.status === "cancelled"));
+      setCancelOrder(
+        ordersList.filter((order) => order?.status === "cancelled")
+      );
     }
   }, [ordersList]);
 
+  //  updateOrderStatus,
+  const updateOrderStatus = async (currentOrder) => {
+    console.log(currentOrder);
+    if (currentOrder?.userId && currentOrder?.orderId) {
+      try {
+        const { data } = await axios.get(`${usersAPI}/${currentOrder?.userId}`);
+
+        //replacing order using orderId
+        const updatedOrder = data?.orders.map((order) =>
+          order.orderId === currentOrder.orderId ? currentOrder : order
+        );
+
+        await axios.patch(`${usersAPI}/${currentOrder?.userId}`, {
+          orders: updatedOrder,
+        });
+
+        setReupdate(!reupdate);
+      } catch (error) {
+        console.log("error while updating order status", error.message);
+      }
+    }
+  };
+
   return (
-    <AdminOrdersContext.Provider value={{ ordersList,deliveredOrders, cancelledOrders, PendingOrders }}>
+    <AdminOrdersContext.Provider
+      value={{
+        ordersList,
+        deliveredOrders,
+        cancelledOrders,
+        PendingOrders,
+        updateOrderStatus,
+      }}
+    >
       {children}
     </AdminOrdersContext.Provider>
   );

@@ -32,13 +32,6 @@ const AdminOrderspage = () => {
     setShowEditModal(true);
   };
 
-  const handleStatusChange = (newStatus) => {
-    if (selectedOrder) {
-      updateOrderStatus(selectedOrder.orderId, newStatus);
-      setShowEditModal(false);
-    }
-  };
-
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden">
@@ -160,13 +153,13 @@ const AdminOrderspage = () => {
                         <td className="flex items-center space-x-2 py-4">
                           <button
                             onClick={() => handleViewClick(order)}
-                            className="text-blue-400 hover:text-blue-300 p-1.5 rounded hover:bg-blue-900/20"
+                            className="text-blue-400 cursor-pointer hover:text-blue-300 p-1.5 rounded hover:bg-blue-900/20"
                           >
                             <FiEye size={16} />
                           </button>
                           <button
                             onClick={() => handleEditClick(order)}
-                            className="text-emerald-400 hover:text-emerald-300 p-1.5 rounded hover:bg-emerald-900/20"
+                            className="text-emerald-400 cursor-pointer hover:text-emerald-300 p-1.5 rounded hover:bg-emerald-900/20"
                           >
                             <FiEdit size={16} />
                           </button>
@@ -201,182 +194,213 @@ const AdminOrderspage = () => {
       </div>
 
       {/* View Order Modal */}
-      {showViewModal && selectedOrder && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <h3 className="text-xl font-bold mb-4">Order Details</h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold mb-2">Order Information</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Order ID:</span>
-                    <span>{selectedOrder.orderId}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Customer:</span>
-                    <span>{selectedOrder.userName}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Date:</span>
-                    <span>
-                      {new Date(selectedOrder.orderedAt).toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Status:</span>
-                    <span
-                      className={`${
-                        selectedOrder.status === "delivered"
-                          ? "text-green-400"
-                          : selectedOrder.status === "pending"
-                          ? "text-yellow-400"
-                          : "text-gray-400"
-                      }`}
-                    >
-                      {selectedOrder.status}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Total Amount:</span>
-                    <span className="font-bold">
-                      ${selectedOrder.totalAmount}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-2">Products</h4>
-                <div className="space-y-3">
-                  {selectedOrder.products?.map((product, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start border-b border-gray-800 pb-3"
-                    >
-                      <div className="w-16 h-16 bg-gray-800 rounded-lg mr-3 overflow-hidden">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium">{product.name}</p>
-                        <p className="text-sm text-gray-400">
-                          Qty: {product.quantity}
-                        </p>
-                        <p className="text-sm">
-                          ${product.price?.toFixed(2)} each
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-end mt-6">
-              <button
-                onClick={() => setShowViewModal(false)}
-                className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
+      {showViewModal && (
+        <ViewModelComponent
+          order={selectedOrder}
+          setShowViewModal={setShowViewModal}
+        />
       )}
 
       {/* Edit Order Modal */}
-      {showEditModal && selectedOrder && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-md w-full">
-            <h3 className="text-xl font-bold mb-4">Update Order Status</h3>
 
-            <div className="mb-6">
-              <div className="mb-4">
-                <h4 className="font-semibold">{selectedOrder.orderId}</h4>
-                <p className="text-sm text-gray-400">
-                  Customer: {selectedOrder.userName}
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-gray-400 text-sm mb-2">
-                    Current Status
-                  </label>
-                  <p
-                    className={`px-3 py-1 rounded-full inline-block ${
-                      selectedOrder.status === "delivered"
-                        ? "bg-green-900 text-green-300"
-                        : selectedOrder.status === "pending"
-                        ? "bg-yellow-900 text-yellow-300"
-                        : "bg-gray-700 text-gray-300"
-                    }`}
-                  >
-                    {selectedOrder.status}
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-gray-400 text-sm mb-2">
-                    Change Status
-                  </label>
-                  <div className="grid grid-cols-2 gap-3">
-                    <button
-                      onClick={() => handleStatusChange("pending")}
-                      className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
-                        selectedOrder.status === "pending"
-                          ? "bg-yellow-700"
-                          : "bg-gray-700 hover:bg-gray-600"
-                      }`}
-                    >
-                      <FiClock className="text-yellow-400" />
-                      <span>Pending</span>
-                    </button>
-                    <button
-                      onClick={() => handleStatusChange("delivered")}
-                      className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
-                        selectedOrder.status === "delivered"
-                          ? "bg-green-700"
-                          : "bg-gray-700 hover:bg-gray-600"
-                      }`}
-                    >
-                      <FiCheckCircle className="text-green-400" />
-                      <span>Delivered</span>
-                    </button>
-                    <button
-                      onClick={() => handleStatusChange("cancelled")}
-                      className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
-                        selectedOrder.status === "cancelled"
-                          ? "bg-red-700"
-                          : "bg-gray-700 hover:bg-gray-600"
-                      }`}
-                    >
-                      <FiXCircle className="text-red-400" />
-                      <span>Cancel</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={() => setShowEditModal(false)}
-                className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
+      {showEditModal && (
+        <EditModelComponent
+          setShowEditModal={setShowEditModal}
+          order={selectedOrder}
+          updateOrderStatus={updateOrderStatus}
+        />
       )}
     </div>
   );
 };
 
 export default AdminOrderspage;
+
+const ViewModelComponent = ({ order, setShowViewModal }) => {
+  return (
+    <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
+      <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <h3 className="text-xl font-bold mb-4">Order Details</h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-semibold mb-2">Order Information</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-400">Order ID:</span>
+                <span>{order?.orderId}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Customer:</span>
+                <span>{order?.userName}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Date:</span>
+                <span> {order?.orderedAt && order.orderedAt}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Status:</span>
+                <span
+                  className={`${
+                    order?.status === "delivered"
+                      ? "text-green-400"
+                      : order?.status === "pending"
+                      ? "text-yellow-400"
+                      : order?.status === "cancelled"
+                      ? "text-red-500"
+                      : "text-gray-400"
+                  }`}
+                >
+                  {order?.status}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Total Amount:</span>
+                <span className="font-bold">${order?.totalAmount}</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-2">Products</h4>
+            <div className="space-y-3">
+              {order?.items?.map((product, index) => (
+                <div
+                  key={product?.id || index}
+                  className="flex items-start border-b border-gray-800 pb-3"
+                >
+                  <div className="w-16 h-16 bg-gray-800 rounded-lg mr-3 overflow-hidden">
+                    <img
+                      src={product?.image}
+                      alt={product?.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-medium">{product?.title}</p>
+                    <p className="text-sm text-gray-400">
+                      Qty: {product.quantity}
+                    </p>
+                    <p className="text-sm">${product?.price} each</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end mt-6">
+          <button
+            onClick={() => setShowViewModal(false)}
+            className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const EditModelComponent = ({ order, setShowEditModal, updateOrderStatus }) => {
+  const [status, setStatus] = useState(order?.status);
+  const handleStatusChange = (newStatus) => {
+    setStatus(newStatus);
+  };
+  const handleStatusSubmit = () => {
+    setShowEditModal(false);
+    order.status = status;
+    updateOrderStatus(order);
+  };
+  return (
+    <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
+      <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-md w-full">
+        <h3 className="text-xl font-bold mb-4">Update Order Status</h3>
+
+        <div className="mb-6">
+          <div className="mb-4">
+            <h4 className="font-semibold">{order?.orderId}</h4>
+            <p className="text-sm text-gray-400">Customer: {order?.userName}</p>
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-gray-400 text-sm mb-2">
+                Current Status
+              </label>
+              <p
+                className={`px-3 py-1 rounded-full inline-block ${
+                  order?.status === "delivered"
+                    ? "bg-green-900 text-green-300"
+                    : order?.status === "pending"
+                    ? "bg-yellow-900 text-yellow-300"
+                    : order?.status === "cancelled"
+                    ? "bg-red-500 "
+                    : "bg-gray-700 text-gray-300"
+                }`}
+              >
+                {order?.status}
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-gray-400 text-sm mb-2">
+                Change Status
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  onClick={() => handleStatusChange("pending")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "pending"
+                      ? "bg-yellow-700"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiClock className="text-yellow-400" />
+                  <span>Pending</span>
+                </button>
+                <button
+                  onClick={() => handleStatusChange("delivered")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "delivered"
+                      ? "bg-green-700"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiCheckCircle className="text-green-400" />
+                  <span>Delivered</span>
+                </button>
+                <button
+                  onClick={() => handleStatusChange("cancelled")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "cancelled"
+                      ? "bg-red-700"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiXCircle className="text-red-400" />
+                  <span>Cancel</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end space-x-4">
+          <button
+            onClick={() => setShowEditModal(false)}
+            className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
+          >
+            Cancel
+          </button>
+          <button
+            className="px-4 py-2 rounded-lg border bg-emerald-700 border-gray-700 hover:bg-emerald-900"
+            onClick={handleStatusSubmit}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

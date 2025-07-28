@@ -25,7 +25,6 @@ export default function OrderProvider({ children }) {
 
   //add to orders list
   const addtoOrders = (cart, totalAmount, address) => {
-    console.log(orders);
     if (!user || !orders) return;
     const updatedOrder = [
       ...orders,

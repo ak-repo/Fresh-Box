@@ -22,7 +22,7 @@ export default function NavigationBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center">
+          <div className="flex items-center">
             {/* <img
               src="assets/FRESH-BOX-logo.png"
               alt="Fresh-box logo"
@@ -36,7 +36,7 @@ export default function NavigationBar() {
                 </span>
               </h1>
             </NavLink>
-          </NavLink>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">

@@ -5,34 +5,20 @@ import { useUsersData } from "../../adminControlls/AdminProviders&Hooks";
 const AdminUsersPage = () => {
   const { usersList, updateUserStatus, deleteUser, updateUserRole } =
     useUsersData();
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [showEditModal, setShowEditModal] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
+  const [deleteModel, setDeleteModel] = useState(false);
+  const [editModel, setEditModel] = useState(false);
+  const [selectUser, setSelecteUser] = useState(null);
 
-  const handleEditClick = (user) => {
-    setSelectedUser(user);
-    setShowEditModal(true);
+  // edit model
+  const handleEditModel = (user) => {
+    setEditModel(true);
+    setSelecteUser(user);
   };
 
-  const handleDeleteClick = (user) => {
-    setSelectedUser(user);
-    setShowDeleteModal(true);
-  };
-
-  const confirmDelete = () => {
-    deleteUser(selectedUser.id);
-    setShowDeleteModal(false);
-    setSelectedUser(null);
-  };
-
-  const saveChanges = () => {
-    // Update both status and role if changed
-    if (selectedUser) {
-      updateUserStatus(selectedUser.id, selectedUser.isBlocked);
-      updateUserRole(selectedUser.id, selectedUser.role);
-    }
-    setShowEditModal(false);
-    setSelectedUser(null);
+  //delete model
+  const handleDeleteModel = (user) => {
+    setSelecteUser(user);
+    setDeleteModel(true);
   };
 
   return (
@@ -99,14 +85,14 @@ const AdminUsersPage = () => {
                         </td>
                         <td className="flex items-center space-x-2">
                           <button
-                            onClick={() => handleEditClick(user)}
-                            className="p-2 rounded text-blue-400 hover:text-blue-300 hover:bg-blue-900/30"
+                            onClick={() => handleEditModel(user)}
+                            className="p-2 rounded text-blue-400 hover:text-blue-300 cursor-pointer hover:bg-blue-900/30"
                           >
                             <FiEdit size={16} />
                           </button>
                           <button
-                            onClick={() => handleDeleteClick(user)}
-                            className="p-2 rounded text-red-400 hover:text-red-300 hover:bg-red-900/30"
+                            onClick={() => handleDeleteModel(user)}
+                            className="p-2 rounded text-red-400 hover:text-red-300 cursor-pointer hover:bg-red-900/30"
                           >
                             <FiTrash2 size={16} />
                           </button>
@@ -119,124 +105,155 @@ const AdminUsersPage = () => {
           </div>
         </main>
       </div>
-
       {/* Edit User Modal */}
-      {showEditModal && selectedUser && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-md w-full">
-            <h3 className="text-xl font-bold mb-4">Edit User</h3>
-
-            <div className="mb-4">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-800 flex items-center justify-center mr-3">
-                  <span className="text-sm">
-                    {selectedUser.name.charAt(0).toUpperCase()}
-                  </span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">{selectedUser.name}</h4>
-                  <p className="text-sm text-gray-400">{selectedUser.email}</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-gray-400 text-sm mb-1">
-                    Status
-                  </label>
-                  <div className="flex space-x-4">
-                    <button
-                      onClick={() =>
-                        setSelectedUser({ ...selectedUser, isBlocked: false })
-                      }
-                      className={`px-4 py-2 rounded-lg ${
-                        !selectedUser.isBlocked
-                          ? "bg-green-700"
-                          : "bg-gray-700 hover:bg-gray-600"
-                      }`}
-                    >
-                      Active
-                    </button>
-                    <button
-                      onClick={() =>
-                        setSelectedUser({ ...selectedUser, isBlocked: true })
-                      }
-                      className={`px-4 py-2 rounded-lg ${
-                        selectedUser.isBlocked
-                          ? "bg-red-700"
-                          : "bg-gray-700 hover:bg-gray-600"
-                      }`}
-                    >
-                      Blocked
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-gray-400 text-sm mb-1">
-                    Role
-                  </label>
-                  <select
-                    value={selectedUser.role}
-                    onChange={(e) =>
-                      setSelectedUser({ ...selectedUser, role: e.target.value })
-                    }
-                    className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700"
-                  >
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={() => setShowEditModal(false)}
-                className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={saveChanges}
-                className="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600"
-              >
-                Save Changes
-              </button>
-            </div>
-          </div>
-        </div>
+      {editModel && (
+        <EditModelComponent
+          user={selectUser}
+          setEditModel={setEditModel}
+          updateUserRole={updateUserRole}
+          updateUserStatus={updateUserStatus}
+        />
       )}
 
       {/* Delete Confirmation Modal */}
-      {showDeleteModal && selectedUser && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-md w-full">
-            <h3 className="text-xl font-bold mb-4">Confirm Deletion</h3>
-            <p className="mb-6">
-              Are you sure you want to delete user{" "}
-              <span className="font-semibold">{selectedUser?.name}</span>? This
-              action cannot be undone.
-            </p>
-            <div className="flex justify-end space-x-4">
-              <button
-                onClick={() => setShowDeleteModal(false)}
-                className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmDelete}
-                className="px-4 py-2 rounded-lg bg-red-700 hover:bg-red-600"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
+      {deleteModel && (
+        <DeleteModalComponent
+          deleteUser={deleteUser}
+          setDeleteModel={setDeleteModel}
+          user={selectUser}
+        />
       )}
     </div>
   );
 };
 
 export default AdminUsersPage;
+
+const DeleteModalComponent = ({ setDeleteModel, deleteUser, user }) => {
+  const handleDelete = (userId) => {
+    deleteUser(userId);
+    setDeleteModel(false);
+  };
+  return (
+    <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
+      <div className="bg-black p-6 rounded-xl border border-gray-800 max-w-md w-full">
+        <h3 className="text-xl font-bold mb-4">Confirm Deletion</h3>
+        <p className="mb-6">
+          Are you sure you want to delete user{" "}
+          <span className="font-semibold">{user?.name}</span>? This action
+          cannot be undone.
+        </p>
+        <div className="flex justify-end space-x-4">
+          <button
+            onClick={() => setDeleteModel(false)}
+            className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={() => handleDelete(user?.id)}
+            className="px-4 py-2 rounded-lg bg-red-700 hover:bg-red-600"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const EditModelComponent = ({
+  user,
+  setEditModel,
+  updateUserStatus,
+  updateUserRole,
+}) => {
+  const [currentStatus, setCurrentStatus] = useState(
+    user?.isBlocked ? true : false
+  );
+  const [currentRole, setCurrentRole] = useState(user?.role);
+
+  // status
+  const handleStatus = () => {
+    setCurrentStatus(!currentStatus);
+  };
+
+  // handling edit -> status and role
+
+  const handleEdit = () => {
+    user?.role !== currentRole && updateUserRole(user, currentRole);
+    user?.isBlocked !== currentStatus && updateUserStatus(user, currentStatus);
+    setEditModel(false);
+  };
+  return (
+    <div className="fixed inset-0  backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
+      <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-md w-full">
+        <h3 className="text-xl font-bold mb-4">Edit User</h3>
+
+        <div className="mb-4">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 rounded-full bg-emerald-800 flex items-center justify-center mr-3">
+              <span className="text-sm"></span>
+            </div>
+            <div>
+              <h4 className="font-semibold">{user?.name}</h4>
+              <p className="text-sm text-gray-400">{user?.email}</p>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <label className="block text-gray-400 text-sm mb-1">
+                {user?.status}
+              </label>
+              <div className="flex space-x-4">
+                {currentStatus ? (
+                  <button
+                    onClick={handleStatus}
+                    className="px-4 py-2 rounded-lg bg-red-500"
+                  >
+                    Blocked
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleStatus}
+                    className="px-4 py-2 rounded-lg bg-green-500 "
+                  >
+                    Active
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-gray-400 text-sm mb-1">Role</label>
+              <select
+                value={currentRole}
+                onChange={(e) => setCurrentRole(e.target.value)}
+                className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700"
+              >
+                <option value="customer">Customer</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end space-x-4">
+          <button
+            onClick={() => setEditModel(false)}
+            className="px-4 py-2 rounded-lg border border-gray-700 hover:bg-gray-800"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleEdit}
+            className="px-4 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-600"
+          >
+            Save Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -6,7 +6,7 @@
       "email": "ananda@example.com",
       "password": "1234567890@Ak",
       "role": "customer",
-      "isBlocked": false,
+      "isBlocked": true,
       "address": {
         "street": "123 Tech Park",
         "city": "Bangalore",
@@ -82,156 +82,7 @@
           "quantity": 1
         }
       ],
-      "orders": [
-        {
-          "orderId": "ord-1753589025968",
-          "status": "pending",
-          "items": [
-            {
-              "id": "49920346816810",
-              "title": "Peppermint Cacao Truffle",
-              "price": 109,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/H18-CACAOPEP-bag.jpg?v=1739477736",
-              "quantity": 3
-            },
-            {
-              "id": "47121324802346",
-              "title": "White Bean + Spinach Pesto",
-              "price": 107,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567",
-              "quantity": 1
-            },
-            {
-              "id": "47121324835114",
-              "title": "Tomato Basil + Portobello Bolognese",
-              "price": 107,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R06-BOLO.jpg?v=1716498567",
-              "quantity": 1
-            }
-          ],
-          "totalAmount": "571.79",
-          "paymentMethod": "online",
-          "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 09:33:45",
-          "shippingAddress": {
-            "street": "Malaparamba",
-            "city": "Calicut",
-            "state": "Kerala",
-            "pin": "673009"
-          }
-        },
-        {
-          "orderId": "ord-1753589125349",
-          "status": "pending",
-          "items": [
-            {
-              "id": "46783285264682",
-              "title": "Apple + Cinnamon",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
-              "quantity": 1
-            }
-          ],
-          "totalAmount": "114.79",
-          "paymentMethod": "online",
-          "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 09:35:25",
-          "shippingAddress": {
-            "street": "Malaparamba",
-            "city": "Calicut",
-            "state": "Kerala",
-            "pin": "673009"
-          }
-        },
-        {
-          "orderId": "ord-1753589915574",
-          "status": "pending",
-          "items": [
-            {
-              "id": "46783285264682",
-              "title": "Apple + Cinnamon",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
-              "quantity": 1
-            }
-          ],
-          "totalAmount": "114.79",
-          "paymentMethod": "online",
-          "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 09:48:35",
-          "shippingAddress": {
-            "street": "Malaparamba",
-            "city": "Calicut",
-            "state": "Kerala",
-            "pin": "673009"
-          }
-        },
-        {
-          "orderId": "ord-1753597328236",
-          "status": "pending",
-          "items": [
-            {
-              "id": "46783324029226",
-              "title": "Cherry + Almond",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
-              "quantity": 1
-            },
-            {
-              "id": "46783296045354",
-              "title": "Banana + Almond",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A28-SkippyBanana_Almond.png?v=1746553810",
-              "quantity": 1
-            },
-            {
-              "id": "47175581303082",
-              "title": "Ginger + Greens",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
-              "quantity": 1
-            },
-            {
-              "id": "46783285264682",
-              "title": "Apple + Cinnamon",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
-              "quantity": 1
-            },
-            {
-              "id": "46783262982442",
-              "title": "Strawberry + Peach",
-              "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
-              "quantity": 1
-            },
-            {
-              "id": "47175598604586",
-              "title": "Strawberry + Goji Berry",
-              "price": 67,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D07-CREAM.jpg?v=1716497980",
-              "quantity": 1
-            },
-            {
-              "id": "47121676534058",
-              "title": "Apple + Cinnamon",
-              "price": 67,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
-              "quantity": 1
-            }
-          ],
-          "totalAmount": "584.79",
-          "paymentMethod": "online",
-          "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 11:52:08",
-          "shippingAddress": {
-            "street": "Malaparamba",
-            "city": "Calicut",
-            "state": "Kerala",
-            "pin": "673009"
-          }
-        }
-      ],
+      "orders": [],
       "wishlist": [
         {
           "id": "46783280054570",
@@ -259,7 +110,8 @@
         }
       ],
       "orderHistory": [],
-      "created_at": "2025-07-22T06:38:30.911Z"
+      "created_at": "2025-07-22T06:38:30.911Z",
+      "isBlocked": false
     },
     {
       "id": "5fbe",
@@ -277,44 +129,91 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "46783280054570",
-          "title": "Tart Cherry + Raspberry",
+          "id": "46783301746986",
+          "title": "Strawberry + Cashew",
           "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
           "quantity": 1
         }
       ],
       "orders": [
         {
-          "orderId": "ord-1753590625956",
-          "status": "pending",
+          "orderId": "ord-1753722094543",
+          "status": "delivered",
           "items": [
             {
               "id": "46783280054570",
               "title": "Tart Cherry + Raspberry",
               "price": 84,
               "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+              "quantity": 2
+            },
+            {
+              "id": "46783262982442",
+              "title": "Strawberry + Peach",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
               "quantity": 1
             },
             {
-              "id": "47175581303082",
-              "title": "Ginger + Greens",
+              "id": "46783285264682",
+              "title": "Apple + Cinnamon",
               "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
               "quantity": 1
             },
             {
-              "id": "46783324029226",
-              "title": "Cherry + Almond",
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
               "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "450.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "28/07/2025, 22:31:34",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
+        },
+        {
+          "orderId": "ord-1753725916999",
+          "status": "pending",
+          "items": [
+            {
+              "id": "46783262982442",
+              "title": "Strawberry + Peach",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "46783285264682",
+              "title": "Apple + Cinnamon",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
+              "quantity": 1
+            },
+            {
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
               "quantity": 1
             }
           ],
           "totalAmount": "282.79",
           "paymentMethod": "online",
           "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 10:00:25",
+          "orderedAt": "28/07/2025, 23:35:16",
           "shippingAddress": {
             "mobile": " ",
             "street": "",
@@ -324,28 +223,28 @@
           }
         },
         {
-          "orderId": "ord-1753592612306",
+          "orderId": "ord-1753725924274",
           "status": "pending",
           "items": [
             {
-              "id": "46783280054570",
-              "title": "Tart Cherry + Raspberry",
+              "id": "46783285264682",
+              "title": "Apple + Cinnamon",
               "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
               "quantity": 1
             },
             {
-              "id": "46783324029226",
-              "title": "Cherry + Almond",
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
               "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
               "quantity": 1
             }
           ],
           "totalAmount": "198.79",
           "paymentMethod": "online",
           "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 10:33:32",
+          "orderedAt": "28/07/2025, 23:35:24",
           "shippingAddress": {
             "mobile": " ",
             "street": "",
@@ -355,69 +254,48 @@
           }
         },
         {
-          "orderId": "ord-1753617439493",
-          "status": "pending",
+          "orderId": "ord-1753725930215",
+          "status": "delivered",
           "items": [
             {
-              "id": "46783280054570",
-              "title": "Tart Cherry + Raspberry",
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
               "price": 84,
-              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
               "quantity": 1
             }
           ],
           "totalAmount": "114.79",
           "paymentMethod": "online",
           "paymentStatus": "Paid",
-          "orderedAt": "27/07/2025, 17:27:19",
+          "orderedAt": "28/07/2025, 23:35:30",
           "shippingAddress": {
             "mobile": " ",
             "street": "",
             "city": "",
             "state": "",
             "pin": ""
-          }
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
         }
       ],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "47121324802346",
+          "title": "White Bean + Spinach Pesto",
+          "price": 107,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567"
+        },
+        {
+          "id": "46783308824874",
+          "title": "Mango + Papaya",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A03-PAPA.jpg?v=1716498612"
+        }
+      ],
       "orderHistory": [],
       "created_at": "2025-07-26T04:42:35.983Z"
-    },
-    {
-      "id": "u31",
-      "name": "Aarav Sharma",
-      "email": "aarav.s@example.com",
-      "password": "Aarav@2025",
-      "role": "customer",
-      "isBlocked": false,
-      "address": {
-        "street": "12 Green Park",
-        "city": "Delhi",
-        "state": "Delhi"
-      },
-      "cart": [],
-      "wishlist": [],
-      "orders": [],
-      "orderHistory": [],
-      "createdAt": "2025-06-15T10:30:00Z"
-    },
-    {
-      "id": "u32",
-      "name": "Ishaan Patel",
-      "email": "ishaan.p@example.com",
-      "password": "Ishaan@1234",
-      "role": "customer",
-      "isBlocked": false,
-      "address": {
-        "street": "45 C.G. Road",
-        "city": "Ahmedabad",
-        "state": "Gujarat"
-      },
-      "cart": [],
-      "wishlist": [],
-      "orders": [],
-      "orderHistory": [],
-      "createdAt": "2025-05-22T14:15:00Z"
     },
     {
       "id": "u33",
@@ -443,7 +321,7 @@
       "email": "diya.r@example.com",
       "password": "Diya@2025",
       "role": "customer",
-      "isBlocked": true,
+      "isBlocked": false,
       "address": {
         "street": "23 Jubilee Hills",
         "city": "Hyderabad",
@@ -605,7 +483,7 @@
       "email": "kiara.d@example.com",
       "password": "Kiara@456",
       "role": "admin",
-      "isBlocked": false,
+      "isBlocked": true,
       "address": {
         "street": "34 Koregaon Park",
         "city": "Pune",
@@ -1467,7 +1345,7 @@
   "products": [
     {
       "id": "47175570784554",
-      "quantity": 1,
+      "quantity": 16,
       "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
       "title": "Mango + Greens",
       "price": 84,
