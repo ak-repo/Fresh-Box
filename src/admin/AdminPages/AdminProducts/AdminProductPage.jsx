@@ -1,18 +1,26 @@
-import { useEffect, useState } from "react";
-import { FiEdit, FiTrash2, FiEye } from "react-icons/fi";
+import { useState } from "react";
+import { FiEdit, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
 import { useProductsData } from "../../adminControlls/AdminProviders&Hooks";
+import Pagination from "../common/Pagination";
 
 const AdminProductsPage = () => {
-  const { productsList, updateProductStock, deleteProduct } = useProductsData();
-  const [filteredProducts, setFilterProduct] = useState([]);
+  const {
+    displayList,
+    updateProductStock,
+    deleteProduct,
+    search,
+    setSearch,
+    filtervalue,
+    setFilter,
+    setIdentifier,
+  } = useProductsData();
 
   const [viewModel, setViewModel] = useState(false);
   const [deleteModel, setDelteModel] = useState(false);
   const [editModel, setEditModel] = useState(false);
   const [selectedProduct, setSelectProduct] = useState(null);
-  useEffect(() => {
-    setFilterProduct(productsList);
-  }, [productsList]);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(8);
 
   //view model
   const handleView = (product) => {
@@ -31,12 +39,35 @@ const AdminProductsPage = () => {
     setDelteModel(true);
     setSelectProduct(product);
   };
+
+  //filter
+  const handleSelectionProductType = (e) => {
+    setFilter(e.target.value);
+    setIdentifier("product_type");
+  };
+  const handleSelectionProductQuantity = (e) => {
+    e.target.value === "All"
+      ? setFilter(e.target.value)
+      : setFilter(Number(e.target.value));
+
+    setIdentifier("quantity");
+  };
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-[#121212] text-gray-200">
+    <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 overflow-y-auto p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold">Product Management</h2>
+            <div className="hidden md:flex items-center bg-[#2e2e2e] rounded px-3 py-2">
+              <FiSearch className="text-gray-400 mr-2" />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="bg-transparent focus:outline-none w-64 text-sm"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
             <button className="bg-emerald-700 hover:bg-emerald-800 px-4 py-2 rounded-lg text-sm">
               Add New Product
             </button>
@@ -49,22 +80,30 @@ const AdminProductsPage = () => {
                 <label className="block text-gray-400 text-sm mb-1">
                   Category
                 </label>
-                <select className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700">
-                  <option>All Categories</option>
-                  <option>Electronics</option>
-                  <option>Clothing</option>
-                  <option>Furniture</option>
-                  <option>Books</option>
+                {/* //"All", "Smoothie", "Breakfast Bowl", "Bite" */}
+                <select
+                  onChange={(e) => handleSelectionProductType(e)}
+                  value={filtervalue}
+                  className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700"
+                >
+                  <option value="All">All Categories</option>
+                  <option value="Smoothie">Smoothie</option>
+                  <option value="Breakfast Bowl">BrakeFast Bowls</option>
+                  <option value="Bite">Bites</option>
+                  <option value="Pasta">Pasta</option>
                 </select>
               </div>
               <div>
                 <label className="block text-gray-400 text-sm mb-1">
                   Status
                 </label>
-                <select className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700">
-                  <option>All Status</option>
-                  <option>In Stock</option>
-                  <option>Out of Stock</option>
+                <select
+                  onChange={(e) => handleSelectionProductQuantity(e)}
+                  className="bg-[#2e2e2e] text-gray-200 w-full px-3 py-2 rounded-lg border border-gray-700"
+                >
+                  <option value="All">All Status</option>
+                  <option value="1">In Stock</option>
+                  <option value="0">Out of Stock</option>
                 </select>
               </div>
               <div>
@@ -87,12 +126,12 @@ const AdminProductsPage = () => {
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
-            {filteredProducts && filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
+          <div className="grid grid-cols-1 min-h-screen sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+            {displayList && displayList.length > 0 ? (
+              displayList.slice(start, end).map((product) => (
                 <div
                   key={product?.id}
-                  className="bg-[#1e1e1e] rounded-xl border border-gray-800 overflow-hidden hover:shadow-lg hover:shadow-purple-900/20 transition-all duration-300 hover:-translate-y-1 group"
+                  className="bg-[#1e1e1e] rounded-xl  border border-gray-800 overflow-hidden hover:shadow-lg hover:shadow-purple-900/20 transition-all duration-300 hover:-translate-y-1 group"
                 >
                   {/* Image Container */}
                   <div className="relative h-48 w-full bg-gray-800 overflow-hidden">
@@ -180,7 +219,13 @@ const AdminProductsPage = () => {
             )}
           </div>
 
-          {/* Pagination - Removed for brevity, can be added back as needed */}
+          {/* Pagination  */}
+          <Pagination
+            list={displayList}
+            setStart={setStart}
+            setEnd={setEnd}
+            pageSize={8}
+          />
         </main>
       </div>
 

@@ -1,6 +1,7 @@
 import { FiDollarSign, FiTrendingUp, FiTrendingDown } from "react-icons/fi";
-
+import { useRevenueData} from "../../adminControlls/AdminProviders&Hooks";
 const AdminRevenuePage = () => {
+  const{totalCost, totalRevenue} = useRevenueData();
   const revenueData = [
     { month: "Jan", revenue: 12500, profit: 8500, change: 12 },
     { month: "Feb", revenue: 15800, profit: 11200, change: 18 },
@@ -36,14 +37,14 @@ const AdminRevenuePage = () => {
           <div className="space-y-4">
             <div className="bg-[#2e2e2e] p-4 rounded-lg border border-gray-700">
               <p className="text-gray-400 text-sm">Total Revenue</p>
-              <p className="text-2xl font-bold">$112,900</p>
+              <p className="text-2xl font-bold">${totalRevenue}</p>
               <p className="text-green-400 text-sm flex items-center mt-1">
                 <FiTrendingUp className="mr-1" /> 12% from last period
               </p>
             </div>
             <div className="bg-[#2e2e2e] p-4 rounded-lg border border-gray-700">
               <p className="text-gray-400 text-sm">Total Profit</p>
-              <p className="text-2xl font-bold">$78,300</p>
+              <p className="text-2xl font-bold">${totalRevenue-totalCost}</p>
               <p className="text-green-400 text-sm flex items-center mt-1">
                 <FiTrendingUp className="mr-1" /> 8% from last period
               </p>

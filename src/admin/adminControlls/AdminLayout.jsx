@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import AdminUsersProvider from "./AdminUserController/AdminUsersProvider";
 import AdminProductsProvider from "./AdminProductsController/AdminProductsProvider";
 import AdminOrdersProvider from "./AdminOrderController/AdminOrdersProvider";
+import AdminRevenueProvider from "./AdminRevenueController/AdminRevenueProvider";
 
 //admin pages
 import AdminMainPage from "../AdminPages/AdminMainPage/AdminMainPage";
@@ -24,7 +25,9 @@ function AdminProviders({ children }) {
   return (
     <AdminProductsProvider>
       <AdminUsersProvider>
-        <AdminOrdersProvider>{children}</AdminOrdersProvider>
+        <AdminOrdersProvider>
+          <AdminRevenueProvider>{children}</AdminRevenueProvider>
+        </AdminOrdersProvider>
       </AdminUsersProvider>
     </AdminProductsProvider>
   );

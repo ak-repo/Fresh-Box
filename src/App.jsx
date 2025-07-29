@@ -2,9 +2,12 @@ import MainComponent from "./routes";
 
 function App() {
   return (
-    <div>
-      <MainComponent />
-    </div>
+    <>
+      <div>
+        <MainComponent />
+      </div>
+      <p></p>
+    </>
   );
 }
 

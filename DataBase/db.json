@@ -6,7 +6,7 @@
       "email": "ananda@example.com",
       "password": "1234567890@Ak",
       "role": "customer",
-      "isBlocked": true,
+      "isBlocked": false,
       "address": {
         "street": "123 Tech Park",
         "city": "Bangalore",
@@ -19,105 +19,10 @@
       "createdAt": "2025-07-01T09:00:00Z"
     },
     {
-      "id": "d5c5",
-      "name": "Ananda krishnan",
-      "email": "ak001mob@gmail.com",
-      "password": "1234567890@Ak",
-      "role": "customer",
-      "address": {
-        "street": "Malaparamba",
-        "city": "Calicut",
-        "state": "Kerala",
-        "pin": "673009"
-      },
-      "isBlock": false,
-      "cart": [
-        {
-          "id": "46783324029226",
-          "title": "Cherry + Almond",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
-          "quantity": 3
-        },
-        {
-          "id": "46783296045354",
-          "title": "Banana + Almond",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A28-SkippyBanana_Almond.png?v=1746553810",
-          "quantity": 1
-        },
-        {
-          "id": "47175581303082",
-          "title": "Ginger + Greens",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
-          "quantity": 1
-        },
-        {
-          "id": "46783285264682",
-          "title": "Apple + Cinnamon",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a19-cook-vanilla-bean-cacao-deconstructed-pdp-web-122824.jpg?v=1735398346",
-          "quantity": 1
-        },
-        {
-          "id": "46783262982442",
-          "title": "Strawberry + Peach",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A04-STRAW.jpg?v=1716498612",
-          "quantity": 1
-        },
-        {
-          "id": "47175598604586",
-          "title": "Strawberry + Goji Berry",
-          "price": 67,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D07-CREAM.jpg?v=1716497980",
-          "quantity": 1
-        },
-        {
-          "id": "47121676534058",
-          "title": "Apple + Cinnamon",
-          "price": 67,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
-          "quantity": 1
-        }
-      ],
-      "orders": [],
-      "wishlist": [
-        {
-          "id": "46783280054570",
-          "title": "Tart Cherry + Raspberry",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576"
-        },
-        {
-          "id": "47175581303082",
-          "title": "Ginger + Greens",
-          "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612"
-        },
-        {
-          "id": "49692182020394",
-          "title": "Vanilla Bean Protein",
-          "price": 94,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/a37-provan-deconstructed-pdp-web.jpg?v=1733508809"
-        },
-        {
-          "id": "47121324802346",
-          "title": "White Bean + Spinach Pesto",
-          "price": 107,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/R05-GRBEAN.jpg?v=1716498567"
-        }
-      ],
-      "orderHistory": [],
-      "created_at": "2025-07-22T06:38:30.911Z",
-      "isBlocked": false
-    },
-    {
       "id": "5fbe",
       "name": "Admin",
       "email": "admin@gmail.com",
-      "password": "1234567890@Ak",
+      "password": "1234",
       "role": "admin",
       "address": {
         "mobile": " ",
@@ -129,17 +34,24 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "46783301746986",
-          "title": "Strawberry + Cashew",
+          "id": "47175570784554",
+          "title": "Mango + Greens",
           "price": 84,
-          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+          "quantity": 1
+        },
+        {
+          "id": "47121676534058",
+          "title": "Apple + Cinnamon",
+          "price": 67,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
           "quantity": 1
         }
       ],
       "orders": [
         {
           "orderId": "ord-1753722094543",
-          "status": "delivered",
+          "status": "pending",
           "items": [
             {
               "id": "46783280054570",
@@ -186,7 +98,7 @@
         },
         {
           "orderId": "ord-1753725916999",
-          "status": "pending",
+          "status": "cancelled",
           "items": [
             {
               "id": "46783262982442",
@@ -220,11 +132,13 @@
             "city": "",
             "state": "",
             "pin": ""
-          }
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
         },
         {
           "orderId": "ord-1753725924274",
-          "status": "pending",
+          "status": "delivered",
           "items": [
             {
               "id": "46783285264682",
@@ -251,11 +165,13 @@
             "city": "",
             "state": "",
             "pin": ""
-          }
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
         },
         {
           "orderId": "ord-1753725930215",
-          "status": "delivered",
+          "status": "pending",
           "items": [
             {
               "id": "46783301746986",
@@ -278,6 +194,456 @@
           },
           "userId": "5fbe",
           "userName": "Admin"
+        },
+        {
+          "orderId": "ord-1753758735861",
+          "status": "delivered",
+          "items": [
+            {
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "265.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 08:42:15",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
+        },
+        {
+          "orderId": "ord-1753769627892",
+          "status": "pending",
+          "items": [
+            {
+              "id": "46783301746986",
+              "title": "Strawberry + Cashew",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A31-STROAT.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "265.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 11:43:47",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753769638377",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 11:43:58",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753769642860",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 11:44:02",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753769650156",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 11:44:10",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753769655956",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 11:44:15",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796573383",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:12:53",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796579580",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:12:59",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796584369",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:13:04",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796589125",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:13:09",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796595595",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:13:15",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796720063",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:15:20",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796724982",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:15:24",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
+        },
+        {
+          "orderId": "ord-1753796730804",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175570784554",
+              "title": "Mango + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A10-MANGO.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "47121676534058",
+              "title": "Apple + Cinnamon",
+              "price": 67,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/D04-FALL-apple-cinnamon-constructed-web_8577ed94-7bf8-4e4a-8c4a-6262e97da3e1.jpg?v=1746823474",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "181.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "29/07/2025, 19:15:30",
+          "shippingAddress": {
+            "mobile": " ",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
         }
       ],
       "wishlist": [
@@ -302,7 +668,7 @@
       "name": "Advait Joshi",
       "email": "advait.j@example.com",
       "password": "Advait#5678",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "78 FC Road",
@@ -392,7 +758,7 @@
       "name": "Saanvi Singh",
       "email": "saanvi.s@example.com",
       "password": "Saanvi@2024",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "45 Marine Drive",
@@ -482,7 +848,7 @@
       "name": "Kiara Deshmukh",
       "email": "kiara.d@example.com",
       "password": "Kiara@456",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": true,
       "address": {
         "street": "34 Koregaon Park",
@@ -572,7 +938,7 @@
       "name": "Kabir Saxena",
       "email": "kabir.s@example.com",
       "password": "Kabir#2024",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "12 Jubilee Hills",
@@ -662,7 +1028,7 @@
       "name": "Ira Mehta",
       "email": "ira.m@example.com",
       "password": "Ira@2023",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "45 Peddar Road",
@@ -770,7 +1136,7 @@
       "name": "Meera Kapoor",
       "email": "meera.k@example.com",
       "password": "Meera@2023",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "45 Defence Colony",
@@ -878,7 +1244,7 @@
       "name": "Arjun Reddy",
       "email": "arjun.r@example.com",
       "password": "Reddy@123",
-      "role": "admin",
+      "role": "customer",
       "isBlocked": false,
       "address": {
         "street": "5 Jubilee Hills",
@@ -1239,7 +1605,7 @@
       "email": "rajat.v@example.com",
       "password": "Rajat@2023",
       "role": "customer",
-      "isBlocked": true,
+      "isBlocked": false,
       "address": {
         "street": "56 Golf Links",
         "city": "New Delhi",
@@ -1345,7 +1711,7 @@
   "products": [
     {
       "id": "47175570784554",
-      "quantity": 16,
+      "quantity": 6,
       "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
       "title": "Mango + Greens",
       "price": 84,
@@ -1407,7 +1773,7 @@
     },
     {
       "id": "47175581303082",
-      "quantity": 1,
+      "quantity": 7,
       "key": "47175581303082:a3d82fd61c16f9b00746cdf59aace8c6",
       "title": "Ginger + Greens",
       "price": 84,
@@ -1903,7 +2269,7 @@
     },
     {
       "id": "46783307219242",
-      "quantity": 4,
+      "quantity": 0,
       "key": "46783307219242:95c1c58a12e7c087822dcf0627105328",
       "title": "Blueberry + Cacao",
       "price": 84,
@@ -1996,7 +2362,7 @@
     },
     {
       "id": "47121676534058",
-      "quantity": 4,
+      "quantity": 0,
       "key": "47121676534058:2fe438d6d9b9277f693ad0d75e21a96f",
       "title": "Apple + Cinnamon",
       "price": 67,

@@ -6,13 +6,20 @@ import { usersAPI } from "../../../api";
 function AdminUsersProvider({ children }) {
   const [totalUsersCount, setTotalUsersCount] = useState(0);
   const [usersList, setUsersList] = useState([]);
+  const [searchList, setSearchList] = useState([]);
   const [reupdate, setReupdate] = useState(false);
+  const [search, setSearch] = useState("");
 
   //fetching all users list
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(usersAPI);
-      setUsersList(data);
+      try {
+        const { data } = await axios.get(usersAPI);
+        setUsersList(data);
+        setSearchList(data);
+      } catch (error) {
+        console.log("Error while fetching userList", error.message);
+      }
     })();
   }, [reupdate]);
 
@@ -22,6 +29,17 @@ function AdminUsersProvider({ children }) {
       setTotalUsersCount(usersList.length);
     }
   }, [usersList]); //  Dependency array updated
+
+  //serach
+  useEffect(() => {
+    console.log(search);
+    setSearchList(
+      usersList.filter((user) =>
+        user?.name.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+    console.log(searchList);
+  }, [search]);
 
   const usersPatchWork = (user, change) => {
     if (user?.id) {
@@ -61,6 +79,9 @@ function AdminUsersProvider({ children }) {
         updateUserRole,
         reupdate,
         setReupdate,
+        search,
+        setSearch,
+        searchList,
       }}
     >
       {children}

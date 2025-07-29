@@ -6,14 +6,23 @@ import { productsAPI } from "../../../api";
 
 function AdminProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
+  const [displayList, setdisplaylist] = useState([]);
   const [totalProductCount, setProductCount] = useState(0);
   const [reupdate, setReupdate] = useState(false);
+  const [search, setSearch] = useState("");
+  const [filtervalue, setFilter] = useState("All");
+  const [identifier, setIdentifier] = useState(null);
 
   //fetching all products
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(productsAPI);
-      setProductsList(data);
+      try {
+        const { data } = await axios.get(productsAPI);
+        setProductsList(data);
+        setdisplaylist(data);
+      } catch (error) {
+        console.log("Error while fetching product data", error.message);
+      }
     })();
   }, [reupdate]);
 
@@ -23,7 +32,34 @@ function AdminProductsProvider({ children }) {
       setProductCount(productsList.length);
     }
   }, [productsList]);
-  // updateProductStock, deleteProduct
+
+  //search
+  useEffect(() => {
+    setdisplaylist(
+      productsList.filter((product) =>
+        product?.title.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search]);
+
+  // filterinng
+  useEffect(() => {
+    console.log(typeof filtervalue);
+    console.log(identifier);
+    if (filtervalue === "All") {
+      setdisplaylist(productsList);
+      return;
+    }
+    if (filtervalue === 1) {
+      setdisplaylist(
+        productsList.filter((product) => product[identifier] >= filtervalue)
+      );
+      return;
+    }
+    setdisplaylist(
+      productsList.filter((product) => product[identifier] === filtervalue)
+    );
+  }, [ filtervalue]);
 
   //update product
   const productPatchwork = (productId, change) => {
@@ -60,10 +96,17 @@ function AdminProductsProvider({ children }) {
   return (
     <AdminProductsContext.Provider
       value={{
-        productsList,
         totalProductCount,
         updateProductStock,
         deleteProduct,
+        search,
+        setSearch,
+        displayList,
+        productsList,
+        filtervalue,
+        setFilter,
+        identifier,
+        setIdentifier,
       }}
     >
       {children}

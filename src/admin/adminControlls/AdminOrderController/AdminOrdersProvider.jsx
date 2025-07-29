@@ -9,8 +9,10 @@ function AdminOrdersProvider({ children }) {
   const { usersList, reupdate, setReupdate } = useUsersData();
   const [ordersList, setOrdersList] = useState([]);
   const [deliveredOrders, setDeliOrder] = useState(0);
-  const [PendingOrders, setPendiOrder] = useState(0);
+  const [pendingOrders, setPendiOrder] = useState(0);
   const [cancelledOrders, setCancelOrder] = useState(0);
+  //revenue
+ 
 
   useEffect(() => {
     //extracting all orders from users list
@@ -37,6 +39,8 @@ function AdminOrdersProvider({ children }) {
       );
     }
   }, [ordersList]);
+
+
 
   //  updateOrderStatus,
   const updateOrderStatus = async (currentOrder) => {
@@ -67,8 +71,9 @@ function AdminOrdersProvider({ children }) {
         ordersList,
         deliveredOrders,
         cancelledOrders,
-        PendingOrders,
+        pendingOrders,
         updateOrderStatus,
+
       }}
     >
       {children}

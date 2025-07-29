@@ -54,7 +54,7 @@ export default function RegistrationPage() {
 
   return (
     <>
-      <div className="flex min-h-full h-[100vh] flex-1 flex-col justify-center bg-emerald-200 px-6 py-12 lg:px-8">
+      <div className="flex min-h-full h-[100vh] flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         {/* Centered Logo */}
         <div className="flex justify-center">
           <Link to="/" className="inline-flex items-center">

@@ -8,19 +8,22 @@ import {
   FiShoppingCart,
 } from "react-icons/fi";
 import { useOrdersData } from "../../adminControlls/AdminProviders&Hooks";
+import Pagination from "../common/Pagination";
 
 const AdminOrderspage = () => {
   const {
     ordersList,
     deliveredOrders,
     cancelledOrders,
-    PendingOrders,
+    pendingOrders,
     updateOrderStatus,
   } = useOrdersData();
 
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [showViewModal, setShowViewModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(8);
 
   const handleViewClick = (order) => {
     setSelectedOrder(order);
@@ -31,9 +34,11 @@ const AdminOrderspage = () => {
     setSelectedOrder(order);
     setShowEditModal(true);
   };
+  console.log(start);
+  console.log(end);
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-[#121212] text-gray-200">
+    <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 overflow-y-auto p-6">
           <div className="flex justify-between items-center mb-6">
@@ -81,7 +86,7 @@ const AdminOrderspage = () => {
                 <div>
                   <p className="text-gray-400 text-sm">Processing</p>
                   <p className="text-2xl font-bold mt-1">
-                    {PendingOrders.length}
+                    {pendingOrders.length}
                   </p>
                 </div>
                 <div className="bg-yellow-900/30 p-3 rounded-lg h-fit">
@@ -106,10 +111,12 @@ const AdminOrderspage = () => {
 
           {/* Orders Table */}
           <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800">
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto min-h-[80vh]">
               <table className="min-w-full">
                 <thead>
                   <tr className="text-left border-b border-gray-800">
+                    <th className="pb-3 font-medium">Index</th>
+
                     <th className="pb-3 font-medium">Order ID</th>
                     <th className="pb-3 font-medium">Customer</th>
                     <th className="pb-3 font-medium">Date</th>
@@ -120,22 +127,17 @@ const AdminOrderspage = () => {
                 </thead>
                 <tbody>
                   {ordersList &&
-                    ordersList.map((order) => (
+                    ordersList.slice(start, end).map((order, index) => (
                       <tr
                         key={order?.orderId}
                         className="border-b border-gray-800 hover:bg-[#2e2e2e]"
                       >
+                        <td className="py-4 text-emerald-700">{index + 1}</td>
                         <td className="py-4 text-emerald-700">
                           {order?.orderId}
                         </td>
                         <td>{order?.userName}</td>
-                        <td>
-                          {(order?.orderedAt &&
-                            new Date(order?.orderedAt)
-                              .toLocaleDateString("en-GB")
-                              .replaceAll("/", "-")) ||
-                            "Not found"}
-                        </td>
+                        <td>{order?.orderedAt || "Not found"}</td>
                         <td>${order?.totalAmount}</td>
                         <td>
                           <span
@@ -157,12 +159,14 @@ const AdminOrderspage = () => {
                           >
                             <FiEye size={16} />
                           </button>
-                          <button
-                            onClick={() => handleEditClick(order)}
-                            className="text-emerald-400 cursor-pointer hover:text-emerald-300 p-1.5 rounded hover:bg-emerald-900/20"
-                          >
-                            <FiEdit size={16} />
-                          </button>
+                          {order?.status !== "delivered" && (
+                            <button
+                              onClick={() => handleEditClick(order)}
+                              className="text-emerald-400 cursor-pointer hover:text-emerald-300 p-1.5 rounded hover:bg-emerald-900/20"
+                            >
+                              <FiEdit size={16} />
+                            </button>
+                          )}
                         </td>
                       </tr>
                     ))}
@@ -171,24 +175,13 @@ const AdminOrderspage = () => {
             </div>
 
             {/* Pagination */}
-            <div className="flex justify-between items-center mt-6">
-              <span className="text-gray-400">
-                Showing 1 to {Math.min(5, ordersList?.length || 0)} of{" "}
-                {ordersList?.length || 0} orders
-              </span>
-              <div className="flex space-x-2">
-                <button className="px-3 py-1 rounded border border-gray-700">
-                  Previous
-                </button>
-                <button className="px-3 py-1 rounded bg-emerald-700">1</button>
-                <button className="px-3 py-1 rounded border border-gray-700">
-                  2
-                </button>
-                <button className="px-3 py-1 rounded border border-gray-700">
-                  Next
-                </button>
-              </div>
-            </div>
+            <Pagination
+              list={ordersList}
+              setStart={setStart}
+              start={start}
+              setEnd={setEnd}
+              pageSize={8}
+            />
           </div>
         </main>
       </div>
@@ -216,7 +209,7 @@ const AdminOrderspage = () => {
 
 export default AdminOrderspage;
 
-const ViewModelComponent = ({ order, setShowViewModal }) => {
+export const ViewModelComponent = ({ order, setShowViewModal }) => {
   return (
     <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
       <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -404,3 +397,22 @@ const EditModelComponent = ({ order, setShowEditModal, updateOrderStatus }) => {
     </div>
   );
 };
+
+//  <div className="flex justify-between items-center mt-6">
+//             <span className="text-gray-400">
+//               Showing 1 to {Math.min(5, ordersList?.length || 0)} of{" "}
+//               {ordersList?.length || 0} orders
+//             </span>
+//             <div className="flex space-x-2">
+//               <button className="px-3 py-1 rounded border border-gray-700">
+//                 Previous
+//               </button>
+//               <button className="px-3 py-1 rounded bg-emerald-700">1</button>
+//               <button className="px-3 py-1 rounded border border-gray-700">
+//                 2
+//               </button>
+//               <button className="px-3 py-1 rounded border border-gray-700">
+//                 Next
+//               </button>
+//             </div>
+//           </div>

@@ -2,7 +2,7 @@ import { FiEdit, FiTrash2, FiGrid } from "react-icons/fi";
 
 const AdminCategoriesPage = () => {
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-[#121212] text-gray-200">
+    <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       {/* Header - Same as dashboard */}
 
       <div className="flex flex-1 overflow-hidden">
@@ -33,26 +33,26 @@ const AdminCategoriesPage = () => {
                 <tbody>
                   {[
                     {
-                      name: "Electronics",
-                      slug: "electronics",
+                      name: "Smoothie",
+                      slug: "smoothie",
                       products: 124,
                       status: "Active",
                     },
                     {
-                      name: "Clothing",
-                      slug: "clothing",
+                      name: "Bites",
+                      slug: "bites",
                       products: 89,
                       status: "Active",
                     },
                     {
-                      name: "Home & Garden",
-                      slug: "home-garden",
+                      name: "Breakfast Bowls",
+                      slug: "breakfast-bowls",
                       products: 56,
                       status: "Active",
                     },
                     {
-                      name: "Toys",
-                      slug: "toys",
+                      name: "Pasta",
+                      slug: "pasta",
                       products: 34,
                       status: "Inactive",
                     },

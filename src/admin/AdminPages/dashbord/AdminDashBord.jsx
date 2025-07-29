@@ -9,16 +9,105 @@
 
 // Grids: Stick to grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 for stats.
 
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+import {
+  useOrdersData,
+  useProductsData,
+  useUsersData,
+  useRevenueData,
+} from "../../adminControlls/AdminProviders&Hooks";
+import { ViewModelComponent } from "../AdminOrder/AdminOrderPage";
+
 import {
   FiUsers,
   FiShoppingCart,
   FiDollarSign,
   FiTrendingUp,
   FiEye,
-  FiPrinter,
 } from "react-icons/fi";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const AdminDashBord = () => {
+  const { deliveredOrders, cancelledOrders, pendingOrders, ordersList } =
+    useOrdersData();
+  const { totalUsersCount, usersList } = useUsersData();
+
+  const { totalRevenue } = useRevenueData();
+  const { totalProductCount, productsList } = useProductsData();
+  const [viewModel, setViewModel] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+
+  const handleViewOrder = (order) => {
+    setViewModel(true);
+    setSelectedOrder(order);
+  };
+
+  const data = {
+    labels: ["Delivered", "Pending", "Cancelled"],
+    datasets: [
+      {
+        label: "Orders",
+        data: [
+          deliveredOrders?.length || 0,
+          pendingOrders?.length || 0,
+          cancelledOrders?.length || 0,
+        ],
+        backgroundColor: [
+          "rgba(74, 222, 128, 0.8)", // Brighter green with opacity
+          "rgba(250, 204, 21, 0.8)", // Brighter yellow with opacity
+          "rgba(239, 68, 68, 0.8)", // Brighter red with opacity
+        ],
+        borderColor: [
+          "rgba(74, 222, 128, 1)",
+          "rgba(250, 204, 21, 1)",
+          "rgba(239, 68, 68, 1)",
+        ],
+        borderWidth: 2,
+        hoverBackgroundColor: [
+          "rgba(74, 222, 128, 1)",
+          "rgba(250, 204, 21, 1)",
+          "rgba(239, 68, 68, 1)",
+        ],
+        hoverBorderWidth: 3,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: "60%", // Makes the doughnut hole larger
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          color: "#e5e7eb", // Light gray text for better contrast
+          font: {
+            size: 14,
+            family: "'Inter', sans-serif",
+          },
+          padding: 20,
+          usePointStyle: true,
+          pointStyle: "circle",
+        },
+      },
+      tooltip: {
+        backgroundColor: "#1f2937",
+        titleColor: "#f3f4f6",
+        bodyColor: "#e5e7eb",
+        borderColor: "#374151",
+        borderWidth: 1,
+        padding: 12,
+        usePointStyle: true,
+      },
+    },
+  };
+
   return (
     <main className="flex-1 overflow-y-auto p-6">
       {/* Dashboard Overview */}
@@ -38,7 +127,7 @@ const AdminDashBord = () => {
             <div className="flex justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Total Users</p>
-                <p className="text-2xl font-bold mt-1">2,453</p>
+                <p className="text-2xl font-bold mt-1">{totalUsersCount}</p>
                 <p className="text-green-400 text-xs mt-2">
                   +8% from last month
                 </p>
@@ -53,7 +142,7 @@ const AdminDashBord = () => {
             <div className="flex justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Total Revenue</p>
-                <p className="text-2xl font-bold mt-1">$45,231</p>
+                <p className="text-2xl font-bold mt-1">${totalRevenue}</p>
                 <p className="text-green-400 text-xs mt-2">
                   +18% from last month
                 </p>
@@ -67,8 +156,8 @@ const AdminDashBord = () => {
           <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800">
             <div className="flex justify-between">
               <div>
-                <p className="text-gray-400 text-sm">Total Orders</p>
-                <p className="text-2xl font-bold mt-1">1,234</p>
+                <p className="text-gray-400 text-sm">Total Products</p>
+                <p className="text-2xl font-bold mt-1">{totalProductCount}</p>
                 <p className="text-green-400 text-xs mt-2">
                   +12% from last month
                 </p>
@@ -98,44 +187,49 @@ const AdminDashBord = () => {
 
       {/* Charts Section */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 lg:col-span-2">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">Sales Analytics</h3>
-            <div className="flex space-x-2">
-              <button className="px-3 py-1 text-xs bg-emerald-500 rounded">
-                Week
-              </button>
-              <button className="px-3 py-1 text-xs bg-[#2e2e2e] rounded">
-                Month
-              </button>
-              <button className="px-3 py-1 text-xs bg-[#2e2e2e] rounded">
-                Year
-              </button>
+        <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 lg:col-span-2 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-xl font-semibold text-gray-100">
+              Order Analytics
+            </h3>
+            {/* Add any additional controls or buttons here */}
+          </div>
+          <div className="h-80 bg-[#2e2e2e] rounded-lg flex items-center justify-center border border-gray-700 p-4">
+            <div className="w-full h-full relative">
+              <Doughnut data={data} options={options} />
+              {/* Optional center text */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-center">
+                  <p className="text-gray-300 text-sm">Total Orders</p>
+                  <p className="text-white text-2xl font-bold">
+                    {deliveredOrders?.length +
+                      pendingOrders?.length +
+                      cancelledOrders?.length || 0}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="h-64 bg-[#2e2e2e] rounded-lg flex items-center justify-center border border-gray-800">
-            <p className="text-gray-400">Line Chart Placeholder</p>
-          </div>
         </div>
-
         <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800">
           <h3 className="text-lg font-semibold mb-4">Top Products</h3>
           <div className="space-y-4">
-            {[1, 2, 3, 4].map((item) => (
-              <div key={item} className="flex items-center">
-                <div className="w-10 h-10 bg-gray-700 rounded-md mr-3"></div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Product {item}</p>
-                  <p className="text-xs text-gray-400">
-                    ${(item * 99).toFixed(2)}
-                  </p>
+            {productsList &&
+              productsList.slice(0, 6).map((item) => (
+                <div key={item?.id} className="flex items-center">
+                  <div className="w-10 h-10 bg-gray-700 rounded-md mr-3">
+                    <img src={item?.image} alt="product-img" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium">Product {item?.title}</p>
+                    <p className="text-xs text-gray-400">${item?.price}</p>
+                  </div>
+                  <div className="text-right">
+                    {/* <p className="text-sm font-medium">{item * 25} sales</p>
+                  <p className="text-xs text-green-400">+{item * 5}%</p> */}
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium">{item * 25} sales</p>
-                  <p className="text-xs text-green-400">+{item * 5}%</p>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>
@@ -144,9 +238,12 @@ const AdminDashBord = () => {
       <section className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 mb-8">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">Recent Orders</h3>
-          <button className="text-emerald-500 hover:text-purple-300 text-sm">
+          <NavLink
+            to="ordersControls"
+            className="text-emerald-500 hover:text-purple-300 text-sm"
+          >
             View All Orders
-          </button>
+          </NavLink>
         </div>
 
         <div className="overflow-x-auto">
@@ -162,72 +259,50 @@ const AdminDashBord = () => {
               </tr>
             </thead>
             <tbody>
-              {[
-                {
-                  id: "#ORD-0241",
-                  customer: "Alex Johnson",
-                  date: "2023-04-15",
-                  amount: "$199.99",
-                  status: "Completed",
-                },
-                {
-                  id: "#ORD-0240",
-                  customer: "Maria Garcia",
-                  date: "2023-04-14",
-                  amount: "$450.00",
-                  status: "Shipped",
-                },
-                {
-                  id: "#ORD-0239",
-                  customer: "David Kim",
-                  date: "2023-04-13",
-                  amount: "$120.50",
-                  status: "Processing",
-                },
-                {
-                  id: "#ORD-0238",
-                  customer: "Sarah Williams",
-                  date: "2023-04-12",
-                  amount: "$89.99",
-                  status: "Pending",
-                },
-              ].map((order, index) => (
-                <tr
-                  key={index}
-                  className="border-b border-gray-800 hover:bg-[#2e2e2e]"
-                >
-                  <td className="py-4 text-emerald-500">{order.id}</td>
-                  <td>{order.customer}</td>
-                  <td>{order.date}</td>
-                  <td>{order.amount}</td>
-                  <td>
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs ${
-                        order.status === "Completed"
-                          ? "bg-green-900 text-green-300"
-                          : order.status === "Shipped"
-                          ? "bg-blue-900 text-blue-300"
-                          : order.status === "Processing"
-                          ? "bg-yellow-900 text-yellow-300"
-                          : "bg-gray-700 text-gray-300"
-                      }`}
-                    >
-                      {order.status}
-                    </span>
-                  </td>
-                  <td>
-                    <button className="text-blue-400 hover:text-blue-300 mr-3">
-                      <FiEye size={16} />
-                    </button>
-                    <button className="text-gray-400 hover:text-gray-300">
-                      <FiPrinter size={16} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {ordersList &&
+                ordersList.slice(ordersList.length - 5).map((order) => (
+                  <tr
+                    key={order?.orderId}
+                    className="border-b border-gray-800 hover:bg-[#2e2e2e]"
+                  >
+                    <td className="py-4 text-emerald-500">{order?.orderId}</td>
+                    <td>{order?.userName}</td>
+                    <td> {order?.orderedAt || "Not found"}</td>
+                    <td>{order?.totalAmount}</td>
+                    <td>
+                      <span
+                        className={`px-3 py-1 rounded-full inline-block ${
+                          order?.status === "delivered"
+                            ? "bg-green-900 text-green-300"
+                            : order?.status === "pending"
+                            ? "bg-yellow-900 text-yellow-300"
+                            : order?.status === "cancelled"
+                            ? "bg-red-500 "
+                            : "bg-gray-700 text-gray-300"
+                        }`}
+                      >
+                        {order?.status}
+                      </span>
+                    </td>
+                    <td>
+                      <button
+                        onClick={() => handleViewOrder(order)}
+                        className="text-blue-400 hover:text-blue-300 mr-3"
+                      >
+                        <FiEye size={16} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
+        {viewModel && (
+          <ViewModelComponent
+            order={selectedOrder}
+            setShowViewModal={setViewModel}
+          />
+        )}
       </section>
 
       {/* Recent Users and Activity */}
@@ -235,70 +310,43 @@ const AdminDashBord = () => {
         <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-lg font-semibold">Recent Users</h3>
-            <button className="text-emerald-500 hover:text-purple-300 text-sm">
+            <NavLink
+              to="userControls"
+              className="text-emerald-500 hover:text-purple-300 text-sm"
+            >
               View All Users
-            </button>
+            </NavLink>
           </div>
 
           <div className="space-y-4">
-            {[
-              {
-                name: "Alex Johnson",
-                email: "alex@example.com",
-                role: "Admin",
-                status: "Active",
-              },
-              {
-                name: "Maria Garcia",
-                email: "maria@example.com",
-                role: "Customer",
-                status: "Active",
-              },
-              {
-                name: "David Kim",
-                email: "david@example.com",
-                role: "Customer",
-                status: "Inactive",
-              },
-              {
-                name: "Sarah Williams",
-                email: "sarah@example.com",
-                role: "Editor",
-                status: "Active",
-              },
-            ].map((user, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-3 hover:bg-[#2e2e2e] rounded-lg"
-              >
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center mr-3">
-                    <span className="text-xs">
-                      {user.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
+            {usersList &&
+              usersList.slice(usersList.length - 6).map((user) => (
+                <div
+                  key={user?.id}
+                  className="flex items-center justify-between p-3 hover:bg-[#2e2e2e] rounded-lg"
+                >
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center mr-3">
+                      <span className="text-xs">
+                        {user.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-medium">{user?.name}</p>
+                      <p className="text-xs text-gray-400">{user?.email}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-400">{user?.role}</p>
+                    <span className="text-xs text-green-500">
+                      {!user?.isBlock && <small>Active</small>}
                     </span>
                   </div>
-                  <div>
-                    <p className="font-medium">{user.name}</p>
-                    <p className="text-xs text-gray-400">{user.email}</p>
-                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm text-gray-400">{user.role}</p>
-                  <span
-                    className={`text-xs ${
-                      user.status === "Active"
-                        ? "text-green-400"
-                        : "text-red-400"
-                    }`}
-                  >
-                    {user.status}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 

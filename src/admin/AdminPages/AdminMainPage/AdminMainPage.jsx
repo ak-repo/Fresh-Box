@@ -84,29 +84,28 @@ const AdminHeader = ({ isMobile, sidebarOpen, setSidebarOpen }) => (
           {sidebarOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
       )}
-      <h1 className="text-xl font-bold mr-8">AdminPanel</h1>
-      <div className="hidden md:flex items-center bg-[#2e2e2e] rounded px-3 py-2">
+      <h1 className="text-2xl font-bold text-white ml-10 flex items-baseline">
+        <span>FRESH</span>
+        <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500 text-white rounded text-lg">
+          BOX
+        </span>
+      </h1>
+      <h1 className="text-xl font-bold mr-8 ml-10">AdminPanel</h1>
+      {/* <div className="hidden md:flex items-center bg-[#2e2e2e] rounded px-3 py-2">
         <FiSearch className="text-gray-400 mr-2" />
         <input
           type="text"
           placeholder="Search..."
           className="bg-transparent focus:outline-none w-64 text-sm"
         />
-      </div>
+      </div> */}
     </div>
     <AdminUserControls />
   </header>
 );
 
 const AdminUserControls = () => (
-  <div className="flex items-center space-x-6">
-    <h1 className="text-2xl font-bold text-white flex items-baseline">
-      <span>FRESH</span>
-      <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500 text-white rounded text-lg">
-        BOX
-      </span>
-    </h1>
-
+  <div className="flex  items-center space-x-6">
     <button className="relative p-1 rounded-full hover:bg-gray-800">
       <FiBell size={20} />
       <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
@@ -155,7 +154,7 @@ const AdminSidebar = ({ isMobile, sidebarOpen, setSidebarOpen }) => {
       ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
       md:translate-x-0 transform transition-transform duration-200 
       fixed md:relative w-64 bg-[#1a1a1a] border-r border-gray-800 
-      p-4 overflow-y-auto h-full z-50
+      p-4 overflow-y-auto h-full z-50 
     `}
     >
       <nav>

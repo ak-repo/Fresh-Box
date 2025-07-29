@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
-
 :root {
   /* Base Neutrals */
-  --color-white: #ffffff;        /* Pure White (FFFFFF) - For clean backgrounds */
-  --color-light: #f5f5f5;        /* Light Gray (F5F5F5) - Subtle backgrounds (4.8:1 on white) */
-  --color-muted: #d9d9d9;        /* Muted Gray (D9D9D9) - Borders, dividers (7.1:1 on white) */
-  
+  --color-white: #ffffff; /* Pure White (FFFFFF) - For clean backgrounds */
+  --color-light: #f5f5f5; /* Light Gray (F5F5F5) - Subtle backgrounds (4.8:1 on white) */
+  --color-muted: #d9d9d9; /* Muted Gray (D9D9D9) - Borders, dividers (7.1:1 on white) */
+
   /* Functional Grays */
-  --color-medium: #8a8a8a;       /* Medium Gray (8A8A8A) - Secondary text (4.6:1 on white) */
-  --color-dark: #2e2e2e;         /* Dark Charcoal (2E2E2E) - Primary text (15.9:1 on white) */
-  --color-black: #121212;        /* Soft Black (121212) - Strong accents (19.5:1 on white) */
-  
+  --color-medium: #8a8a8a; /* Medium Gray (8A8A8A) - Secondary text (4.6:1 on white) */
+  --color-dark: #2e2e2e; /* Dark Charcoal (2E2E2E) - Primary text (15.9:1 on white) */
+  --color-black: #121212; /* Soft Black (121212) - Strong accents (19.5:1 on white) */
+
   /* Enhanced Contrast Variant */
-  --color-true-black: #000000;   /* Pure Black (000000) - For maximum contrast */
+  --color-true-black: #000000; /* Pure Black (000000) - For maximum contrast */
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }

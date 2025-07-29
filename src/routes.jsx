@@ -31,14 +31,15 @@ import OrdersPage from "./pages/nonAuth/order/Orders";
 import PaymentPage from "./pages/nonAuth/payment/PaymentPage";
 import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 import ScrollToTop from "./pages/common/scroll/ScrollTop";
+import EditProfile from "./pages/nonAuth/profile/EditProfile";
 
 // Admin Components
 import AdminDashBord from "./admin/AdminPages/dashbord/AdminDashBord";
 import AdminProductPage from "./admin/AdminPages/AdminProducts/AdminProductPage";
 import AdminUserPage from "./admin/AdminPages/AdminUsers/AdminUserPage";
-import AdminRevenuePage from "./admin/AdminPages/AdminAnalitics/AdminRevenuePage";
 import AdminOrderPage from "./admin/AdminPages/AdminOrder/AdminOrderPage";
 import AdminAnalyticsPage from "./admin/AdminPages/AdminAnalitics/AdminAnalyticsPage";
+import AdminRevenuePage from "./admin/AdminPages/AdminRevenue/AdminRevenuePage";
 import AdminCategoriesPage from "./admin/AdminPages/AdminCategory/AdminCategoriesPage";
 import AdminSettingsPage from "./admin/AdminPages/AdminSettingsPage/AdminSettingsPage";
 import AdminLayout from "./admin/adminControlls/AdminLayout"; // it controlls the providers
@@ -86,6 +87,7 @@ const AppRouters = () => {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/paymentSuccess" element={<PaymentSuccess />} />
+        <Route path="/editProfile" element={<EditProfile />} />
 
         {/* Admin Routes */}
         <Route

@@ -1,15 +1,23 @@
 import { useState } from "react";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { FiEdit, FiTrash2, FiSearch } from "react-icons/fi";
 import { useUsersData } from "../../adminControlls/AdminProviders&Hooks";
+import Pagination from "../common/Pagination";
 
 const AdminUsersPage = () => {
-  const { usersList, updateUserStatus, deleteUser, updateUserRole } =
-    useUsersData();
+  const {
+    updateUserStatus,
+    deleteUser,
+    updateUserRole,
+    search,
+    setSearch,
+    searchList,
+  } = useUsersData();
   const [deleteModel, setDeleteModel] = useState(false);
   const [editModel, setEditModel] = useState(false);
   const [selectUser, setSelecteUser] = useState(null);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(7);
 
-  // edit model
   const handleEditModel = (user) => {
     setEditModel(true);
     setSelecteUser(user);
@@ -22,14 +30,25 @@ const AdminUsersPage = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden bg-[#121212] text-gray-200">
+    <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 overflow-y-auto p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold">User Management</h2>
-            <button className="bg-emerald-700 hover:bg-emerald-600 px-4 py-2 rounded-lg text-sm">
+            <div className="hidden md:flex items-center bg-[#2e2e2e] rounded px-3 py-2">
+              <FiSearch className="text-gray-400 mr-2" />
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                type="text"
+                placeholder="Search..."
+                className="bg-transparent focus:outline-none w-64 text-sm"
+              />
+            </div>
+
+            {/* <button className="bg-emerald-700 hover:bg-emerald-600 px-4 py-2 rounded-lg text-sm">
               Add New User
-            </button>
+            </button> */}
           </div>
 
           {/* User Filters - unchanged */}
@@ -40,7 +59,7 @@ const AdminUsersPage = () => {
           {/* Users Table */}
           <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800">
             <div className="overflow-x-auto">
-              <table className="min-w-full">
+              <table className="min-w-full  min-h-[70vh]">
                 <thead>
                   <tr className="text-left border-b border-gray-800">
                     <th className="pb-3 font-medium">User</th>
@@ -52,57 +71,23 @@ const AdminUsersPage = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {usersList &&
-                    usersList.map((user, index) => (
-                      <tr
-                        key={user?.id}
-                        className="border-b border-gray-800 hover:bg-[#2e2e2e]"
-                      >
-                        <td className="py-4 flex items-center">
-                          <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center mr-3">
-                            <span className="text-xs">{index + 1}</span>
-                          </div>
-                          <span>{user?.name}</span>
-                        </td>
-                        <td>{user?.email}</td>
-                        <td>{user?.role}</td>
-                        <td>
-                          <span
-                            className={`py-1 px-3 rounded-full text-sm ${
-                              user.isBlocked
-                                ? "bg-red-800 text-gray-300"
-                                : "bg-green-800 text-gray-300"
-                            }`}
-                          >
-                            {user.isBlocked ? "Blocked" : "Active"}
-                          </span>
-                        </td>
-                        <td>
-                          {user?.createdAt &&
-                            new Date(user.createdAt)
-                              .toLocaleDateString("en-GB")
-                              .replaceAll("/", "-")}
-                        </td>
-                        <td className="flex items-center space-x-2">
-                          <button
-                            onClick={() => handleEditModel(user)}
-                            className="p-2 rounded text-blue-400 hover:text-blue-300 cursor-pointer hover:bg-blue-900/30"
-                          >
-                            <FiEdit size={16} />
-                          </button>
-                          <button
-                            onClick={() => handleDeleteModel(user)}
-                            className="p-2 rounded text-red-400 hover:text-red-300 cursor-pointer hover:bg-red-900/30"
-                          >
-                            <FiTrash2 size={16} />
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                  <DisplayUser
+                    handleEditModel={handleEditModel}
+                    handleDeleteModel={handleDeleteModel}
+                    users={searchList}
+                    start={start}
+                    end={end}
+                  />
                 </tbody>
               </table>
             </div>
           </div>
+          <Pagination
+            list={searchList}
+            setStart={setStart}
+            setEnd={setEnd}
+            pageSize={7}
+          />
         </main>
       </div>
       {/* Edit User Modal */}
@@ -129,6 +114,68 @@ const AdminUsersPage = () => {
 
 export default AdminUsersPage;
 
+const DisplayUser = ({
+  users,
+  handleDeleteModel,
+  handleEditModel,
+  start,
+  end,
+}) => {
+  return (
+    <>
+      {users &&
+        users.slice(start, end).map((user, index) => (
+          <tr
+            key={user?.id}
+            className="border-b  bg-red-400 border-gray-800 hover:bg-[#2e2e2e]"
+          >
+            <td className="py-4 flex items-center ">
+              <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center mr-3">
+                <span className="text-xs">{index + 1}</span>
+              </div>
+              <span>{user?.name}</span>
+            </td>
+            <td>{user?.email}</td>
+            <td>{user?.role}</td>
+            <td>
+              <span
+                className={`py-1 px-3 rounded-full text-sm ${
+                  user.isBlocked
+                    ? "bg-red-800 text-gray-300"
+                    : "bg-green-800 text-gray-300"
+                }`}
+              >
+                {user.isBlocked ? "Blocked" : "Active"}
+              </span>
+            </td>
+            <td>
+              {user?.createdAt &&
+                new Date(user.createdAt)
+                  .toLocaleDateString("en-GB")
+                  .replaceAll("/", "-")}
+            </td>
+            {user?.role !== "admin" && (
+              <td className="flex items-center space-x-2">
+                {" "}
+                <button
+                  onClick={() => handleEditModel(user)}
+                  className="p-2 rounded text-blue-400 hover:text-blue-300 cursor-pointer hover:bg-blue-900/30"
+                >
+                  <FiEdit size={16} />
+                </button>
+                <button
+                  onClick={() => handleDeleteModel(user)}
+                  className="p-2 rounded text-red-400 hover:text-red-300 cursor-pointer hover:bg-red-900/30"
+                >
+                  <FiTrash2 size={16} />
+                </button>
+              </td>
+            )}
+          </tr>
+        ))}
+    </>
+  );
+};
 const DeleteModalComponent = ({ setDeleteModel, deleteUser, user }) => {
   const handleDelete = (userId) => {
     deleteUser(userId);
@@ -257,3 +304,5 @@ const EditModelComponent = ({
     </div>
   );
 };
+
+
