@@ -3,6 +3,7 @@ import axios from "axios";
 import { AdminProductsContext } from "../AdminProviders&Hooks";
 import { useEffect, useState } from "react";
 import { productsAPI } from "../../../api";
+import { useToast } from "../../../ContextAPI/ContextCreater&Hook";
 
 function AdminProductsProvider({ children }) {
   const [productsList, setProductsList] = useState([]);
@@ -12,6 +13,7 @@ function AdminProductsProvider({ children }) {
   const [search, setSearch] = useState("");
   const [filtervalue, setFilter] = useState("All");
   const [identifier, setIdentifier] = useState(null);
+  const { toastFail, toastSuccess } = useToast();
 
   //fetching all products
   useEffect(() => {
@@ -44,8 +46,6 @@ function AdminProductsProvider({ children }) {
 
   // filterinng
   useEffect(() => {
-    console.log(typeof filtervalue);
-    console.log(identifier);
     if (filtervalue === "All") {
       setdisplaylist(productsList);
       return;
@@ -59,20 +59,18 @@ function AdminProductsProvider({ children }) {
     setdisplaylist(
       productsList.filter((product) => product[identifier] === filtervalue)
     );
-  }, [ filtervalue]);
+  }, [filtervalue]);
 
   //update product
   const productPatchwork = (productId, change) => {
     if (productId) {
-      axios
-        .patch(`${productsAPI}/${productId}`, change)
-        .then(() => setReupdate(!reupdate))
-        .catch((error) =>
-          console.log(
-            "error found while updating product quantity",
-            error.message
-          )
-        );
+      try {
+        axios.patch(`${productsAPI}/${productId}`, change);
+        setReupdate(!reupdate);
+        toastSuccess("Product updated successfully.");
+      } catch (error) {
+        console.log("error while updating product info, ", error.message);
+      }
     }
   };
 
@@ -84,12 +82,25 @@ function AdminProductsProvider({ children }) {
   // delete product
   const deleteProduct = async (productId) => {
     if (productId) {
-      await axios
-        .delete(`${productsAPI}/${productId}`)
-        .then(() => setReupdate(!reupdate))
-        .catch((error) =>
-          console.log("error while deleting product", error.message)
-        );
+      try {
+        await axios.delete(`${productsAPI}/${productId}`);
+        setReupdate(!reupdate);
+        toastSuccess("Product deleted permanently.");
+      } catch (error) {
+        console.log("error while deleting product", error.message);
+      }
+    }
+  };
+
+  // add new product
+  const createNewProduct = async (product) => {
+    try {
+      await axios.post(productsAPI, product);
+      setReupdate(!reupdate);
+      toastSuccess("Product added successfully!");
+    } catch (error) {
+      console.log("error while adding new product", error.message);
+      toastFail("Failed to add product. Please try again.");
     }
   };
 
@@ -107,6 +118,7 @@ function AdminProductsProvider({ children }) {
         setFilter,
         identifier,
         setIdentifier,
+        createNewProduct,
       }}
     >
       {children}

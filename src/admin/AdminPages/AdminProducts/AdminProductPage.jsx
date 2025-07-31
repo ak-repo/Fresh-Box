@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiEdit, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
 import { useProductsData } from "../../adminControlls/AdminProviders&Hooks";
 import Pagination from "../common/Pagination";
+import ProductFormPopup from "./ProductFormPopup";
 
 const AdminProductsPage = () => {
   const {
@@ -18,6 +19,8 @@ const AdminProductsPage = () => {
   const [viewModel, setViewModel] = useState(false);
   const [deleteModel, setDelteModel] = useState(false);
   const [editModel, setEditModel] = useState(false);
+  const [addModel, setAddModel] = useState(false);
+
   const [selectedProduct, setSelectProduct] = useState(null);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(8);
@@ -40,6 +43,11 @@ const AdminProductsPage = () => {
     setSelectProduct(product);
   };
 
+  // addNew model
+  const handleNewProduct = () => {
+    setAddModel(true);
+  };
+
   //filter
   const handleSelectionProductType = (e) => {
     setFilter(e.target.value);
@@ -54,7 +62,7 @@ const AdminProductsPage = () => {
   };
   return (
     <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden ">
         <main className="flex-1 overflow-y-auto p-6">
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2xl font-bold">Product Management</h2>
@@ -68,7 +76,10 @@ const AdminProductsPage = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <button className="bg-emerald-700 hover:bg-emerald-800 px-4 py-2 rounded-lg text-sm">
+            <button
+              onClick={handleNewProduct}
+              className="bg-emerald-700 hover:bg-emerald-800 px-4 py-2 rounded-lg text-sm"
+            >
               Add New Product
             </button>
           </div>
@@ -126,7 +137,7 @@ const AdminProductsPage = () => {
           </div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 min-h-screen sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
             {displayList && displayList.length > 0 ? (
               displayList.slice(start, end).map((product) => (
                 <div
@@ -254,6 +265,8 @@ const AdminProductsPage = () => {
           deleteProduct={deleteProduct}
         />
       )}
+      {/* new product creation  */}
+      {addModel && <ProductFormPopup setAddModel={setAddModel} />}
     </div>
   );
 };

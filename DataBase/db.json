@@ -1,37 +1,20 @@
 {
   "users": [
     {
-      "id": "u1",
-      "name": "Ananda Krishnan",
-      "email": "ananda@example.com",
-      "password": "1234567890@Ak",
-      "role": "customer",
-      "isBlocked": false,
-      "address": {
-        "street": "123 Tech Park",
-        "city": "Bangalore",
-        "state": "Karnataka"
-      },
-      "cart": [],
-      "wishlist": [],
-      "orders": [],
-      "orderHistory": [],
-      "createdAt": "2025-07-01T09:00:00Z"
-    },
-    {
       "id": "5fbe",
       "name": "Admin",
-      "email": "admin@gmail.com",
-      "password": "1234",
+      "email": "admin@freshbox.com",
+      "password": "1234567890@Ak",
       "role": "admin",
       "address": {
-        "mobile": " ",
-        "street": "",
-        "city": "",
-        "state": "",
-        "pin": ""
+        "mobile": " 1234567890",
+        "street": "Mass Corner",
+        "city": "KOZHIKODE",
+        "state": "Kerala",
+        "pin": "673009"
       },
       "isBlock": false,
+      "createdAt": "2025-03-12",
       "cart": [
         {
           "id": "47175570784554",
@@ -275,7 +258,7 @@
         },
         {
           "orderId": "ord-1753769638377",
-          "status": "pending",
+          "status": "cancelled",
           "items": [
             {
               "id": "47175570784554",
@@ -302,7 +285,9 @@
             "city": "",
             "state": "",
             "pin": ""
-          }
+          },
+          "userId": "5fbe",
+          "userName": "Admin"
         },
         {
           "orderId": "ord-1753769642860",
@@ -658,6 +643,12 @@
           "title": "Mango + Papaya",
           "price": 84,
           "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A03-PAPA.jpg?v=1716498612"
+        },
+        {
+          "id": "47175581303082",
+          "title": "Ginger + Greens",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612"
         }
       ],
       "orderHistory": [],
@@ -669,7 +660,7 @@
       "email": "advait.j@example.com",
       "password": "Advait#5678",
       "role": "customer",
-      "isBlocked": false,
+      "isBlocked": true,
       "address": {
         "street": "78 FC Road",
         "city": "Pune",
@@ -686,7 +677,7 @@
       "name": "Diya Reddy",
       "email": "diya.r@example.com",
       "password": "Diya@2025",
-      "role": "customer",
+      "role": "admin",
       "isBlocked": false,
       "address": {
         "street": "23 Jubilee Hills",
@@ -1706,12 +1697,131 @@
       "orders": [],
       "orderHistory": [],
       "createdAt": "2023-02-01T10:15:00Z"
+    },
+    {
+      "id": "2af8",
+      "name": "Ananda krishnan",
+      "email": "ak001mob@gmail.com",
+      "password": "1234567890@Ak",
+      "role": "customer",
+      "address": {
+        "mobile": " 1234567890",
+        "street": "Mass Corner",
+        "city": "KOZHIKODE",
+        "state": "Kerala",
+        "pin": "673009"
+      },
+      "isBlock": false,
+      "cart": [
+        {
+          "id": "47175581303082",
+          "title": "Ginger + Greens",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+          "quantity": 2
+        },
+        {
+          "id": "46783260426538",
+          "title": "Acai + Cherry",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A01-ACAI.jpg?v=1716498614",
+          "quantity": 1
+        },
+        {
+          "id": "46783305777450",
+          "title": "Mint + Cacao",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A06-MINT.jpg?v=1716498613",
+          "quantity": 1
+        },
+        {
+          "id": "46783307219242",
+          "title": "Blueberry + Cacao",
+          "price": 84,
+          "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A11-CHOBLU.jpg?v=1716498612",
+          "quantity": 1
+        }
+      ],
+      "orders": [
+        {
+          "orderId": "ord-1753886392548",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175581303082",
+              "title": "Ginger + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+              "quantity": 2
+            }
+          ],
+          "totalAmount": "198.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "30/07/2025, 20:09:52",
+          "shippingAddress": {
+            "mobile": " 1234567890",
+            "street": "Mass Corner",
+            "city": "KOZHIKODE",
+            "state": "Kerala",
+            "pin": "673009"
+          }
+        },
+        {
+          "orderId": "ord-1753886411330",
+          "status": "pending",
+          "items": [
+            {
+              "id": "47175581303082",
+              "title": "Ginger + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+              "quantity": 2
+            },
+            {
+              "id": "46783260426538",
+              "title": "Acai + Cherry",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A01-ACAI.jpg?v=1716498614",
+              "quantity": 1
+            },
+            {
+              "id": "46783305777450",
+              "title": "Mint + Cacao",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A06-MINT.jpg?v=1716498613",
+              "quantity": 1
+            },
+            {
+              "id": "46783307219242",
+              "title": "Blueberry + Cacao",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A11-CHOBLU.jpg?v=1716498612",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": "450.79",
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "30/07/2025, 20:10:11",
+          "shippingAddress": {
+            "mobile": " 1234567890",
+            "street": "Mass Corner",
+            "city": "KOZHIKODE",
+            "state": "Kerala",
+            "pin": "673009"
+          }
+        }
+      ],
+      "wishlist": [],
+      "orderHistory": [],
+      "created_at": "2025-07-30T14:21:48.395Z"
     }
   ],
   "products": [
     {
       "id": "47175570784554",
-      "quantity": 6,
+      "quantity": 7,
       "key": "47175570784554:0ce54760f167fb2d13aa9f3761758d22",
       "title": "Mango + Greens",
       "price": 84,

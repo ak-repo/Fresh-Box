@@ -6,37 +6,40 @@ import { useUser, useToast } from "../../ContextAPI/ContextCreater&Hook";
 
 export default function LoginPage() {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
-  // const [error, setError] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { toastSuccess, toastFail } = useToast();
-  const { login } = useUser();
+  const { login, logout } = useUser();
 
   // form filling
   const handleChange = (event) => {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
 
-  // form submitting handle
-  const handleSubmit = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-
     const data = await login(loginData);
 
-    if (data) {
-      if (data?.role === "admin") {
+    if (data?.id) {
+      if (data?.isBlock) {
+        toastFail("User has been blocked.");
+        logout();
+        return;
+      }
+
+      if (data.role === "admin") {
         toastSuccess("🎉 Welcome Admin");
         setTimeout(() => {
           navigate("/admin");
         }, 1000);
-      } else {
-        toastSuccess("🎉 Welcome back ! You’ve logged in successfully.");
+      } else if (data.role === "customer") {
+        toastSuccess("🎉 Welcome back! You’ve logged in successfully.");
         setTimeout(() => {
           navigate("/");
         }, 1000);
       }
     } else {
-      toastFail("❌ Oops! Invalid credentials. Please try again.");
+      toastFail("Invalid email or password");
     }
   };
 
@@ -48,7 +51,7 @@ export default function LoginPage() {
           <Link to="/" className="inline-flex items-center">
             <h1 className="text-2xl font-bold text-black flex items-baseline">
               <span>FRESH</span>
-              <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500 text-white rounded text-lg">
+              <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-700 text-white rounded text-lg">
                 BOX
               </span>
             </h1>
@@ -62,7 +65,7 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm border-1 p-5 rounded-xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={(e) => handleLogin(e)} className="space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -128,7 +131,7 @@ export default function LoginPage() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-[var(--color-black)] px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-[var(--color-dark)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-black)]"
+                className="flex w-full justify-center rounded-md bg-emerald-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-emerald-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-black)]"
               >
                 Sign in
               </button>

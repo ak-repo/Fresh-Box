@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 //               start={start}
 //               setEnd={setEnd}
 //               end={end}
-function Pagination({ list, setStart, setEnd,pageSize }) {
+function Pagination({ list, setStart, setEnd, pageSize }) {
   const [currentPage, setCurrentPage] = useState(0);
 
   const PAGE_SIZE = pageSize;
@@ -26,7 +26,7 @@ function Pagination({ list, setStart, setEnd,pageSize }) {
   return (
     <div className="flex justify-between items-center mt-6">
       <span className="text-gray-400">
-        Showing 1 to {Math.min(5, totalItems || 0)} of {totalItems || 0}
+        Showing  {pageSize} items of {totalItems || 0}
       </span>
       <div className="flex space-x-2">
         <button
@@ -44,6 +44,7 @@ function Pagination({ list, setStart, setEnd,pageSize }) {
 
         <button
           onClick={handleNext}
+          disabled={currentPage + 1 === noOfPages}
           className="px-3 py-1 rounded border border-gray-700"
         >
           Next

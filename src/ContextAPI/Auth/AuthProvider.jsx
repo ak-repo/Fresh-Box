@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { usersAPI } from "../../api";
-import { loginUser } from "./LoginController";
-import { registerNewUser } from "./RegistrationController";
 import { UserDataContext } from "../ContextCreater&Hook";
-
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -14,15 +10,13 @@ export default function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate();
-
   const [registrationForm, setFormData] = useState({
     name: "",
     email: "",
     password: "",
     role: "customer",
     address: {
-      mobile: " ",
+      mobile: "",
       street: "",
       city: "",
       state: "",
@@ -80,30 +74,34 @@ export default function AuthProvider({ children }) {
     return Object.keys(validationErrors).length === 0;
   };
 
-  // login function call
-  const login = async (userData) => {
+  //login
+  const login = async ({ email, password }) => {
     try {
-      const user = await loginUser(userData);
-      if (user) {
-        setUser(user);
-        return user;
-      }
+      const { data } = await axios.get(
+        `${usersAPI}?email=${email}&password=${password}`
+      );
+      setUser(data[0]);
+      return data[0];
     } catch (error) {
-      console.log("Error while login", error.message);
+      console.log("Error while logging in user:", error.message);
       return null;
     }
   };
 
-  //registration function call
-  const register = async (userData) => {
-    const success = await registerNewUser(userData);
-    success ? true : false;
+  // register
+  const register = async (newData) => {
+    try {
+      await axios.post(usersAPI, newData);
+      return true;
+    } catch (error) {
+      console.log("error while registraction,  ", error.message);
+      return false;
+    }
   };
 
   //logout
   const logout = () => {
     setUser(null);
-    navigate("/");
   };
 
   // checking anything common in users
@@ -114,6 +112,37 @@ export default function AuthProvider({ children }) {
       return existing ? false : true;
     }
   }
+
+  // info update function
+  const infoUpdate = async (newData) => {
+    if (user?.id && newData) {
+      try {
+        const { data } = await axios.patch(`${usersAPI}/${user?.id}`, {
+          ...user,
+          ...newData,
+        });
+        setUser(data);
+      } catch (error) {
+        console.log("error while updating user info", error.message);
+      }
+    }
+  };
+
+  //password reset
+  const passwordChange = async (newPassword) => {
+    if (user?.id) {
+      try {
+        const { data } = await axios.patch(`${usersAPI}/${user.id}`, {
+          password: newPassword,
+        });
+        setUser(data);
+        return true;
+      } catch (error) {
+        console.log("error while changing password", error.message);
+        return false;
+      }
+    }
+  };
 
   return (
     <UserDataContext.Provider
@@ -129,6 +158,8 @@ export default function AuthProvider({ children }) {
         setFormData,
         userChecker,
         error,
+        infoUpdate,
+        passwordChange,
       }}
     >
       {!loading && children}

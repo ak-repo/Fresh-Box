@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AdminOrdersContext } from "../AdminProviders&Hooks";
 import { useUsersData } from "../AdminProviders&Hooks";
 import { usersAPI } from "../../../api";
+import { useToast } from "../../../ContextAPI/ContextCreater&Hook";
 
 import axios from "axios";
 
@@ -11,8 +12,7 @@ function AdminOrdersProvider({ children }) {
   const [deliveredOrders, setDeliOrder] = useState(0);
   const [pendingOrders, setPendiOrder] = useState(0);
   const [cancelledOrders, setCancelOrder] = useState(0);
-  //revenue
- 
+  const { toastFail, toastSuccess } = useToast();
 
   useEffect(() => {
     //extracting all orders from users list
@@ -40,8 +40,6 @@ function AdminOrdersProvider({ children }) {
     }
   }, [ordersList]);
 
-
-
   //  updateOrderStatus,
   const updateOrderStatus = async (currentOrder) => {
     console.log(currentOrder);
@@ -57,9 +55,12 @@ function AdminOrdersProvider({ children }) {
         await axios.patch(`${usersAPI}/${currentOrder?.userId}`, {
           orders: updatedOrder,
         });
+        toastSuccess(`Order status updated to ${currentOrder?.status}.`);
 
         setReupdate(!reupdate);
       } catch (error) {
+        toastFail("Unable to update order status. Please retry.");
+
         console.log("error while updating order status", error.message);
       }
     }
@@ -73,7 +74,6 @@ function AdminOrdersProvider({ children }) {
         cancelledOrders,
         pendingOrders,
         updateOrderStatus,
-
       }}
     >
       {children}

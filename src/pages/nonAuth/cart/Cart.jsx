@@ -65,6 +65,7 @@ export default function Cart() {
                 <div className="flex items-center space-x-4">
                   <div className="flex items-center border border-gray-300 rounded-md">
                     <button
+                      disabled={product.quantity <= 1}
                       onClick={() => updateQuantity(product.id, -1)}
                       className="px-3 py-1 text-gray-600 hover:bg-gray-100"
                     >
@@ -116,7 +117,9 @@ export default function Cart() {
           </div>{" "}
           <button
             className="w-full mt-4 px-6 py-3 bg-emerald-500 text-white font-medium rounded-lg cursor-pointer hover:bg-emerald-700 transition-colors"
-            onClick={() => navigate("/payment", { state: totalCost })}
+            onClick={() =>
+              totalItems > 0 && navigate("/payment", { state: totalCost })
+            }
           >
             Proceed To Payment
           </button>

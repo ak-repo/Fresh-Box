@@ -91,40 +91,37 @@ const AdminHeader = ({ isMobile, sidebarOpen, setSidebarOpen }) => (
         </span>
       </h1>
       <h1 className="text-xl font-bold mr-8 ml-10">AdminPanel</h1>
-      {/* <div className="hidden md:flex items-center bg-[#2e2e2e] rounded px-3 py-2">
-        <FiSearch className="text-gray-400 mr-2" />
-        <input
-          type="text"
-          placeholder="Search..."
-          className="bg-transparent focus:outline-none w-64 text-sm"
-        />
-      </div> */}
     </div>
     <AdminUserControls />
   </header>
 );
 
-const AdminUserControls = () => (
-  <div className="flex  items-center space-x-6">
-    <button className="relative p-1 rounded-full hover:bg-gray-800">
-      <FiBell size={20} />
-      <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-    </button>
-    <button className="relative p-1 rounded-full hover:bg-gray-800">
-      <FiMail size={20} />
-      <span className="absolute top-0 right-0 w-2 h-2 bg-blue-500 rounded-full"></span>
-    </button>
-    <div className="flex items-center space-x-2">
-      <div className="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center">
-        <span className="text-xs font-bold">AD</span>
-      </div>
-      <div className="hidden md:block">
-        <p className="text-sm font-medium">Admin User</p>
-        <p className="text-xs text-gray-400">Super Admin</p>
-      </div>
+const AdminUserControls = () => {
+  return (
+    <div className="flex  items-center space-x-6">
+      <button className="relative p-1 rounded-full hover:bg-gray-800">
+        <FiBell size={20} />
+        <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
+      </button>
+      <button className="relative p-1 rounded-full hover:bg-gray-800">
+        <FiMail size={20} />
+        <span className="absolute top-0 right-0 w-2 h-2 bg-blue-500 rounded-full"></span>
+      </button>
+      <NavLink to="AdminProfile">
+        {" "}
+        <div className="flex items-center space-x-2 cursor-pointer">
+          <div className="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center">
+            <span className="text-xs font-bold">AD</span>
+          </div>
+          <div className="hidden md:block">
+            <p className="text-sm font-medium">Admin User</p>
+            <p className="text-xs text-gray-400">Super Admin</p>
+          </div>
+        </div>
+      </NavLink>
     </div>
-  </div>
-);
+  );
+};
 
 const AdminSidebar = ({ isMobile, sidebarOpen, setSidebarOpen }) => {
   const navItems = [

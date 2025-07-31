@@ -24,7 +24,10 @@ const UserProfile = () => {
                   <p className="text-gray-300">Member</p>
                 </div>
               </div>
-              <button className="px-4 py-2 text-sm font-medium text-black bg-white rounded-md hover:bg-gray-100">
+              <button
+                onClick={() => navigate("/editProfile")}
+                className="px-4 py-2 text-sm font-medium text-black bg-white rounded-md hover:bg-gray-100"
+              >
                 Edit Profile
               </button>
             </div>
@@ -83,7 +86,7 @@ const UserProfile = () => {
                     <div className="ml-3">
                       <p className="text-sm text-gray-500">Phone Number</p>
                       <p className="text-sm font-medium text-gray-900">
-                        98765432110
+                        {user?.address?.mobile}
                       </p>
                     </div>
                   </div>

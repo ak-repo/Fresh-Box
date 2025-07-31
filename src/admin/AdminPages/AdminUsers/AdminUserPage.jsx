@@ -127,7 +127,7 @@ const DisplayUser = ({
         users.slice(start, end).map((user, index) => (
           <tr
             key={user?.id}
-            className="border-b  bg-red-400 border-gray-800 hover:bg-[#2e2e2e]"
+            className="border-b   border-gray-800 hover:bg-[#2e2e2e]"
           >
             <td className="py-4 flex items-center ">
               <div className="w-10 h-10 rounded-full bg-emerald-800 flex items-center justify-center mr-3">

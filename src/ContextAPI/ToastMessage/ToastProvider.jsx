@@ -72,3 +72,68 @@ export default function ToastProvider({ children }) {
 // | ------ | ---------------------------------------- |
 // | Logout | 👋 You’ve been logged out. See you soon! |
 //⚠️ Login Required
+
+
+
+
+// admin
+
+
+
+//  Product Management
+// "Product added successfully!"
+
+// "Product updated successfully."
+
+// "Product deleted permanently."
+
+// "Failed to add product. Please try again."
+
+// 👥 User Management
+// "User has been blocked."
+
+// "User has been unblocked."
+
+// "User promoted to Admin."
+
+// "User role updated successfully."
+
+// "User deleted successfully."
+
+// "Failed to update user details."
+
+// 📦 Order Management
+// "Order status updated to Shipped."
+
+// "Order marked as Delivered."
+
+// "Order cancelled successfully."
+
+// "Order refunded."
+
+// "Unable to update order status. Please retry."
+
+// ⚙️ System / Settings
+// "Settings saved successfully."
+
+// "Dashboard refreshed."
+
+// "Error loading admin data."
+
+// "Session expired. Please login again."
+
+// 🛡️ Auth / Security
+// "You are now logged in as Admin."
+
+// "Logged out successfully."
+
+// "Access denied. Admins only."
+
+// 💬 Miscellaneous
+// "Action completed successfully."
+
+// "Changes saved."
+
+// "No changes were made."
+
+// "Something went wrong. Please check your connection."

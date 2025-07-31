@@ -42,6 +42,8 @@ import AdminAnalyticsPage from "./admin/AdminPages/AdminAnalitics/AdminAnalytics
 import AdminRevenuePage from "./admin/AdminPages/AdminRevenue/AdminRevenuePage";
 import AdminCategoriesPage from "./admin/AdminPages/AdminCategory/AdminCategoriesPage";
 import AdminSettingsPage from "./admin/AdminPages/AdminSettingsPage/AdminSettingsPage";
+import AdminProfilePage from "./admin/AdminPages/AdminProfile/AdminProfilePage";
+import AdminProfileEdit from "./admin/AdminPages/AdminProfile/AdminProfileEdit";
 import AdminLayout from "./admin/adminControlls/AdminLayout"; // it controlls the providers
 
 export default function MainComponent() {
@@ -106,6 +108,8 @@ const AppRouters = () => {
           <Route path="analyticsControls" element={<AdminAnalyticsPage />} />
           <Route path="categoriesControls" element={<AdminCategoriesPage />} />
           <Route path="adminSettings" element={<AdminSettingsPage />} />
+          <Route path="adminProfile" element={<AdminProfilePage />} />
+          <Route path="adminProfileEdit" element={<AdminProfileEdit />} />
         </Route>
       </Routes>
 

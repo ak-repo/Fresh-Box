@@ -11,16 +11,19 @@ export default function OrderProvider({ children }) {
 
   //updating orderlist
   useEffect(() => {
-    if (user) {
-      axios
-        .get(`${usersAPI}/${user.id}`)
-        .then((res) => {
-          setOrder(res.data.orders);
-        })
-        .catch((err) =>
-          console.log("Erros occure while adding product to order list", err)
-        );
-    }
+    (async () => {
+      if (user) {
+        try {
+          const { data } = await axios.get(`${usersAPI}/${user?.id}`);
+          setOrder(data?.orders || []);
+        } catch (error) {
+          console.log(
+            "Erros occure while adding product to order list",
+            error.message
+          );
+        }
+      }
+    })();
   }, [user]);
 
   //add to orders list

@@ -34,8 +34,7 @@ const AdminOrderspage = () => {
     setSelectedOrder(order);
     setShowEditModal(true);
   };
-  console.log(start);
-  console.log(end);
+
 
   return (
     <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AdminUsersContext } from "../AdminProviders&Hooks";
 import axios from "axios";
 import { usersAPI } from "../../../api";
+import { useToast } from "../../../ContextAPI/ContextCreater&Hook";
 
 function AdminUsersProvider({ children }) {
   const [totalUsersCount, setTotalUsersCount] = useState(0);
@@ -9,6 +10,7 @@ function AdminUsersProvider({ children }) {
   const [searchList, setSearchList] = useState([]);
   const [reupdate, setReupdate] = useState(false);
   const [search, setSearch] = useState("");
+  const { toastFail, toastSuccess } = useToast();
 
   //fetching all users list
   useEffect(() => {
@@ -38,15 +40,17 @@ function AdminUsersProvider({ children }) {
         user?.name.toLowerCase().includes(search.toLowerCase())
       )
     );
-    console.log(searchList);
   }, [search]);
 
-  const usersPatchWork = (user, change) => {
+  const usersPatchWork = async (user, change) => {
     if (user?.id) {
-      axios
-        .patch(`${usersAPI}/${user.id}`, change)
-        .then(() => setReupdate(!reupdate))
-        .catch((error) => console.log(error.message));
+      try {
+        await axios.patch(`${usersAPI}/${user.id}`, change);
+        setReupdate(!reupdate);
+      } catch (error) {
+        console.log("error while updating user info", error.message);
+        toastFail("Failed to update user details.");
+      }
     }
   };
 
@@ -57,15 +61,19 @@ function AdminUsersProvider({ children }) {
 
   const updateUserRole = async (user, currentRole) => {
     usersPatchWork(user, { role: currentRole });
+    toastSuccess("User role updated successfully.");
   };
 
   // delete user
   const deleteUser = async (userID) => {
     if (userID) {
-      await axios
-        .delete(`${usersAPI}/${userID}`)
-        .then(() => setReupdate(!reupdate))
-        .catch((error) => console.log(error.message));
+      try {
+        await axios.delete(`${usersAPI}/${userID}`);
+        setReupdate(!reupdate);
+        toastSuccess("User deleted successfully.");
+      } catch (error) {
+        console.log("error while deleting user", error.message);
+      }
     }
   };
 

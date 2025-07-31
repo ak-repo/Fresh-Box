@@ -40,11 +40,7 @@ export default function RegistrationPage() {
       return;
     }
     //registration process
-    if (
-      register({
-        ...registrationForm,
-      })
-    ) {
+    if (register(registrationForm)) {
       toastSuccess("👋 Account created! Let’s get you started. ");
       navigate("/login");
     } else {
