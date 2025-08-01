@@ -25,7 +25,7 @@ function AdminOrdersProvider({ children }) {
             userName: user.name,
           })) || []
       );
-      setOrdersList(allOrders);
+      setOrdersList(allOrders.reverse());
     }
   }, [usersList]);
 

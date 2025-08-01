@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useUser } from "../../../ContextAPI/ContextCreater&Hook";
 
 const AdminProfilePage = () => {
-  const { user } = useUser();
+  const { user, adminLogOut } = useUser();
   return (
     <div className="max-w-4xl mx-auto py-8">
       <div className="bg-[#1e1e1e] rounded-lg shadow-lg overflow-hidden border border-gray-800">
@@ -24,11 +24,12 @@ const AdminProfilePage = () => {
               Last login: Today at {new Date().toLocaleTimeString()}
             </p>
           </div>
-          <NavLink to="/admin/adminProfileEdit" end>
-            <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
-              Edit Profile
-            </button>
-          </NavLink>
+          <button
+            onClick={adminLogOut}
+            className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
+          >
+            Logout
+          </button>
         </div>
 
         {/* Profile Content */}

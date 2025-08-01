@@ -21,7 +21,6 @@ import {
 import { ViewModelComponent } from "../AdminOrder/AdminOrderPage";
 
 import {
-
   FiUsers,
   FiShoppingCart,
   FiDollarSign,
@@ -143,7 +142,9 @@ const AdminDashBord = () => {
             <div className="flex justify-between">
               <div>
                 <p className="text-gray-400 text-sm">Total Revenue</p>
-                <p className="text-2xl font-bold mt-1">${totalRevenue}</p>
+                <p className="text-2xl font-bold mt-1">
+                  ${totalRevenue.toFixed(2)}
+                </p>
                 <p className="text-green-400 text-xs mt-2">
                   +18% from last month
                 </p>
@@ -269,7 +270,7 @@ const AdminDashBord = () => {
                     <td className="py-4 text-emerald-500">{order?.orderId}</td>
                     <td>{order?.userName}</td>
                     <td> {order?.orderedAt || "Not found"}</td>
-                    <td>{order?.totalAmount}</td>
+                    <td>{order?.totalAmount?.totalCost}</td>
                     <td>
                       <span
                         className={`px-3 py-1 rounded-full inline-block ${

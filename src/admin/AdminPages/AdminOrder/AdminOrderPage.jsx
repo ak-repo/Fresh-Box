@@ -35,21 +35,13 @@ const AdminOrderspage = () => {
     setShowEditModal(true);
   };
 
-
   return (
     <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden">
         <main className="flex-1 overflow-y-auto p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Order Management</h2>
-            <div className="flex space-x-3">
-              <button className="border border-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-[#2e2e2e]">
-                Export
-              </button>
-              <button className="bg-emerald-700 hover:bg-emerald-900 px-4 py-2 rounded-lg text-sm">
-                Create Order
-              </button>
-            </div>
+            <h1 className="text-2xl font-bold">Order Management</h1>
+          
           </div>
 
           {/* Order Stats - Added back this section */}
@@ -83,7 +75,7 @@ const AdminOrderspage = () => {
             <div className="bg-[#1e1e1e] p-4 rounded-xl border border-gray-800">
               <div className="flex justify-between">
                 <div>
-                  <p className="text-gray-400 text-sm">Processing</p>
+                  <p className="text-gray-400 text-sm">Pending</p>
                   <p className="text-2xl font-bold mt-1">
                     {pendingOrders.length}
                   </p>
@@ -137,7 +129,7 @@ const AdminOrderspage = () => {
                         </td>
                         <td>{order?.userName}</td>
                         <td>{order?.orderedAt || "Not found"}</td>
-                        <td>${order?.totalAmount}</td>
+                        <td>${order?.totalAmount?.totalCost}</td>
                         <td>
                           <span
                             className={`px-2 py-1 rounded-full text-xs ${
@@ -210,7 +202,7 @@ export default AdminOrderspage;
 
 export const ViewModelComponent = ({ order, setShowViewModal }) => {
   return (
-    <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center justify-center z-50">
+    <div className="fixed inset-0 backdrop-blur-sm bg-opacity-70 flex items-center  justify-center z-50">
       <div className="bg-[#1e1e1e] p-6 rounded-xl border border-gray-800 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <h3 className="text-xl font-bold mb-4">Order Details</h3>
 
@@ -248,7 +240,7 @@ export const ViewModelComponent = ({ order, setShowViewModal }) => {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Total Amount:</span>
-                <span className="font-bold">${order?.totalAmount}</span>
+                <span className="font-bold">${order?.totalAmount?.totalCost}</span>
               </div>
             </div>
           </div>
@@ -327,7 +319,13 @@ const EditModelComponent = ({ order, setShowEditModal, updateOrderStatus }) => {
                     : order?.status === "pending"
                     ? "bg-yellow-900 text-yellow-300"
                     : order?.status === "cancelled"
-                    ? "bg-red-500 "
+                    ? "bg-red-500 text-white"
+                    : order?.status === "shipped"
+                    ? "bg-blue-900 text-blue-300"
+                    : order?.status === "processed"
+                    ? "bg-indigo-900 text-indigo-300"
+                    : order?.status === "returned"
+                    ? "bg-pink-900 text-pink-300"
                     : "bg-gray-700 text-gray-300"
                 }`}
               >
@@ -351,6 +349,29 @@ const EditModelComponent = ({ order, setShowEditModal, updateOrderStatus }) => {
                   <FiClock className="text-yellow-400" />
                   <span>Pending</span>
                 </button>
+
+                <button
+                  onClick={() => handleStatusChange("processing")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "processing"
+                      ? "bg-yellow-500"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiClock className="text-yellow-400" />
+                  <span>processing</span>
+                </button>
+                <button
+                  onClick={() => handleStatusChange("shipped")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "shipped"
+                      ? "bg-blue-500"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiClock className="text-yellow-400" />
+                  <span>shipped</span>
+                </button>
                 <button
                   onClick={() => handleStatusChange("delivered")}
                   className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
@@ -372,6 +393,18 @@ const EditModelComponent = ({ order, setShowEditModal, updateOrderStatus }) => {
                 >
                   <FiXCircle className="text-red-400" />
                   <span>Cancel</span>
+                </button>
+
+                <button
+                  onClick={() => handleStatusChange("returned")}
+                  className={`px-4 py-2 rounded-lg flex items-center justify-center space-x-2 ${
+                    status === "returned"
+                      ? "bg-red-900"
+                      : "bg-gray-700 hover:bg-gray-600"
+                  }`}
+                >
+                  <FiClock className="text-yellow-400" />
+                  <span>returned</span>
                 </button>
               </div>
             </div>

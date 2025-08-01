@@ -77,8 +77,9 @@ export default function ProductDetails() {
             <div className="mt-4">
               <h3 className="text-base font-semibold text-gray-900">Details</h3>
               <p className="mt-1 text-gray-600">
-                {product.details || "No extra details provided."}
+                {product.product_type || "No extra details provided."}
               </p>
+              {/* <p>Product Type: {product?.product_type}</p> */}
             </div>
           </div>
 

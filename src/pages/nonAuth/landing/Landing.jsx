@@ -61,7 +61,7 @@ const LandingImgSection = ({ navigate }) => {
       {/* Text container with semi-transparent background */}
       <div className="relative z-10 h-[800px] flex items-center">
         <div className="container mx-auto px-6">
-          <div className="max-w-lg p-8 bg-black/60 rounded-xl backdrop-blur-sm">
+          <div className="max-w-lg p-8 bg-black/60 rounded-xl  backdrop-blur-sm">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
               {currentSlide.title}
             </h1>

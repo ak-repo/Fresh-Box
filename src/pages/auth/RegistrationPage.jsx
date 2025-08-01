@@ -56,7 +56,7 @@ export default function RegistrationPage() {
           <Link to="/" className="inline-flex items-center">
             <h1 className="text-2xl font-bold text-black flex items-baseline">
               <span>FRESH</span>
-              <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-500 text-white rounded text-lg">
+              <span className="ml-1.5 px-1.5 py-0.5 bg-emerald-700 text-white rounded text-lg">
                 BOX
               </span>
             </h1>

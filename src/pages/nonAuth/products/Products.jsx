@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
 
 import { useProductController } from "../../../customHooks/useProductController";
 import {
@@ -14,7 +15,9 @@ export default function Products() {
   const [selectedCategory, setCategory] = useState([]);
   const { toastFail } = useToast();
   const { getAllProducts } = useProductController();
+  const [search, setSearch] = useState("");
 
+  // fetching products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -30,6 +33,18 @@ export default function Products() {
 
     fetchProducts();
   }, []);
+
+  //handling search
+  useEffect(() => {
+    if (products) {
+      setCategory(
+        products.filter((product) =>
+          product?.title.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+    }
+  }, [search]);
+
   const handleCategoryChange = (category) => {
     if (category === "All") {
       setCategory(products);
@@ -89,9 +104,21 @@ export default function Products() {
 
         {/* Products Grid */}
         <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">
-            Our Products
-          </h2>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900">Our Products</h2>
+            <div className="relative w-full md:w-auto">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FiSearch className="h-5 w-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search products..."
+                className="block w-full md:w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:border-emering-emerald-700 text-sm transition-all duration-150"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          </div>
           {error ? (
             <div className="text-center py-12 text-red-500">{error}</div>
           ) : (
@@ -104,7 +131,6 @@ export default function Products() {
 }
 
 const ProductCart = ({ products }) => {
-  
   const navigate = useNavigate();
   const { addtoWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { addToCart } = useCart();
@@ -153,7 +179,7 @@ const ProductCart = ({ products }) => {
                     {product.product_description || "No description"}
                   </p> */}
                 </div>
-                <p className="text-indigo-600 font-semibold text-sm whitespace-nowrap ml-2">
+                <p className="text-emerald-700 font-semibold text-sm whitespace-nowrap ml-2">
                   ₹{product.price}
                 </p>
               </div>
@@ -181,10 +207,10 @@ const ProductCart = ({ products }) => {
                 </button>
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="w-[80%] mt-3 mx-6 py-2 text-sm bg-[#2e2e2e] hover:bg-black text-white rounded-md 
+                  className="w-[80%] mt-3 mx-6 py-2 text-sm bg-emerald-700 hover:bg-emerald-900 text-white rounded-md 
              transition-all duration-200 ease-in-out 
              transform hover:scale-[1.02] active:scale-[0.98]
-             cursor-pointer shadow-md hover:shadow-lg active:shadow-inner
+            shadow-md hover:shadow-lg active:shadow-inner
              border border-transparent hover:border-gray-600
              focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 cursor-pointer"
                 >

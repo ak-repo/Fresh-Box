@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { usersAPI } from "../../api";
 import { UserDataContext } from "../ContextCreater&Hook";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [userList, setUserList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const [registrationForm, setFormData] = useState({
     name: "",
@@ -23,6 +25,7 @@ export default function AuthProvider({ children }) {
       pin: "",
     },
     isBlock: false,
+    isDelete: false,
     cart: [],
     orders: [],
     wishlist: [],
@@ -103,6 +106,10 @@ export default function AuthProvider({ children }) {
   const logout = () => {
     setUser(null);
   };
+  const adminLogOut = () => {
+    setUser(null);
+    navigate("/login");
+  };
 
   // checking anything common in users
   function userChecker(check, data) {
@@ -160,6 +167,7 @@ export default function AuthProvider({ children }) {
         error,
         infoUpdate,
         passwordChange,
+        adminLogOut,
       }}
     >
       {!loading && children}

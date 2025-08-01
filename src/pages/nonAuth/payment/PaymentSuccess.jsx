@@ -79,19 +79,22 @@ function PaymentSuccess() {
             <div className="mt-6 border-t border-gray-200 pt-6">
               <div className="flex justify-between text-sm text-gray-600">
                 <p>Subtotal</p>
-                <p>{(orderDetails?.totalAmount - 9.99 - 20.8).toFixed(2)}</p>
+                <p>{orderDetails?.totalAmount?.itemCost}</p>
               </div>
-              <div className="flex justify-between text-sm text-gray-600 mt-2">
-                <p>Shipping</p>
-                <p>$9.99</p>
-              </div>
+
               <div className="flex justify-between text-sm text-gray-600 mt-2">
                 <p>Tax</p>
-                <p>$20.80</p>
+                <p>
+                  $
+                  {(
+                    orderDetails?.totalAmount.totalCost -
+                    orderDetails?.totalAmount?.itemCost
+                  ).toFixed(2)}
+                </p>
               </div>
               <div className="flex justify-between text-base font-medium text-gray-900 mt-4 pt-4 border-t border-gray-200">
                 <p>Total</p>
-                <p>{orderDetails?.totalAmount}</p>
+                <p>{orderDetails?.totalAmount.totalCost}</p>
               </div>
             </div>
           </div>
@@ -194,7 +197,7 @@ function PaymentSuccess() {
           <div className="px-6 py-5">
             <div className="space-y-4">
               <div className="flex items-start">
-                <div className="flex-shrink-0 h-5 w-5 text-emerald-500 mt-0.5">
+                <div className="flex-shrink-0 h-5 w-5 text-emerald-700 mt-0.5">
                   <svg
                     className="h-5 w-5"
                     fill="none"
@@ -266,7 +269,7 @@ function PaymentSuccess() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button
             onClick={() => navigate("/products")}
-            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emerald-500 hover:bg-emerald-700 cursor-pointer"
+            className="px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emetext-emerald-700 hover:bg-emerald-700 cursor-pointer"
           >
             Continue Shopping
           </button>

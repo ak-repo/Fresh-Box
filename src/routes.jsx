@@ -32,6 +32,9 @@ import PaymentPage from "./pages/nonAuth/payment/PaymentPage";
 import PaymentSuccess from "./pages/nonAuth/payment/PaymentSuccess";
 import ScrollToTop from "./pages/common/scroll/ScrollTop";
 import EditProfile from "./pages/nonAuth/profile/EditProfile";
+import GlobalErrorPage from "./pages/nonAuth/404/GlobalErrorPage";
+import ForgotPassword from "./pages/auth/ForgetPasswordPage";
+import OrderMaintainPage from "./pages/nonAuth/order/OrderMaintainPage";
 
 // Admin Components
 import AdminDashBord from "./admin/AdminPages/dashbord/AdminDashBord";
@@ -69,6 +72,8 @@ const AppRouters = () => {
   const hideComponents =
     location.pathname === "/login" ||
     location.pathname === "/register" ||
+    location.pathname === "/globalError" ||
+    location.pathname == "/forget" ||
     location.pathname.startsWith("/admin");
 
   return (
@@ -90,6 +95,9 @@ const AppRouters = () => {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/paymentSuccess" element={<PaymentSuccess />} />
         <Route path="/editProfile" element={<EditProfile />} />
+        <Route path="/globalError" element={<GlobalErrorPage />} />
+        <Route path="/forget" element={<ForgotPassword />} />
+        <Route path="/orderMaintain" element={<OrderMaintainPage />} />
 
         {/* Admin Routes */}
         <Route

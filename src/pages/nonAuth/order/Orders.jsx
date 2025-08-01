@@ -8,23 +8,35 @@ export default function OrdersPage() {
   const [activeTab, setActiveTab] = useState("current");
   const { orders } = useOrder();
   const navigarte = useNavigate();
+  // | Status       | Meaning                            |
+  // | ------------ | ---------------------------------- |
+  // | `pending`    | Order placed but not processed yet |
+  // | `processing` | Being prepared/packed              |
+  // | `shipped`    | Dispatched from warehouse          |
+  // | `delivered`  | Delivered to customer              |
+  // | `cancelled`  | Order was cancelled                |
+  // | `returned`   | Customer returned the order        |
 
   //classification
   const currentOrder = orders
-    .filter((item) => item.status !== "delivered")
+    .filter((item) =>
+      ["pending", `processing`, `shipped`].includes(item?.status)
+    )
     .reverse();
   const orderHistory = orders
-    .filter((item) => item.status === "delivered")
+    .filter((item) =>
+      [`delivered`, `cancelled`, `returned`].includes(item?.status)
+    )
     .reverse();
 
   return (
-    <div className="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8  min-h-screen">
+    <div className="min-h-screen bg-gray-50 py-6 px-4 sm:px-6 lg:px-8  ">
       <div className="max-w-4xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">My Orders</h1>
           <p className="text-lg text-gray-600">Your order history</p>
-          <div className="mt-3 h-1 w-16 bg-emerald-500 mx-auto rounded-full"></div>
+          <div className="mt-3 h-1 w-16 bg-emerald-700 mx-auto rounded-full"></div>
         </div>
 
         {/* Order Tabs */}
@@ -122,11 +134,16 @@ const CurrentOrder = ({ currentOrder, navigarte }) => {
               <div className="mt-4 pt-3 border-t border-gray-100">
                 <div className="flex justify-between items-center">
                   <p className="text-xs text-gray-500">Total</p>
-                  <p className="text-sm font-bold">₹{order.totalAmount}</p>
+                  <p className="text-sm font-bold">
+                    ₹{order.totalAmount?.totalCost}
+                  </p>
                 </div>
               </div>
               <div className="mt-3 flex justify-end space-x-2">
-                <button className="px-3 py-1.5 text-xs font-medium border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                <button
+                  onClick={() => navigarte("/orderMaintain", { state: order })}
+                  className="px-3 py-1.5 text-xs font-medium border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                >
                   Track
                 </button>
               </div>
@@ -186,7 +203,9 @@ const OrderHistory = ({ orderHistory, navigarte }) => {
               <div className="mt-4 pt-3 border-t border-gray-100">
                 <div className="flex justify-between items-center">
                   <p className="text-xs text-gray-500">Total</p>
-                  <p className="text-sm font-bold">₹{order.totalAmount}</p>
+                  <p className="text-sm font-bold">
+                    ₹{order.totalAmount?.totalCost}
+                  </p>
                 </div>
               </div>
 
@@ -194,9 +213,14 @@ const OrderHistory = ({ orderHistory, navigarte }) => {
                 <button className="px-3 py-1.5 text-xs font-medium border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
                   Invoice
                 </button>
-                <button className="px-3 py-1.5 text-xs font-medium bg-emerald-500 rounded-md text-white hover:bg-indigo-600">
+                <button className="px-3 py-1.5 text-xs font-medium bg-emerald-700 rounded-md text-white hover:bg-emerald-900">
                   Buy Again
                 </button>
+                {order?.status === "delivered" && (
+                  <button className="px-3 py-1.5 text-xs font-medium bg-emerald-700 rounded-md text-white hover:bg-emerald-900">
+                    Return
+                  </button>
+                )}
               </div>
             </div>
           </>
@@ -225,7 +249,7 @@ const EmptyOrder = () => {
       </div>
       <h3 className="text-sm font-medium text-gray-900 mb-1">No orders yet</h3>
       <p className="text-xs text-gray-500 mb-3">Your orders will appear here</p>
-      <button className="px-4 py-2 text-xs font-medium bg-emerald-500 rounded-md text-white hover:bg-indigo-600">
+      <button className="px-4 py-2 text-xs font-medium bg-emerald-700 rounded-md text-white hover:bg-emerald-900">
         Start Shopping
       </button>
     </div>

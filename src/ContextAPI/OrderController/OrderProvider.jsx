@@ -35,10 +35,11 @@ export default function OrderProvider({ children }) {
         orderId: `ord-${Date.now()}`,
         status: "pending",
         items: cart,
-        totalAmount: totalAmount,
+        totalAmount: {...totalAmount},
         paymentMethod: "online",
         paymentStatus: "Paid",
         orderedAt: new Date().toLocaleString(),
+        deliveredAt: "",
         shippingAddress: address,
       },
     ];

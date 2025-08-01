@@ -17,6 +17,7 @@ export default function ToastProvider({ children }) {
         toastOptions={{
           duration: 5000,
           style: {
+            marginTop: '70px',
             fontSize: "14px",
             padding: "6px 12px",
             background: "#333",

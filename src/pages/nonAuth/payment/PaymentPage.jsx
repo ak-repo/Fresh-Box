@@ -12,7 +12,8 @@ function PaymentPage() {
   const { addtoOrders } = useOrder();
   const { user } = useUser();
   const location = useLocation();
-  const totalAmount = (location.state + 9.99 + 20.8).toFixed(2);
+  const totalAmount = location.state;
+  console.log(totalAmount);
   const navigate = useNavigate();
   const { toastSuccess } = useToast();
 
@@ -125,19 +126,16 @@ function PaymentPage() {
               <div className="border-t border-gray-200 pt-4 space-y-2">
                 <div className="flex justify-between">
                   <p className="text-gray-600">Subtotal</p>
-                  <p>{location.state}</p>
+                  <p>{totalAmount.itemCost}</p>
                 </div>
-                <div className="flex justify-between">
-                  <p className="text-gray-600">Shipping</p>
-                  <p>9.99</p>
-                </div>
+
                 <div className="flex justify-between">
                   <p className="text-gray-600">Tax</p>
-                  <p>20.80</p>
+                  <p>{(totalAmount.totalCost - totalAmount.itemCost).toFixed(2)}</p>
                 </div>
                 <div className="flex justify-between font-bold text-lg mt-4">
                   <p>Total</p>
-                  <p>:{totalAmount}</p>
+                  <p>{totalAmount.totalCost}</p>
                 </div>
               </div>
             </div>

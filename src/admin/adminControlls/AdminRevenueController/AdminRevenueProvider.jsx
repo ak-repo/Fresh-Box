@@ -10,7 +10,7 @@ function AdminRevenueProvider({ children }) {
   //total revenue
   useEffect(() => {
     const revenue = ordersList.reduce((accu, order) => {
-      accu += Number(order?.totalAmount);
+      accu += order?.totalAmount?.totalCost;
       return accu;
     }, 0);
     const cost = ordersList.reduce((accu, order) => {
@@ -18,9 +18,11 @@ function AdminRevenueProvider({ children }) {
       return accu;
     }, 0);
 
-    setRevenue(revenue);
+    if (revenue && cost) {
+      setRevenue(revenue);
 
-    setCost(cost);
+      setCost(cost);
+    }
   }, [ordersList]);
 
   return (

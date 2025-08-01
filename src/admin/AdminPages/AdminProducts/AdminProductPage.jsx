@@ -60,6 +60,10 @@ const AdminProductsPage = () => {
 
     setIdentifier("quantity");
   };
+
+  const handleResetFilter = () => {
+    setFilter("All");
+  };
   return (
     <div className="flex-1 min-h-screen flex flex-col overflow-hidden bg-[#121212] text-gray-200">
       <div className="flex flex-1 overflow-hidden ">
@@ -129,7 +133,10 @@ const AdminProductsPage = () => {
                 </select>
               </div>
               <div className="flex items-end">
-                <button className="bg-gray-700 hover:bg-gray-600 w-full px-4 py-2 rounded-lg text-sm">
+                <button
+                  onClick={handleResetFilter}
+                  className="bg-gray-700 hover:bg-gray-600 w-full px-4 py-2 rounded-lg text-sm"
+                >
                   Reset Filters
                 </button>
               </div>

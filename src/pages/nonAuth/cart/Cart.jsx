@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCart, useUser } from "../../../ContextAPI/ContextCreater&Hook";
+import { GST } from "../../../api";
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity } = useCart();
@@ -9,13 +10,15 @@ export default function Cart() {
   const totalItems = cart.reduce((accu, item) => accu + item.quantity, 0);
 
   // totalCost
-  const totalCost = cart.reduce((accu, item) => {
+  const itemCost = cart.reduce((accu, item) => {
     accu += item?.price * item?.quantity || 0;
     return accu;
   }, 0);
+  const totalCost = itemCost + (itemCost * GST) / 100;
+  console.log(totalCost);
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md min-h-screen">
+    <div className="max-w-2xl mx-auto p-6  bg-white rounded-lg shadow-md min-h-screen">
       <h1 className="text-3xl font-bold text-center mb-6 text-emerald-500">
         My Shopping Cart
       </h1>
@@ -118,7 +121,10 @@ export default function Cart() {
           <button
             className="w-full mt-4 px-6 py-3 bg-emerald-500 text-white font-medium rounded-lg cursor-pointer hover:bg-emerald-700 transition-colors"
             onClick={() =>
-              totalItems > 0 && navigate("/payment", { state: totalCost })
+              totalItems > 0 &&
+              navigate("/payment", {
+                state: { totalCost: totalCost, itemCost: itemCost },
+              })
             }
           >
             Proceed To Payment
