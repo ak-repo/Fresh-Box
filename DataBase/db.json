@@ -204,6 +204,48 @@
             "state": "",
             "pin": ""
           }
+        },
+        {
+          "orderId": "ord-1754033119770",
+          "status": "pending",
+          "items": [
+            {
+              "id": "46783280054570",
+              "title": "Tart Cherry + Raspberry",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A25-RAZZ.jpg?v=1716504576",
+              "quantity": 1
+            },
+            {
+              "id": "47175581303082",
+              "title": "Ginger + Greens",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A17-GING.jpg?v=1716498612",
+              "quantity": 1
+            },
+            {
+              "id": "46783324029226",
+              "title": "Cherry + Almond",
+              "price": 84,
+              "image": "https://cdn.shopify.com/s/files/1/0732/7567/0826/files/A22-PBNJ.jpg?v=1716498612",
+              "quantity": 1
+            }
+          ],
+          "totalAmount": {
+            "totalCost": 264.6,
+            "itemCost": 252
+          },
+          "paymentMethod": "online",
+          "paymentStatus": "Paid",
+          "orderedAt": "01/08/2025, 12:55:19",
+          "deliveredAt": "",
+          "shippingAddress": {
+            "mobile": "",
+            "street": "",
+            "city": "",
+            "state": "",
+            "pin": ""
+          }
         }
       ],
       "wishlist": [],
