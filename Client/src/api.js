@@ -1,4 +1,4 @@
-export const usersAPI = "http://0.0.0.0:10000/users";
-export const productsAPI = "http://0.0.0.0:10000/products";
+export const usersAPI = "https://fresh-box-ecommerce-app-1.onrender.com/users";
+export const productsAPI = "https://fresh-box-ecommerce-app-1.onrender.com/products";
 
 export const GST = 5;
